@@ -1,0 +1,79 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1400 900" width="1400" height="900">
+<style>text{font-family:'Helvetica Neue', Helvetica, Arial, 'PingFang SC', 'Hiragino Sans GB', 'Microsoft YaHei', 'SimHei', sans-serif;}.mono{font-family:ui-monospace,SFMono-Regular,Menlo,Consolas,monospace;}</style>
+<defs>
+<marker id="arrow-main" markerWidth="10" markerHeight="7" refX="9" refY="3.5" orient="auto"><polygon points="0 0, 10 3.5, 0 7" fill="#2563eb"/></marker>
+<marker id="arrow-data" markerWidth="10" markerHeight="7" refX="9" refY="3.5" orient="auto"><polygon points="0 0, 10 3.5, 0 7" fill="#16a34a"/></marker>
+<marker id="arrow-ctrl" markerWidth="10" markerHeight="7" refX="9" refY="3.5" orient="auto"><polygon points="0 0, 10 3.5, 0 7" fill="#ea580c"/></marker>
+<marker id="arrow-async" markerWidth="10" markerHeight="7" refX="9" refY="3.5" orient="auto"><polygon points="0 0, 10 3.5, 0 7" fill="#9333ea"/></marker>
+<marker id="arrow-gray" markerWidth="10" markerHeight="7" refX="9" refY="3.5" orient="auto"><polygon points="0 0, 10 3.5, 0 7" fill="#6b7280"/></marker>
+<marker id="arrow-red" markerWidth="10" markerHeight="7" refX="9" refY="3.5" orient="auto"><polygon points="0 0, 10 3.5, 0 7" fill="#dc2626"/></marker>
+<marker id="arrow-teal" markerWidth="10" markerHeight="7" refX="9" refY="3.5" orient="auto"><polygon points="0 0, 10 3.5, 0 7" fill="#0d9488"/></marker>
+<marker id="arrow-ink" markerWidth="10" markerHeight="7" refX="9" refY="3.5" orient="auto"><polygon points="0 0, 10 3.5, 0 7" fill="#111827"/></marker>
+<filter id="soft" x="-20%%" y="-20%%" width="140%%" height="140%%"><feDropShadow dx="0" dy="1.5" stdDeviation="3" flood-color="#0f172a" flood-opacity="0.10"/></filter>
+</defs>
+<rect width="1400" height="900" fill="#ffffff"/>
+<text x="40" y="42" font-size="19" font-weight="700" fill="#111827">存储与索引 · 内部架构</text>
+<text x="40" y="64" font-size="12.5" fill="#6b7280">三索引分工（HNSW 语义 / BM25 词法 / 边表图）+ PG 元数据 + 对象存储 + 部分索引/派生视图</text>
+<rect x="40" y="84" width="1320" height="780" rx="12" ry="12" fill="#eff6ff" stroke="#bfdbfe" stroke-width="1.5" stroke-dasharray="6,4" opacity="0.55"/>
+<text x="54" y="106" font-size="13" font-weight="600" fill="#6b7280" letter-spacing="0.4">存储与索引模块</text>
+<path d="M 740.0,198.0 L 764.0,198.0 L 764.0,150.0 L 800.0,150.0" fill="none" stroke="#ea580c" stroke-width="1.6" marker-end="url(#arrow-ctrl)" stroke-linejoin="round"/>
+<path d="M 740.0,142.0 L 782.0,142.0 L 782.0,306.0 L 800.0,306.0" fill="none" stroke="#ea580c" stroke-width="1.6" marker-end="url(#arrow-ctrl)" stroke-linejoin="round"/>
+<path d="M 985.0,388.0 L 985.0,460.0" fill="none" stroke="#6b7280" stroke-width="1.6" marker-end="url(#arrow-gray)" stroke-linejoin="round"/>
+<text x="772" y="172" text-anchor="start" font-size="9.5" font-weight="500" fill="#ea580c">召回</text>
+<text x="782" y="220" text-anchor="end" font-size="9.5" font-weight="500" fill="#ea580c">写入</text>
+<text x="993" y="420" text-anchor="start" font-size="9.5" font-weight="500" fill="#6b7280">实现</text>
+<rect x="60" y="120" width="680" height="44" rx="8" ry="8" fill="#eff6ff" stroke="#bfdbfe" stroke-width="1.5"/>
+<rect x="60" y="176" width="680" height="44" rx="8" ry="8" fill="#eff6ff" stroke="#bfdbfe" stroke-width="1.5"/>
+<rect x="60" y="232" width="680" height="44" rx="8" ry="8" fill="#f0fdfa" stroke="#99f6e4" stroke-width="1.5"/>
+<rect x="60" y="288" width="680" height="44" rx="8" ry="8" fill="#f0fdfa" stroke="#99f6e4" stroke-width="1.5"/>
+<rect x="60" y="344" width="680" height="44" rx="8" ry="8" fill="#f0fdfa" stroke="#99f6e4" stroke-width="1.5"/>
+<rect x="800" y="128" width="540" height="44" rx="8" ry="8" fill="#f1f5f9" stroke="#cbd5e1" stroke-width="1.5"/>
+<rect x="800" y="180" width="540" height="44" rx="8" ry="8" fill="#f1f5f9" stroke="#cbd5e1" stroke-width="1.5"/>
+<rect x="800" y="232" width="540" height="44" rx="8" ry="8" fill="#f1f5f9" stroke="#cbd5e1" stroke-width="1.5"/>
+<rect x="800" y="284" width="540" height="44" rx="8" ry="8" fill="#f1f5f9" stroke="#cbd5e1" stroke-width="1.5"/>
+<rect x="800" y="336" width="540" height="44" rx="8" ry="8" fill="#f1f5f9" stroke="#cbd5e1" stroke-width="1.5"/>
+<path d="M 815.0 472 L 815.0 504 A 85.0 12 0 0 0 985.0 504 L 985.0 472 A 85.0 12 0 0 0 815.0 472 Z" fill="#eff6ff" stroke="#bfdbfe" stroke-width="1.5"/>
+<ellipse cx="900" cy="472" rx="85.0" ry="12" fill="#ffffff" stroke="#bfdbfe" stroke-width="1.5"/>
+<path d="M 995.0 472 L 995.0 504 A 85.0 12 0 0 0 1165.0 504 L 1165.0 472 A 85.0 12 0 0 0 995.0 472 Z" fill="#eff6ff" stroke="#bfdbfe" stroke-width="1.5"/>
+<ellipse cx="1080" cy="472" rx="85.0" ry="12" fill="#ffffff" stroke="#bfdbfe" stroke-width="1.5"/>
+<path d="M 905.0 572 L 905.0 604 A 85.0 12 0 0 0 1075.0 604 L 1075.0 572 A 85.0 12 0 0 0 905.0 572 Z" fill="#eff6ff" stroke="#bfdbfe" stroke-width="1.5"/>
+<ellipse cx="990" cy="572" rx="85.0" ry="12" fill="#ffffff" stroke="#bfdbfe" stroke-width="1.5"/>
+<text x="400.0" y="138.6" text-anchor="middle" font-size="12.5" font-weight="600" fill="#111827">写路径</text>
+<text x="400.0" y="153.6" text-anchor="middle" font-size="10" fill="#6b7280">upsert unit / edge / lineage / episode（append-only 三表）</text>
+<text x="400.0" y="194.6" text-anchor="middle" font-size="12.5" font-weight="600" fill="#111827">读路径</text>
+<text x="400.0" y="209.6" text-anchor="middle" font-size="10" fill="#6b7280">hybrid search / 图遍历 / 时间旅行查询</text>
+<text x="400.0" y="250.6" text-anchor="middle" font-size="12.5" font-weight="600" fill="#111827">部分索引 bw_current_idx</text>
+<text x="400.0" y="265.6" text-anchor="middle" font-size="10" fill="#6b7280">"当前为真"最高频谓词，不让每次召回扫全表</text>
+<text x="400.0" y="306.6" text-anchor="middle" font-size="12.5" font-weight="600" fill="#111827">派生视图 bw_current_truth</text>
+<text x="400.0" y="321.6" text-anchor="middle" font-size="10" fill="#6b7280">valid_to IS NULL AND superseded_by IS NULL AND state=ACTIVE</text>
+<text x="400.0" y="362.6" text-anchor="middle" font-size="12.5" font-weight="600" fill="#111827">namespace 租户隔离</text>
+<text x="400.0" y="377.6" text-anchor="middle" font-size="10" fill="#6b7280">scope_path 前缀匹配 + tenant 过滤</text>
+<text x="800" y="112" text-anchor="start" font-size="12.5" font-weight="600" fill="#111827">索引实现（skylark-index · 4 实现）</text>
+<text x="1070.0" y="146.4" text-anchor="middle" font-size="12" font-weight="600" fill="#111827">HNSWIndex</text>
+<text x="1070.0" y="161.4" text-anchor="middle" font-size="10" fill="#6b7280">pgvector vector_cosine_ops · 语义</text>
+<text x="1070.0" y="198.4" text-anchor="middle" font-size="12" font-weight="600" fill="#111827">BM25Index</text>
+<text x="1070.0" y="213.4" text-anchor="middle" font-size="10" fill="#6b7280">PG tsvector / ES · 词法</text>
+<text x="1070.0" y="250.4" text-anchor="middle" font-size="12" font-weight="600" fill="#111827">GraphIndex</text>
+<text x="1070.0" y="265.4" text-anchor="middle" font-size="10" fill="#6b7280">bw_unit_edge · 图遍历 + 时间旅行</text>
+<text x="1070.0" y="302.4" text-anchor="middle" font-size="12" font-weight="600" fill="#111827">RepositoryPort</text>
+<text x="1070.0" y="317.4" text-anchor="middle" font-size="10" fill="#6b7280">PG 元数据（Flyway 建表）</text>
+<text x="1070.0" y="354.4" text-anchor="middle" font-size="12" font-weight="600" fill="#111827">ObjectStorePort</text>
+<text x="1070.0" y="369.4" text-anchor="middle" font-size="10" fill="#6b7280">大对象 / 原文 / md（对象存储）</text>
+<text x="800" y="412" text-anchor="start" font-size="12.5" font-weight="600" fill="#111827">物理存储</text>
+<text x="900" y="494.1" text-anchor="middle" font-size="12.5" font-weight="600" fill="#111827">PostgreSQL</text>
+<text x="900" y="510.9" text-anchor="middle" font-size="10.5" fill="#6b7280">pgvector · Flyway</text>
+<text x="1080" y="494.1" text-anchor="middle" font-size="12.5" font-weight="600" fill="#111827">对象存储</text>
+<text x="1080" y="510.9" text-anchor="middle" font-size="10.5" fill="#6b7280">原文 / md</text>
+<text x="990" y="594.1" text-anchor="middle" font-size="12.5" font-weight="600" fill="#111827">ES / Milvus</text>
+<text x="990" y="610.9" text-anchor="middle" font-size="10.5" fill="#6b7280">词法 · 向量（可选）</text>
+<text x="560" y="638" text-anchor="start" font-size="10.5" font-weight="400" fill="#6b7280">地基阶段不引入 Neo4j：图先做关系表 + 递归 CTE，量级证明需要再换；</text>
+<text x="560" y="655" text-anchor="start" font-size="10.5" font-weight="400" fill="#6b7280">store 不可用 fail-fast，禁止静默降级为内存实现。</text>
+<rect x="60" y="620" width="264" height="94" rx="8" ry="8" fill="#ffffff" stroke="#d1d5db" stroke-width="1"/>
+<text x="72" y="638" font-size="11" font-weight="600" fill="#6b7280">图例</text>
+<line x1="74" y1="652" x2="100" y2="652" stroke="#ea580c" stroke-width="2" marker-end="url(#arrow-ctrl)"/>
+<text x="108" y="656.0" font-size="11" fill="#111827">读/写委托</text>
+<line x1="74" y1="672" x2="100" y2="672" stroke="#6b7280" stroke-width="2" marker-end="url(#arrow-gray)"/>
+<text x="108" y="676.0" font-size="11" fill="#111827">端口实现</text>
+<line x1="74" y1="692" x2="100" y2="692" stroke="#2563eb" stroke-width="2" marker-end="url(#arrow-main)"/>
+<text x="108" y="696.0" font-size="11" fill="#111827">数据流</text>
+</svg>

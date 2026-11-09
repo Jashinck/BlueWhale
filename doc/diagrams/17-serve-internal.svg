@@ -1,0 +1,98 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1400 1000" width="1400" height="1000">
+<style>text{font-family:'Helvetica Neue', Helvetica, Arial, 'PingFang SC', 'Hiragino Sans GB', 'Microsoft YaHei', 'SimHei', sans-serif;}.mono{font-family:ui-monospace,SFMono-Regular,Menlo,Consolas,monospace;}</style>
+<defs>
+<marker id="arrow-main" markerWidth="10" markerHeight="7" refX="9" refY="3.5" orient="auto"><polygon points="0 0, 10 3.5, 0 7" fill="#2563eb"/></marker>
+<marker id="arrow-data" markerWidth="10" markerHeight="7" refX="9" refY="3.5" orient="auto"><polygon points="0 0, 10 3.5, 0 7" fill="#16a34a"/></marker>
+<marker id="arrow-ctrl" markerWidth="10" markerHeight="7" refX="9" refY="3.5" orient="auto"><polygon points="0 0, 10 3.5, 0 7" fill="#ea580c"/></marker>
+<marker id="arrow-async" markerWidth="10" markerHeight="7" refX="9" refY="3.5" orient="auto"><polygon points="0 0, 10 3.5, 0 7" fill="#9333ea"/></marker>
+<marker id="arrow-gray" markerWidth="10" markerHeight="7" refX="9" refY="3.5" orient="auto"><polygon points="0 0, 10 3.5, 0 7" fill="#6b7280"/></marker>
+<marker id="arrow-red" markerWidth="10" markerHeight="7" refX="9" refY="3.5" orient="auto"><polygon points="0 0, 10 3.5, 0 7" fill="#dc2626"/></marker>
+<marker id="arrow-teal" markerWidth="10" markerHeight="7" refX="9" refY="3.5" orient="auto"><polygon points="0 0, 10 3.5, 0 7" fill="#0d9488"/></marker>
+<marker id="arrow-ink" markerWidth="10" markerHeight="7" refX="9" refY="3.5" orient="auto"><polygon points="0 0, 10 3.5, 0 7" fill="#111827"/></marker>
+<filter id="soft" x="-20%%" y="-20%%" width="140%%" height="140%%"><feDropShadow dx="0" dy="1.5" stdDeviation="3" flood-color="#0f172a" flood-opacity="0.10"/></filter>
+</defs>
+<rect width="1400" height="1000" fill="#ffffff"/>
+<text x="40" y="42" font-size="19" font-weight="700" fill="#111827">上下文供给 · 内部架构</text>
+<text x="40" y="64" font-size="12.5" fill="#6b7280">读路径 七步装配组件（默认 0 次 LLM）+ 横切（trace/状态过滤）+ 端口 + 存储；同步 p95 &lt; 300ms</text>
+<rect x="40" y="84" width="1320" height="880" rx="12" ry="12" fill="#f0fdfa" stroke="#99f6e4" stroke-width="1.5" stroke-dasharray="6,4" opacity="0.55"/>
+<text x="54" y="106" font-size="13" font-weight="600" fill="#6b7280" letter-spacing="0.4">上下文供给模块</text>
+<path d="M 400.0,164.0 L 400.0,176.0" fill="none" stroke="#2563eb" stroke-width="1.6" marker-end="url(#arrow-main)" stroke-linejoin="round"/>
+<path d="M 400.0,228.0 L 400.0,240.0" fill="none" stroke="#2563eb" stroke-width="1.6" marker-end="url(#arrow-main)" stroke-linejoin="round"/>
+<path d="M 400.0,292.0 L 400.0,304.0" fill="none" stroke="#2563eb" stroke-width="1.6" marker-end="url(#arrow-main)" stroke-linejoin="round"/>
+<path d="M 400.0,356.0 L 400.0,368.0" fill="none" stroke="#2563eb" stroke-width="1.6" marker-end="url(#arrow-main)" stroke-linejoin="round"/>
+<path d="M 400.0,420.0 L 400.0,432.0" fill="none" stroke="#2563eb" stroke-width="1.6" marker-end="url(#arrow-main)" stroke-linejoin="round"/>
+<path d="M 400.0,484.0 L 400.0,496.0" fill="none" stroke="#2563eb" stroke-width="1.6" marker-end="url(#arrow-main)" stroke-linejoin="round"/>
+<path d="M 400.0,548.0 L 400.0,560.0" fill="none" stroke="#2563eb" stroke-width="1.6" marker-end="url(#arrow-main)" stroke-linejoin="round"/>
+<path d="M 400.0,612.0 L 400.0,624.0" fill="none" stroke="#2563eb" stroke-width="1.6" marker-end="url(#arrow-main)" stroke-linejoin="round"/>
+<path d="M 400.0,612.0 L 400.0,624.0" fill="none" stroke="#2563eb" stroke-width="1.6" marker-end="url(#arrow-main)" stroke-linejoin="round"/>
+<path d="M 740.0,330.0 L 770.0,330.0 L 770.0,294.0 L 800.0,294.0" fill="none" stroke="#ea580c" stroke-width="1.6" marker-end="url(#arrow-ctrl)" stroke-linejoin="round"/>
+<path d="M 740.0,142.0 L 770.0,142.0 L 770.0,150.0 L 800.0,150.0" fill="none" stroke="#6b7280" stroke-width="1.6" stroke-dasharray="4,3" marker-end="url(#arrow-gray)" stroke-linejoin="round"/>
+<path d="M 1070.0,424.0 L 1070.0,504.0" fill="none" stroke="#6b7280" stroke-width="1.6" marker-end="url(#arrow-gray)" stroke-linejoin="round"/>
+<text x="778" y="316" text-anchor="start" font-size="9.5" font-weight="500" fill="#ea580c">检索</text>
+<text x="778" y="140" text-anchor="start" font-size="9.5" font-weight="500" fill="#6b7280">埋点</text>
+<text x="1078" y="466" text-anchor="start" font-size="9.5" font-weight="500" fill="#6b7280">实现</text>
+<rect x="60" y="120" width="680" height="44" rx="8" ry="8" fill="#f9fafb" stroke="#e5e7eb" stroke-width="1.5"/>
+<rect x="60" y="176" width="680" height="52" rx="8" ry="8" fill="#f0fdfa" stroke="#99f6e4" stroke-width="1.5"/>
+<rect x="60" y="240" width="680" height="52" rx="8" ry="8" fill="#f0fdfa" stroke="#99f6e4" stroke-width="1.5"/>
+<rect x="60" y="304" width="680" height="52" rx="8" ry="8" fill="#f0fdfa" stroke="#99f6e4" stroke-width="1.5"/>
+<rect x="60" y="368" width="680" height="52" rx="8" ry="8" fill="#f0fdfa" stroke="#99f6e4" stroke-width="1.5"/>
+<rect x="60" y="432" width="680" height="52" rx="8" ry="8" fill="#f0fdfa" stroke="#99f6e4" stroke-width="1.5"/>
+<rect x="60" y="496" width="680" height="52" rx="8" ry="8" fill="#f0fdfa" stroke="#99f6e4" stroke-width="1.5"/>
+<rect x="60" y="560" width="680" height="52" rx="8" ry="8" fill="#f0fdfa" stroke="#99f6e4" stroke-width="1.5"/>
+<rect x="60" y="624" width="680" height="44" rx="8" ry="8" fill="#f0fdf4" stroke="#bbf7d0" stroke-width="1.5"/>
+<rect x="800" y="128" width="540" height="44" rx="8" ry="8" fill="#f1f5f9" stroke="#cbd5e1" stroke-width="1.5"/>
+<rect x="800" y="180" width="540" height="44" rx="8" ry="8" fill="#f1f5f9" stroke="#cbd5e1" stroke-width="1.5"/>
+<rect x="800" y="272" width="540" height="44" rx="8" ry="8" fill="#faf5ff" stroke="#ddd6fe" stroke-width="1.5"/>
+<rect x="800" y="326" width="540" height="44" rx="8" ry="8" fill="#faf5ff" stroke="#ddd6fe" stroke-width="1.5"/>
+<rect x="800" y="380" width="540" height="44" rx="8" ry="8" fill="#faf5ff" stroke="#ddd6fe" stroke-width="1.5"/>
+<path d="M 825.0 516 L 825.0 542 A 75.0 12 0 0 0 975.0 542 L 975.0 516 A 75.0 12 0 0 0 825.0 516 Z" fill="#eff6ff" stroke="#bfdbfe" stroke-width="1.5"/>
+<ellipse cx="900" cy="516" rx="75.0" ry="12" fill="#ffffff" stroke="#bfdbfe" stroke-width="1.5"/>
+<path d="M 1005.0 516 L 1005.0 542 A 75.0 12 0 0 0 1155.0 542 L 1155.0 516 A 75.0 12 0 0 0 1005.0 516 Z" fill="#eff6ff" stroke="#bfdbfe" stroke-width="1.5"/>
+<ellipse cx="1080" cy="516" rx="75.0" ry="12" fill="#ffffff" stroke="#bfdbfe" stroke-width="1.5"/>
+<path d="M 825.0 596 L 825.0 622 A 75.0 12 0 0 0 975.0 622 L 975.0 596 A 75.0 12 0 0 0 825.0 596 Z" fill="#eff6ff" stroke="#bfdbfe" stroke-width="1.5"/>
+<ellipse cx="900" cy="596" rx="75.0" ry="12" fill="#ffffff" stroke="#bfdbfe" stroke-width="1.5"/>
+<text x="400.0" y="138.4" text-anchor="middle" font-size="12" font-weight="600" fill="#111827">输入 · ResolveQuery</text>
+<text x="400.0" y="153.4" text-anchor="middle" font-size="10" fill="#6b7280">traceId · scope栈 · intent · query · budget · lines · depth</text>
+<text x="400.0" y="198.6" text-anchor="middle" font-size="12.5" font-weight="600" fill="#111827">PermissionFilter · 权限前置</text>
+<text x="400.0" y="213.6" text-anchor="middle" font-size="10" fill="#6b7280">可见域 = scope ∩ AccessPolicy（召回前过滤）</text>
+<text x="400.0" y="262.6" text-anchor="middle" font-size="12.5" font-weight="600" fill="#111827">IntentGate · 意图门控</text>
+<text x="400.0" y="277.6" text-anchor="middle" font-size="10" fill="#6b7280">规则 + 轻量模型：要不要检索？选择事件时间线、实体关系图还是精炼文档层？</text>
+<text x="400.0" y="326.6" text-anchor="middle" font-size="12.5" font-weight="600" fill="#111827">MultiRecall · 多路召回</text>
+<text x="400.0" y="341.6" text-anchor="middle" font-size="10" fill="#6b7280">dense(HNSW) / BM25 / 图遍历 并发</text>
+<text x="400.0" y="390.6" text-anchor="middle" font-size="12.5" font-weight="600" fill="#111827">RRFFusion · 融合</text>
+<text x="400.0" y="405.6" text-anchor="middle" font-size="10" fill="#6b7280">k=60 名次倒数融合</text>
+<text x="400.0" y="454.6" text-anchor="middle" font-size="12.5" font-weight="600" fill="#111827">Reranker · 重排</text>
+<text x="400.0" y="469.6" text-anchor="middle" font-size="10" fill="#6b7280">cross-encoder(重排/调和模型) 或 向量+词面混合</text>
+<text x="400.0" y="518.6" text-anchor="middle" font-size="12.5" font-weight="600" fill="#111827">MMRDeduplicator · 去冗</text>
+<text x="400.0" y="533.6" text-anchor="middle" font-size="10" fill="#6b7280">λ 多样性，剔除高度重复候选</text>
+<text x="400.0" y="582.6" text-anchor="middle" font-size="12.5" font-weight="600" fill="#111827">BudgetAllocator · 预算</text>
+<text x="400.0" y="597.6" text-anchor="middle" font-size="10" fill="#6b7280">CORE/ON_DEMAND 切分 + 摘要→概览 展开决策</text>
+<text x="400.0" y="642.6" text-anchor="middle" font-size="12.5" font-weight="600" fill="#111827">输出 · ContextBundle</text>
+<text x="400.0" y="657.6" text-anchor="middle" font-size="10" fill="#6b7280">items+level+citations+trace 或 EMPTY + 原因码</text>
+<text x="800" y="112" text-anchor="start" font-size="12.5" font-weight="600" fill="#111827">横切</text>
+<text x="1070.0" y="146.4" text-anchor="middle" font-size="12" font-weight="600" fill="#111827">TraceRecorder</text>
+<text x="1070.0" y="161.4" text-anchor="middle" font-size="10" fill="#6b7280">全链路 trace：门控/分数/融合权重/MMR/预算 可回放</text>
+<text x="1070.0" y="198.4" text-anchor="middle" font-size="12" font-weight="600" fill="#111827">StateFilter</text>
+<text x="1070.0" y="213.4" text-anchor="middle" font-size="10" fill="#6b7280">bi-temporal 状态过滤：仅 ACTIVE/STALE(降权)/CONFLICTED(成对)</text>
+<text x="800" y="256" text-anchor="start" font-size="12.5" font-weight="600" fill="#111827">端口（SPI，定义于 domain）</text>
+<text x="1070.0" y="290.4" text-anchor="middle" font-size="12" font-weight="600" fill="#111827">IndexPort</text>
+<text x="1070.0" y="305.4" text-anchor="middle" font-size="10" fill="#6b7280">dense(HNSW) / BM25 / 图遍历 三路</text>
+<text x="1070.0" y="344.4" text-anchor="middle" font-size="12" font-weight="600" fill="#111827">RetrievalPort</text>
+<text x="1070.0" y="359.4" text-anchor="middle" font-size="10" fill="#6b7280">候选 + 分数（路级 deadline）</text>
+<text x="1070.0" y="398.4" text-anchor="middle" font-size="12" font-weight="600" fill="#111827">EmbeddingPort</text>
+<text x="1070.0" y="413.4" text-anchor="middle" font-size="10" fill="#6b7280">重排/查询向量化</text>
+<text x="800" y="456" text-anchor="start" font-size="12.5" font-weight="600" fill="#111827">存储</text>
+<text x="900" y="542.5" text-anchor="middle" font-size="11" font-weight="600" fill="#111827">bw_context_unit</text>
+<text x="1080" y="542.5" text-anchor="middle" font-size="11" font-weight="600" fill="#111827">bw_unit_edge</text>
+<text x="900" y="622.5" text-anchor="middle" font-size="11" font-weight="600" fill="#111827">bw_usage_event</text>
+<text x="560" y="848" text-anchor="start" font-size="10.5" font-weight="400" fill="#6b7280">EMPTY 是合法答案（证据不足/权限不足/冲突未决 → 空 + 原因码）；</text>
+<text x="560" y="865" text-anchor="start" font-size="10.5" font-weight="400" fill="#6b7280">重排模型调用是默认路径唯一的 LLM 点，且必须记 bw_usage_event（异步）。</text>
+<rect x="60" y="830" width="244" height="94" rx="8" ry="8" fill="#ffffff" stroke="#d1d5db" stroke-width="1"/>
+<text x="72" y="848" font-size="11" font-weight="600" fill="#6b7280">图例</text>
+<line x1="74" y1="862" x2="100" y2="862" stroke="#2563eb" stroke-width="2" marker-end="url(#arrow-main)"/>
+<text x="108" y="866.0" font-size="11" fill="#111827">装配流转</text>
+<line x1="74" y1="882" x2="100" y2="882" stroke="#ea580c" stroke-width="2" marker-end="url(#arrow-ctrl)"/>
+<text x="108" y="886.0" font-size="11" fill="#111827">检索委托</text>
+<line x1="74" y1="902" x2="100" y2="902" stroke="#6b7280" stroke-width="2" stroke-dasharray="4,3" marker-end="url(#arrow-gray)"/>
+<text x="108" y="906.0" font-size="11" fill="#111827">埋点 / 端口实现</text>
+</svg>

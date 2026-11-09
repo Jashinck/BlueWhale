@@ -1,0 +1,85 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1370 860" width="1370" height="860">
+<style>text{font-family:'Helvetica Neue', Helvetica, Arial, 'PingFang SC', 'Hiragino Sans GB', 'Microsoft YaHei', 'SimHei', sans-serif;}.mono{font-family:ui-monospace,SFMono-Regular,Menlo,Consolas,monospace;}</style>
+<defs>
+<marker id="arrow-main" markerWidth="10" markerHeight="7" refX="9" refY="3.5" orient="auto"><polygon points="0 0, 10 3.5, 0 7" fill="#2563eb"/></marker>
+<marker id="arrow-data" markerWidth="10" markerHeight="7" refX="9" refY="3.5" orient="auto"><polygon points="0 0, 10 3.5, 0 7" fill="#16a34a"/></marker>
+<marker id="arrow-ctrl" markerWidth="10" markerHeight="7" refX="9" refY="3.5" orient="auto"><polygon points="0 0, 10 3.5, 0 7" fill="#ea580c"/></marker>
+<marker id="arrow-async" markerWidth="10" markerHeight="7" refX="9" refY="3.5" orient="auto"><polygon points="0 0, 10 3.5, 0 7" fill="#9333ea"/></marker>
+<marker id="arrow-gray" markerWidth="10" markerHeight="7" refX="9" refY="3.5" orient="auto"><polygon points="0 0, 10 3.5, 0 7" fill="#6b7280"/></marker>
+<marker id="arrow-red" markerWidth="10" markerHeight="7" refX="9" refY="3.5" orient="auto"><polygon points="0 0, 10 3.5, 0 7" fill="#dc2626"/></marker>
+<marker id="arrow-teal" markerWidth="10" markerHeight="7" refX="9" refY="3.5" orient="auto"><polygon points="0 0, 10 3.5, 0 7" fill="#0d9488"/></marker>
+<marker id="arrow-ink" markerWidth="10" markerHeight="7" refX="9" refY="3.5" orient="auto"><polygon points="0 0, 10 3.5, 0 7" fill="#111827"/></marker>
+<filter id="soft" x="-20%%" y="-20%%" width="140%%" height="140%%"><feDropShadow dx="0" dy="1.5" stdDeviation="3" flood-color="#0f172a" flood-opacity="0.10"/></filter>
+</defs>
+<rect width="1370" height="860" fill="#ffffff"/>
+<text x="40" y="42" font-size="19" font-weight="700" fill="#111827">知识端到端闭环 · 提取 → 使用 → 萃取 → 更新</text>
+<text x="40" y="64" font-size="12.5" fill="#6b7280">所有写入只经「变更闸门」一个入口；每次使用都留下可归因的信号；信号经归因与萃取回到闸门</text>
+<path d="M 320.0,215.0 L 410.0,215.0" fill="none" stroke="#2563eb" stroke-width="2.2" marker-end="url(#arrow-main)" stroke-linejoin="round"/>
+<path d="M 690.0,215.0 L 780.0,215.0" fill="none" stroke="#ea580c" stroke-width="2.2" marker-end="url(#arrow-ctrl)" stroke-linejoin="round"/>
+<path d="M 1000.0,215.0 L 1090.0,215.0" fill="none" stroke="#16a34a" stroke-width="2.2" marker-end="url(#arrow-data)" stroke-linejoin="round"/>
+<path d="M 1210.0,330.0 L 1210.0,575.0 L 1000.0,575.0" fill="none" stroke="#9333ea" stroke-width="2.0" marker-end="url(#arrow-async)" stroke-linejoin="round"/>
+<path d="M 550.0,480.0 L 550.0,330.0" fill="none" stroke="#ea580c" stroke-width="2.0" marker-end="url(#arrow-ctrl)" stroke-linejoin="round"/>
+<path d="M 410.0,575.0 L 180.0,575.0 L 180.0,330.0" fill="none" stroke="#9333ea" stroke-width="2.0" stroke-dasharray="5,3" marker-end="url(#arrow-async)" stroke-linejoin="round"/>
+<path d="M 90.0,700.0 L 90.0,330.0" fill="none" stroke="#2563eb" stroke-width="2.0" marker-end="url(#arrow-main)" stroke-linejoin="round"/>
+<text x="365" y="205" text-anchor="middle" font-size="10.5" font-weight="500" fill="#2563eb">Patch</text>
+<text x="735" y="205" text-anchor="middle" font-size="10.5" font-weight="500" fill="#ea580c">发布</text>
+<text x="1045" y="205" text-anchor="middle" font-size="10.5" font-weight="500" fill="#16a34a">召回</text>
+<text x="1222" y="450" text-anchor="start" font-size="10.5" font-weight="500" fill="#9333ea">Signal</text>
+<text x="562" y="410" text-anchor="start" font-size="10.5" font-weight="500" fill="#ea580c">变更单草稿</text>
+<text x="192" y="450" text-anchor="start" font-size="10.5" font-weight="500" fill="#9333ea">提取任务</text>
+<text x="102" y="640" text-anchor="start" font-size="10.5" font-weight="500" fill="#2563eb">首次接入 / 变更事件</text>
+<rect x="40" y="100" width="280" height="230" rx="8" ry="8" fill="#eff6ff" stroke="#bfdbfe" stroke-width="1.5"/>
+<rect x="410" y="100" width="280" height="230" rx="8" ry="8" fill="#f0fdfa" stroke="#99f6e4" stroke-width="1.5"/>
+<rect x="780" y="100" width="220" height="230" rx="8" ry="8" fill="#f0fdf4" stroke="#bbf7d0" stroke-width="1.5"/>
+<rect x="1090" y="100" width="240" height="230" rx="8" ry="8" fill="#fff7ed" stroke="#fed7aa" stroke-width="1.5"/>
+<rect x="410" y="480" width="590" height="190" rx="8" ry="8" fill="#faf5ff" stroke="#ddd6fe" stroke-width="1.5"/>
+<rect x="40" y="700" width="280" height="60" rx="8" ry="8" fill="#f9fafb" stroke="#e5e7eb" stroke-width="1.5"/>
+<text x="52" y="180.2" text-anchor="start" font-size="14" font-weight="600" fill="#111827">提取 Acquire</text>
+<text x="52" y="195.9" text-anchor="start" font-size="10.5" fill="#6b7280">接入、解析与分段 接入 · 解析 · 条款级分段</text>
+<text x="52" y="211.7" text-anchor="start" font-size="10.5" fill="#6b7280">抽取 Claim / 规则（LLM）</text>
+<text x="52" y="227.4" text-anchor="start" font-size="10.5" fill="#6b7280">本体校验 · 归并到已有页</text>
+<text x="52" y="243.2" text-anchor="start" font-size="10.5" fill="#6b7280">产物：Wiki Patch + evidenceSpan</text>
+<text x="52" y="258.9" text-anchor="start" font-size="10.5" fill="#6b7280">不直接写库，只提交补丁</text>
+<text x="422" y="180.2" text-anchor="start" font-size="14" font-weight="600" fill="#111827">更新 Update · 变更检查</text>
+<text x="422" y="195.9" text-anchor="start" font-size="10.5" fill="#6b7280">ChangeRequest：唯一写入口</text>
+<text x="422" y="211.7" text-anchor="start" font-size="10.5" fill="#6b7280">本体前置校验 → 人审 diff</text>
+<text x="422" y="227.4" text-anchor="start" font-size="10.5" fill="#6b7280">回归门：评测集重放</text>
+<text x="422" y="243.2" text-anchor="start" font-size="10.5" fill="#6b7280">发布批次 ATOMIC / CANARY / 回滚</text>
+<text x="422" y="258.9" text-anchor="start" font-size="10.5" fill="#6b7280">血缘传播：依赖项降权并复核</text>
+<text x="792" y="180.2" text-anchor="start" font-size="14" font-weight="600" fill="#111827">知识库</text>
+<text x="792" y="195.9" text-anchor="start" font-size="10.5" fill="#6b7280">Wiki（md）= 真源</text>
+<text x="792" y="211.7" text-anchor="start" font-size="10.5" fill="#6b7280">确定性编译 → ContextUnit</text>
+<text x="792" y="227.4" text-anchor="start" font-size="10.5" fill="#6b7280">向量 · 词法 · 图 三索引</text>
+<text x="792" y="243.2" text-anchor="start" font-size="10.5" fill="#6b7280">Release 不可变快照</text>
+<text x="792" y="258.9" text-anchor="start" font-size="10.5" fill="#6b7280">12 态生命周期</text>
+<text x="1102" y="180.2" text-anchor="start" font-size="14" font-weight="600" fill="#111827">使用 Use</text>
+<text x="1102" y="195.9" text-anchor="start" font-size="10.5" fill="#6b7280">resolve()：权限前置</text>
+<text x="1102" y="211.7" text-anchor="start" font-size="10.5" fill="#6b7280">按 releaseId 钉版本</text>
+<text x="1102" y="227.4" text-anchor="start" font-size="10.5" fill="#6b7280">ContextBundle + citation</text>
+<text x="1102" y="243.2" text-anchor="start" font-size="10.5" fill="#6b7280">消费方推理 / 成文</text>
+<text x="1102" y="258.9" text-anchor="start" font-size="10.5" fill="#6b7280">记录 trace，上报 Signal</text>
+<text x="422" y="532.3" text-anchor="start" font-size="14" font-weight="600" fill="#111827">萃取 Distill</text>
+<text x="422" y="548.0" text-anchor="start" font-size="10.5" fill="#6b7280">信号：点踩/改写 · 采纳/覆盖/忽略 · 评测失败 · 源变更 · 到期复审</text>
+<text x="422" y="563.8" text-anchor="start" font-size="10.5" fill="#6b7280">归因（程序推导，不由人填）：NO_HIT · WRONG_PICK · STALE · CONFLICT</text>
+<text x="422" y="579.5" text-anchor="start" font-size="10.5" fill="#6b7280">　　　　　　　　　　　　　 BAD_CLAIM · MISSING_QUALIFIER · CONSUMER_ERR</text>
+<text x="422" y="595.3" text-anchor="start" font-size="10.5" fill="#6b7280">聚类：同因同对象聚合，达阈值才立单</text>
+<text x="422" y="611.0" text-anchor="start" font-size="10.5" fill="#6b7280">萃取：纠正模式 → 候选规则；缺口簇 → 提取任务；记忆工程 蒸馏 → 晋升</text>
+<text x="422" y="626.8" text-anchor="start" font-size="10.5" fill="#6b7280">产物：ChangeRequest 草稿（带证据）· 回归用例</text>
+<text x="180.0" y="726.6" text-anchor="middle" font-size="12.5" font-weight="600" fill="#111827">外部知识源</text>
+<text x="180.0" y="741.6" text-anchor="middle" font-size="10" fill="#6b7280">制度 / 文档 / 表格 / 代码；变更产生 source.changed</text>
+<text x="410" y="712" text-anchor="start" font-size="12.5" font-weight="600" fill="#111827">闭环成立的四条不变量</text>
+<text x="410" y="734" text-anchor="start" font-size="11" font-weight="400" fill="#6b7280">统一写入口：  所有知识写入必经 ChangeRequest；记忆工程 晋升、人工编辑、重抽战役同样如此。</text>
+<text x="410" y="753" text-anchor="start" font-size="11" font-weight="400" fill="#6b7280">绑定使用版本：  每次使用绑定 releaseId + 内容 hash，信号才能归因到具体版本。</text>
+<text x="410" y="772" text-anchor="start" font-size="11" font-weight="400" fill="#6b7280">缺陷进入回归集：  每个已确认缺陷沉淀为回归用例，永久进入回归门。</text>
+<text x="410" y="791" text-anchor="start" font-size="11" font-weight="400" fill="#6b7280">系统草稿必须人审：  萃取只产出草稿；发布权在闸门（人审 + 回归 + 可回滚）。</text>
+<rect x="1010" y="712" width="274" height="114" rx="8" ry="8" fill="#ffffff" stroke="#d1d5db" stroke-width="1"/>
+<text x="1022" y="730" font-size="11" font-weight="600" fill="#6b7280">图例</text>
+<line x1="1024" y1="744" x2="1050" y2="744" stroke="#2563eb" stroke-width="2" marker-end="url(#arrow-main)"/>
+<text x="1058" y="748.0" font-size="11" fill="#111827">提取/接入</text>
+<line x1="1024" y1="764" x2="1050" y2="764" stroke="#ea580c" stroke-width="2" marker-end="url(#arrow-ctrl)"/>
+<text x="1058" y="768.0" font-size="11" fill="#111827">写入/发布/草稿</text>
+<line x1="1024" y1="784" x2="1050" y2="784" stroke="#16a34a" stroke-width="2" marker-end="url(#arrow-data)"/>
+<text x="1058" y="788.0" font-size="11" fill="#111827">召回（读）</text>
+<line x1="1024" y1="804" x2="1050" y2="804" stroke="#9333ea" stroke-width="2" stroke-dasharray="5,3" marker-end="url(#arrow-async)"/>
+<text x="1058" y="808.0" font-size="11" fill="#111827">信号/任务（异步）</text>
+</svg>

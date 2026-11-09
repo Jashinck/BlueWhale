@@ -1,0 +1,180 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1600 1000" width="1600" height="1000">
+<style>text{font-family:'Helvetica Neue', Helvetica, Arial, 'PingFang SC', 'Hiragino Sans GB', 'Microsoft YaHei', 'SimHei', sans-serif;}.mono{font-family:ui-monospace,SFMono-Regular,Menlo,Consolas,monospace;}</style>
+<defs>
+<marker id="arrow-main" markerWidth="10" markerHeight="7" refX="9" refY="3.5" orient="auto"><polygon points="0 0, 10 3.5, 0 7" fill="#2563eb"/></marker>
+<marker id="arrow-data" markerWidth="10" markerHeight="7" refX="9" refY="3.5" orient="auto"><polygon points="0 0, 10 3.5, 0 7" fill="#16a34a"/></marker>
+<marker id="arrow-ctrl" markerWidth="10" markerHeight="7" refX="9" refY="3.5" orient="auto"><polygon points="0 0, 10 3.5, 0 7" fill="#ea580c"/></marker>
+<marker id="arrow-async" markerWidth="10" markerHeight="7" refX="9" refY="3.5" orient="auto"><polygon points="0 0, 10 3.5, 0 7" fill="#9333ea"/></marker>
+<marker id="arrow-gray" markerWidth="10" markerHeight="7" refX="9" refY="3.5" orient="auto"><polygon points="0 0, 10 3.5, 0 7" fill="#6b7280"/></marker>
+<marker id="arrow-red" markerWidth="10" markerHeight="7" refX="9" refY="3.5" orient="auto"><polygon points="0 0, 10 3.5, 0 7" fill="#dc2626"/></marker>
+<marker id="arrow-teal" markerWidth="10" markerHeight="7" refX="9" refY="3.5" orient="auto"><polygon points="0 0, 10 3.5, 0 7" fill="#0d9488"/></marker>
+<marker id="arrow-ink" markerWidth="10" markerHeight="7" refX="9" refY="3.5" orient="auto"><polygon points="0 0, 10 3.5, 0 7" fill="#111827"/></marker>
+<filter id="soft" x="-20%%" y="-20%%" width="140%%" height="140%%"><feDropShadow dx="0" dy="1.5" stdDeviation="3" flood-color="#0f172a" flood-opacity="0.10"/></filter>
+</defs>
+<rect width="1600" height="1000" fill="#ffffff"/>
+<text x="40" y="42" font-size="19" font-weight="700" fill="#111827">ER 图 · 物理数据模型（PostgreSQL + pgvector）</text>
+<text x="40" y="64" font-size="12.5" fill="#6b7280">11 张物理表 + 1 派生视图；append-only 事件表是状态机与归因的可执行证据</text>
+<path d="M 440.0,145.0 L 600.0,145.0" fill="none" stroke="#2563eb" stroke-width="1.6" marker-end="url(#arrow-main)" stroke-linejoin="round"/>
+<path d="M 440.0,292.0 L 600.0,292.0" fill="none" stroke="#2563eb" stroke-width="1.6" marker-end="url(#arrow-main)" stroke-linejoin="round"/>
+<path d="M 1160.0,145.0 L 1000.0,145.0" fill="none" stroke="#2563eb" stroke-width="1.6" marker-end="url(#arrow-main)" stroke-linejoin="round"/>
+<path d="M 1160.0,292.0 L 1000.0,292.0" fill="none" stroke="#2563eb" stroke-width="1.6" marker-end="url(#arrow-main)" stroke-linejoin="round"/>
+<path d="M 440.0,446.0 L 640.0,446.0 L 640.0,304.0" fill="none" stroke="#2563eb" stroke-width="1.6" marker-end="url(#arrow-main)" stroke-linejoin="round"/>
+<path d="M 440.0,593.0 L 680.0,593.0 L 680.0,304.0" fill="none" stroke="#2563eb" stroke-width="1.6" marker-end="url(#arrow-main)" stroke-linejoin="round"/>
+<path d="M 440.0,733.0 L 720.0,733.0 L 720.0,304.0" fill="none" stroke="#2563eb" stroke-width="1.6" marker-end="url(#arrow-main)" stroke-linejoin="round"/>
+<path d="M 1160.0,439.0 L 960.0,439.0 L 960.0,304.0" fill="none" stroke="#2563eb" stroke-width="1.6" marker-end="url(#arrow-main)" stroke-linejoin="round"/>
+<path d="M 1160.0,579.0 L 920.0,579.0 L 920.0,304.0" fill="none" stroke="#2563eb" stroke-width="1.6" marker-end="url(#arrow-main)" stroke-linejoin="round"/>
+<path d="M 1160.0,719.0 L 880.0,719.0 L 880.0,304.0" fill="none" stroke="#2563eb" stroke-width="1.6" marker-end="url(#arrow-main)" stroke-linejoin="round"/>
+<path d="M 800.0,304.0 L 800.0,860.0" fill="none" stroke="#6b7280" stroke-width="1.4" stroke-dasharray="4,2" marker-end="url(#arrow-gray)" stroke-linejoin="round"/>
+<path d="M 700.0,90.0 L 700.0,76.0 L 860.0,76.0 L 860.0,90.0" fill="none" stroke="#6b7280" stroke-width="1.3" marker-end="url(#arrow-gray)" stroke-linejoin="round"/>
+<path d="M 200.0,230.0 L 200.0,216.0 L 340.0,216.0 L 340.0,230.0" fill="none" stroke="#6b7280" stroke-width="1.3" marker-end="url(#arrow-gray)" stroke-linejoin="round"/>
+<text x="448" y="137" text-anchor="start" font-size="9" font-weight="500" fill="#6b7280">provenance.episodeId</text>
+<text x="592" y="137" text-anchor="end" font-size="9" font-weight="500" fill="#6b7280">N:1</text>
+<text x="448" y="284" text-anchor="start" font-size="9" font-weight="500" fill="#6b7280">abstract / overview 物化为单元</text>
+<text x="592" y="284" text-anchor="end" font-size="9" font-weight="500" fill="#6b7280">N:1</text>
+<text x="1152" y="137" text-anchor="end" font-size="9" font-weight="500" fill="#6b7280">from_id / to_id（双端）</text>
+<text x="1008" y="137" text-anchor="start" font-size="9" font-weight="500" fill="#6b7280">N:1 ×2</text>
+<text x="1152" y="284" text-anchor="end" font-size="9" font-weight="500" fill="#6b7280">unit_id</text>
+<text x="1008" y="284" text-anchor="start" font-size="9" font-weight="500" fill="#6b7280">1:N</text>
+<text x="448" y="438" text-anchor="start" font-size="9" font-weight="500" fill="#6b7280">parent_id / child_id</text>
+<text x="648" y="324" text-anchor="start" font-size="9" font-weight="500" fill="#6b7280">N:1 ×2</text>
+<text x="448" y="585" text-anchor="start" font-size="9" font-weight="500" fill="#6b7280">unit_id · trace_id</text>
+<text x="688" y="324" text-anchor="start" font-size="9" font-weight="500" fill="#6b7280">1:N</text>
+<text x="448" y="725" text-anchor="start" font-size="9" font-weight="500" fill="#6b7280">unit_id</text>
+<text x="728" y="324" text-anchor="start" font-size="9" font-weight="500" fill="#6b7280">1:N</text>
+<text x="1152" y="431" text-anchor="end" font-size="9" font-weight="500" fill="#6b7280">unit_id PK</text>
+<text x="952" y="324" text-anchor="end" font-size="9" font-weight="500" fill="#6b7280">1:1</text>
+<text x="1152" y="571" text-anchor="end" font-size="9" font-weight="500" fill="#6b7280">unit_id</text>
+<text x="912" y="324" text-anchor="end" font-size="9" font-weight="500" fill="#6b7280">1:N</text>
+<text x="1152" y="711" text-anchor="end" font-size="9" font-weight="500" fill="#6b7280">unit.batch_id</text>
+<text x="872" y="324" text-anchor="end" font-size="9" font-weight="500" fill="#6b7280">1:N</text>
+<text x="808" y="324" text-anchor="start" font-size="9" font-weight="500" fill="#6b7280">派生</text>
+<text x="780" y="70" text-anchor="middle" font-size="9" font-weight="500" fill="#6b7280">superseded_by 自引用（软失效）</text>
+<text x="348" y="224" text-anchor="start" font-size="9" font-weight="500" fill="#6b7280">parent_id 目录树自引用</text>
+<rect x="600" y="90" width="400" height="214" rx="8" ry="8" fill="#eff6ff" stroke="#bfdbfe" stroke-width="1.5"/>
+<rect x="600" y="90" width="400" height="26" rx="8" ry="8" fill="#bfdbfe" opacity="0.45"/>
+<rect x="600" y="103" width="400" height="13" fill="#bfdbfe" opacity="0.45"/>
+<rect x="140" y="90" width="300" height="109" rx="8" ry="8" fill="#faf5ff" stroke="#ddd6fe" stroke-width="1.5"/>
+<rect x="140" y="90" width="300" height="26" rx="8" ry="8" fill="#ddd6fe" opacity="0.45"/>
+<rect x="140" y="103" width="300" height="13" fill="#ddd6fe" opacity="0.45"/>
+<rect x="140" y="230" width="300" height="124" rx="8" ry="8" fill="#faf5ff" stroke="#ddd6fe" stroke-width="1.5"/>
+<rect x="140" y="230" width="300" height="26" rx="8" ry="8" fill="#ddd6fe" opacity="0.45"/>
+<rect x="140" y="243" width="300" height="13" fill="#ddd6fe" opacity="0.45"/>
+<rect x="140" y="384" width="300" height="124" rx="8" ry="8" fill="#faf5ff" stroke="#ddd6fe" stroke-width="1.5"/>
+<rect x="140" y="384" width="300" height="26" rx="8" ry="8" fill="#ddd6fe" opacity="0.45"/>
+<rect x="140" y="397" width="300" height="13" fill="#ddd6fe" opacity="0.45"/>
+<rect x="140" y="538" width="300" height="109" rx="8" ry="8" fill="#fff7ed" stroke="#fed7aa" stroke-width="1.5"/>
+<rect x="140" y="538" width="300" height="26" rx="8" ry="8" fill="#fed7aa" opacity="0.45"/>
+<rect x="140" y="551" width="300" height="13" fill="#fed7aa" opacity="0.45"/>
+<rect x="140" y="678" width="300" height="109" rx="8" ry="8" fill="#fff7ed" stroke="#fed7aa" stroke-width="1.5"/>
+<rect x="140" y="678" width="300" height="26" rx="8" ry="8" fill="#fed7aa" opacity="0.45"/>
+<rect x="140" y="691" width="300" height="13" fill="#fed7aa" opacity="0.45"/>
+<rect x="1160" y="90" width="300" height="109" rx="8" ry="8" fill="#f0fdfa" stroke="#99f6e4" stroke-width="1.5"/>
+<rect x="1160" y="90" width="300" height="26" rx="8" ry="8" fill="#99f6e4" opacity="0.45"/>
+<rect x="1160" y="103" width="300" height="13" fill="#99f6e4" opacity="0.45"/>
+<rect x="1160" y="230" width="300" height="124" rx="8" ry="8" fill="#f0fdfa" stroke="#99f6e4" stroke-width="1.5"/>
+<rect x="1160" y="230" width="300" height="26" rx="8" ry="8" fill="#99f6e4" opacity="0.45"/>
+<rect x="1160" y="243" width="300" height="13" fill="#99f6e4" opacity="0.45"/>
+<rect x="1160" y="384" width="300" height="109" rx="8" ry="8" fill="#f0fdfa" stroke="#99f6e4" stroke-width="1.5"/>
+<rect x="1160" y="384" width="300" height="26" rx="8" ry="8" fill="#99f6e4" opacity="0.45"/>
+<rect x="1160" y="397" width="300" height="13" fill="#99f6e4" opacity="0.45"/>
+<rect x="1160" y="524" width="300" height="109" rx="8" ry="8" fill="#fef2f2" stroke="#fecaca" stroke-width="1.5"/>
+<rect x="1160" y="524" width="300" height="26" rx="8" ry="8" fill="#fecaca" opacity="0.45"/>
+<rect x="1160" y="537" width="300" height="13" fill="#fecaca" opacity="0.45"/>
+<rect x="1160" y="664" width="300" height="109" rx="8" ry="8" fill="#f0fdf4" stroke="#bbf7d0" stroke-width="1.5"/>
+<rect x="1160" y="664" width="300" height="26" rx="8" ry="8" fill="#bbf7d0" opacity="0.45"/>
+<rect x="1160" y="677" width="300" height="13" fill="#bbf7d0" opacity="0.45"/>
+<rect x="620" y="860" width="360" height="79" rx="8" ry="8" fill="#f9fafb" stroke="#e5e7eb" stroke-width="1.5" stroke-dasharray="6,4"/>
+<rect x="620" y="860" width="360" height="26" rx="8" ry="8" fill="#e5e7eb" opacity="0.45"/>
+<rect x="620" y="873" width="360" height="13" fill="#e5e7eb" opacity="0.45"/>
+<text x="610" y="107.5" font-size="12" font-weight="700" fill="#111827" class="mono">bw_context_unit</text>
+<text x="610" y="130" font-size="9.5" fill="#6b7280" class="mono">id UUID  PK</text>
+<text x="610" y="145" font-size="9.5" fill="#6b7280" class="mono">tenant · scope_path（前缀匹配作用域）</text>
+<text x="610" y="160" font-size="9.5" fill="#6b7280" class="mono">kind · origin · state</text>
+<text x="610" y="175" font-size="9.5" fill="#6b7280" class="mono">l0_abstract / l1_overview / l2_inline / l2_ref</text>
+<text x="610" y="190" font-size="9.5" fill="#6b7280" class="mono">confidence · authority · importance</text>
+<text x="610" y="205" font-size="9.5" fill="#6b7280" class="mono">valid_from / valid_to 现实轴 · learned_at 系统轴</text>
+<text x="610" y="220" font-size="9.5" fill="#6b7280" class="mono">source_published_at / captured_at 采集轴</text>
+<text x="610" y="235" font-size="9.5" fill="#6b7280" class="mono">review_due_at / retention_until / erased_at 治理轴</text>
+<text x="610" y="250" font-size="9.5" fill="#6b7280" class="mono">superseded_by → bw_context_unit.id</text>
+<text x="610" y="265" font-size="9.5" fill="#6b7280" class="mono">cost_tokens · n_seen · n_cited · n_adopted · n_corrected</text>
+<text x="610" y="280" font-size="9.5" fill="#6b7280" class="mono">embedding vector(1536) HNSW · metadata JSONB GIN</text>
+<text x="610" y="295" font-size="9.5" fill="#6b7280" class="mono">ontology_version · batch_id → bw_publish_batch.id</text>
+<text x="150" y="107.5" font-size="12" font-weight="700" fill="#111827" class="mono">bw_episode</text>
+<text x="150" y="130" font-size="9.5" fill="#6b7280" class="mono">id UUID  PK</text>
+<text x="150" y="145" font-size="9.5" fill="#6b7280" class="mono">tenant · scope_path</text>
+<text x="150" y="160" font-size="9.5" fill="#6b7280" class="mono">occurred_at · source</text>
+<text x="150" y="175" font-size="9.5" fill="#6b7280" class="mono">payload JSONB</text>
+<text x="150" y="190" font-size="9.5" fill="#6b7280" class="mono">只增不改（LEDGER 预算，供再加工与审计）</text>
+<text x="150" y="247.5" font-size="12" font-weight="700" fill="#111827" class="mono">bw_segment</text>
+<text x="150" y="270" font-size="9.5" fill="#6b7280" class="mono">id UUID  PK</text>
+<text x="150" y="285" font-size="9.5" fill="#6b7280" class="mono">doc_id · parent_id（目录树自引用）</text>
+<text x="150" y="300" font-size="9.5" fill="#6b7280" class="mono">ordinal · path</text>
+<text x="150" y="315" font-size="9.5" fill="#6b7280" class="mono">abstract · overview</text>
+<text x="150" y="330" font-size="9.5" fill="#6b7280" class="mono">content_ref</text>
+<text x="150" y="345" font-size="9.5" fill="#6b7280" class="mono">层级 = 摘要/概览/原文 三级表征的结构前提</text>
+<text x="150" y="401.5" font-size="12" font-weight="700" fill="#111827" class="mono">bw_lineage</text>
+<text x="150" y="424" font-size="9.5" fill="#6b7280" class="mono">parent_id + child_id + derivation  PK</text>
+<text x="150" y="439" font-size="9.5" fill="#6b7280" class="mono">derivation: PARSED | SEGMENTED |</text>
+<text x="150" y="454" font-size="9.5" fill="#6b7280" class="mono">    EXTRACTED | DISTILLED | SKILLIZED</text>
+<text x="150" y="469" font-size="9.5" fill="#6b7280" class="mono">derived_at · extractor_version · ontology_version</text>
+<text x="150" y="484" font-size="9.5" fill="#6b7280" class="mono">needs_reextract BOOLEAN</text>
+<text x="150" y="499" font-size="9.5" fill="#6b7280" class="mono">变更传播与影响分析的前提</text>
+<text x="150" y="555.5" font-size="12" font-weight="700" fill="#111827" class="mono">bw_usage_event</text>
+<text x="150" y="578" font-size="9.5" fill="#6b7280" class="mono">id BIGSERIAL  PK</text>
+<text x="150" y="593" font-size="9.5" fill="#6b7280" class="mono">unit_id → bw_context_unit.id</text>
+<text x="150" y="608" font-size="9.5" fill="#6b7280" class="mono">trace_id · event · at</text>
+<text x="150" y="623" font-size="9.5" fill="#6b7280" class="mono">tokens · outcome</text>
+<text x="150" y="638" font-size="9.5" fill="#6b7280" class="mono">append-only，归因与成本账原料</text>
+<text x="150" y="695.5" font-size="12" font-weight="700" fill="#111827" class="mono">bw_review</text>
+<text x="150" y="718" font-size="9.5" fill="#6b7280" class="mono">id UUID  PK</text>
+<text x="150" y="733" font-size="9.5" fill="#6b7280" class="mono">unit_id → bw_context_unit.id</text>
+<text x="150" y="748" font-size="9.5" fill="#6b7280" class="mono">gate · status</text>
+<text x="150" y="763" font-size="9.5" fill="#6b7280" class="mono">reviewer · at</text>
+<text x="150" y="778" font-size="9.5" fill="#6b7280" class="mono">note（晋升 / 废弃闸门留痕）</text>
+<text x="1170" y="107.5" font-size="12" font-weight="700" fill="#111827" class="mono">bw_unit_edge</text>
+<text x="1170" y="130" font-size="9.5" fill="#6b7280" class="mono">from_id + to_id + edge_type + valid_from  PK</text>
+<text x="1170" y="145" font-size="9.5" fill="#6b7280" class="mono">edge_type: SUPPORTS / CONTRADICTS /</text>
+<text x="1170" y="160" font-size="9.5" fill="#6b7280" class="mono">    SUPERSEDES / DERIVED_FROM / ABOUT …</text>
+<text x="1170" y="175" font-size="9.5" fill="#6b7280" class="mono">valid_from / valid_to（双时态边）· weight</text>
+<text x="1170" y="190" font-size="9.5" fill="#6b7280" class="mono">冲突调和的落点，时间旅行的依据</text>
+<text x="1170" y="247.5" font-size="12" font-weight="700" fill="#111827" class="mono">bw_lifecycle_event</text>
+<text x="1170" y="270" font-size="9.5" fill="#6b7280" class="mono">id BIGSERIAL  PK</text>
+<text x="1170" y="285" font-size="9.5" fill="#6b7280" class="mono">unit_id → bw_context_unit.id</text>
+<text x="1170" y="300" font-size="9.5" fill="#6b7280" class="mono">from_state · to_state · trigger</text>
+<text x="1170" y="315" font-size="9.5" fill="#6b7280" class="mono">actor · at · reason</text>
+<text x="1170" y="330" font-size="9.5" fill="#6b7280" class="mono">batch_id → bw_publish_batch.id</text>
+<text x="1170" y="345" font-size="9.5" fill="#6b7280" class="mono">append-only，状态机的可执行证据</text>
+<text x="1170" y="401.5" font-size="12" font-weight="700" fill="#111827" class="mono">bw_asset</text>
+<text x="1170" y="424" font-size="9.5" fill="#6b7280" class="mono">unit_id  PK → bw_context_unit.id（1:1）</text>
+<text x="1170" y="439" font-size="9.5" fill="#6b7280" class="mono">owner_id · owner_org</text>
+<text x="1170" y="454" font-size="9.5" fill="#6b7280" class="mono">review_cycle_days · review_due_at · reviewed_at</text>
+<text x="1170" y="469" font-size="9.5" fill="#6b7280" class="mono">retention_until</text>
+<text x="1170" y="484" font-size="9.5" fill="#6b7280" class="mono">legal_hold · hold_reason（优先于擦除）</text>
+<text x="1170" y="541.5" font-size="12" font-weight="700" fill="#111827" class="mono">bw_erasure</text>
+<text x="1170" y="564" font-size="9.5" fill="#6b7280" class="mono">id UUID  PK</text>
+<text x="1170" y="579" font-size="9.5" fill="#6b7280" class="mono">unit_id → bw_context_unit.id</text>
+<text x="1170" y="594" font-size="9.5" fill="#6b7280" class="mono">request_type · legal_basis</text>
+<text x="1170" y="609" font-size="9.5" fill="#6b7280" class="mono">requested_by · executed_at</text>
+<text x="1170" y="624" font-size="9.5" fill="#6b7280" class="mono">cascade JSONB · residual_note（墓碑）</text>
+<text x="1170" y="681.5" font-size="12" font-weight="700" fill="#111827" class="mono">bw_publish_batch</text>
+<text x="1170" y="704" font-size="9.5" fill="#6b7280" class="mono">id UUID  PK</text>
+<text x="1170" y="719" font-size="9.5" fill="#6b7280" class="mono">ontology_version · scope_filter</text>
+<text x="1170" y="734" font-size="9.5" fill="#6b7280" class="mono">mode: ATOMIC | CANARY | ROLLBACK</text>
+<text x="1170" y="749" font-size="9.5" fill="#6b7280" class="mono">status · effective_at</text>
+<text x="1170" y="764" font-size="9.5" fill="#6b7280" class="mono">created_by</text>
+<text x="630" y="877.5" font-size="12" font-weight="700" fill="#111827" class="mono">VIEW bw_current_truth</text>
+<text x="630" y="900" font-size="9.5" fill="#6b7280" class="mono">SELECT * FROM bw_context_unit</text>
+<text x="630" y="915" font-size="9.5" fill="#6b7280" class="mono">WHERE valid_to IS NULL AND superseded_by IS NULL</text>
+<text x="630" y="930" font-size="9.5" fill="#6b7280" class="mono">  AND state = 'ACTIVE'</text>
+<text x="60" y="860" text-anchor="start" font-size="10" font-weight="400" fill="#6b7280">append-only 三表只增不改：状态机、归因、审计的可执行证据；</text>
+<text x="60" y="877" text-anchor="start" font-size="10" font-weight="400" fill="#6b7280">bw_unit_edge 双时态：调和写新边 + valid_to，不覆盖旧边；</text>
+<text x="60" y="894" text-anchor="start" font-size="10" font-weight="400" fill="#6b7280">图遍历先做递归 CTE，地基阶段 不引入 Neo4j；三索引：HNSW + BM25 + 边表；</text>
+<text x="60" y="911" text-anchor="start" font-size="10" font-weight="400" fill="#6b7280">"当前为真"走部分索引，不让每次召回扫全表；</text>
+<text x="60" y="928" text-anchor="start" font-size="10" font-weight="400" fill="#6b7280">bw_source DDL 随 地基阶段 补齐；生命周期五表必须一次建齐。</text>
+<rect x="1040" y="860" width="284" height="74" rx="8" ry="8" fill="#ffffff" stroke="#d1d5db" stroke-width="1"/>
+<text x="1052" y="878" font-size="10" font-weight="600" fill="#6b7280">图例</text>
+<line x1="1054" y1="892" x2="1080" y2="892" stroke="#2563eb" stroke-width="2" marker-end="url(#arrow-main)"/>
+<text x="1088" y="896.0" font-size="10" fill="#111827">外键 / 强引用（箭头指向 1 侧）</text>
+<line x1="1054" y1="912" x2="1080" y2="912" stroke="#6b7280" stroke-width="2" stroke-dasharray="4,2" marker-end="url(#arrow-gray)"/>
+<text x="1088" y="916.0" font-size="10" fill="#111827">派生 / 自引用（虚线或无箭头）</text>
+</svg>

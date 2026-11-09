@@ -1,0 +1,88 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1320 860" width="1320" height="860">
+<style>text{font-family:'Helvetica Neue', Helvetica, Arial, 'PingFang SC', 'Hiragino Sans GB', 'Microsoft YaHei', 'SimHei', sans-serif;}.mono{font-family:ui-monospace,SFMono-Regular,Menlo,Consolas,monospace;}</style>
+<defs>
+<marker id="arrow-main" markerWidth="10" markerHeight="7" refX="9" refY="3.5" orient="auto"><polygon points="0 0, 10 3.5, 0 7" fill="#2563eb"/></marker>
+<marker id="arrow-data" markerWidth="10" markerHeight="7" refX="9" refY="3.5" orient="auto"><polygon points="0 0, 10 3.5, 0 7" fill="#16a34a"/></marker>
+<marker id="arrow-ctrl" markerWidth="10" markerHeight="7" refX="9" refY="3.5" orient="auto"><polygon points="0 0, 10 3.5, 0 7" fill="#ea580c"/></marker>
+<marker id="arrow-async" markerWidth="10" markerHeight="7" refX="9" refY="3.5" orient="auto"><polygon points="0 0, 10 3.5, 0 7" fill="#9333ea"/></marker>
+<marker id="arrow-gray" markerWidth="10" markerHeight="7" refX="9" refY="3.5" orient="auto"><polygon points="0 0, 10 3.5, 0 7" fill="#6b7280"/></marker>
+<marker id="arrow-red" markerWidth="10" markerHeight="7" refX="9" refY="3.5" orient="auto"><polygon points="0 0, 10 3.5, 0 7" fill="#dc2626"/></marker>
+<marker id="arrow-teal" markerWidth="10" markerHeight="7" refX="9" refY="3.5" orient="auto"><polygon points="0 0, 10 3.5, 0 7" fill="#0d9488"/></marker>
+<marker id="arrow-ink" markerWidth="10" markerHeight="7" refX="9" refY="3.5" orient="auto"><polygon points="0 0, 10 3.5, 0 7" fill="#111827"/></marker>
+<filter id="soft" x="-20%%" y="-20%%" width="140%%" height="140%%"><feDropShadow dx="0" dy="1.5" stdDeviation="3" flood-color="#0f172a" flood-opacity="0.10"/></filter>
+</defs>
+<rect width="1320" height="860" fill="#ffffff"/>
+<text x="40" y="42" font-size="19" font-weight="700" fill="#111827">PAD 图 · 调和 / 冲突消解算法</text>
+<text x="40" y="64" font-size="12.5" fill="#6b7280">嵌套层级 = 控制结构（SEQ/SEL/LOOP）；冲突 ≠ 覆盖，败者软失效留 supersededBy</text>
+<path d="M 48.0,118.0 L 48.0,748.0" fill="none" stroke="#111827" stroke-width="1.2" stroke-linejoin="round"/>
+<path d="M 48.0,118.0 L 68.0,118.0" fill="none" stroke="#111827" stroke-width="1.2" stroke-linejoin="round"/>
+<path d="M 48.0,178.0 L 68.0,178.0" fill="none" stroke="#111827" stroke-width="1.2" stroke-linejoin="round"/>
+<path d="M 48.0,628.0 L 68.0,628.0" fill="none" stroke="#111827" stroke-width="1.2" stroke-linejoin="round"/>
+<path d="M 48.0,688.0 L 68.0,688.0" fill="none" stroke="#111827" stroke-width="1.2" stroke-linejoin="round"/>
+<path d="M 48.0,748.0 L 68.0,748.0" fill="none" stroke="#111827" stroke-width="1.2" stroke-linejoin="round"/>
+<path d="M 128.0,238.0 L 128.0,606.0" fill="none" stroke="#111827" stroke-width="1.2" stroke-linejoin="round"/>
+<path d="M 128.0,238.0 L 148.0,238.0" fill="none" stroke="#111827" stroke-width="1.2" stroke-linejoin="round"/>
+<path d="M 128.0,458.0 L 148.0,458.0" fill="none" stroke="#111827" stroke-width="1.2" stroke-linejoin="round"/>
+<path d="M 228.0,296.0 L 228.0,396.0" fill="none" stroke="#111827" stroke-width="1.2" stroke-linejoin="round"/>
+<path d="M 228.0,296.0 L 248.0,296.0" fill="none" stroke="#111827" stroke-width="1.2" stroke-linejoin="round"/>
+<path d="M 228.0,346.0 L 248.0,346.0" fill="none" stroke="#111827" stroke-width="1.2" stroke-linejoin="round"/>
+<path d="M 228.0,396.0 L 248.0,396.0" fill="none" stroke="#111827" stroke-width="1.2" stroke-linejoin="round"/>
+<path d="M 228.0,516.0 L 228.0,566.0" fill="none" stroke="#111827" stroke-width="1.2" stroke-linejoin="round"/>
+<path d="M 228.0,516.0 L 248.0,516.0" fill="none" stroke="#111827" stroke-width="1.2" stroke-linejoin="round"/>
+<path d="M 228.0,566.0 L 248.0,566.0" fill="none" stroke="#111827" stroke-width="1.2" stroke-linejoin="round"/>
+<rect x="60" y="96" width="520" height="44" rx="8" ry="8" fill="#eff6ff" stroke="#bfdbfe" stroke-width="1.5"/>
+<rect x="60" y="156" width="520" height="44" rx="8" ry="8" fill="#f1f5f9" stroke="#cbd5e1" stroke-width="1.5"/>
+<rect x="140" y="216" width="520" height="44" rx="8" ry="8" fill="#fefce8" stroke="#fde68a" stroke-width="1.5"/>
+<rect x="240" y="276" width="460" height="40" rx="8" ry="8" fill="#fef2f2" stroke="#fecaca" stroke-width="1.5"/>
+<rect x="240" y="326" width="460" height="40" rx="8" ry="8" fill="#f0fdf4" stroke="#bbf7d0" stroke-width="1.5"/>
+<rect x="240" y="376" width="460" height="40" rx="8" ry="8" fill="#f9fafb" stroke="#e5e7eb" stroke-width="1.5"/>
+<rect x="140" y="436" width="520" height="44" rx="8" ry="8" fill="#fefce8" stroke="#fde68a" stroke-width="1.5"/>
+<rect x="240" y="496" width="460" height="40" rx="8" ry="8" fill="#f0fdf4" stroke="#bbf7d0" stroke-width="1.5"/>
+<rect x="240" y="546" width="460" height="40" rx="8" ry="8" fill="#fff7ed" stroke="#fed7aa" stroke-width="1.5"/>
+<rect x="60" y="606" width="520" height="44" rx="8" ry="8" fill="#eff6ff" stroke="#bfdbfe" stroke-width="1.5"/>
+<rect x="60" y="666" width="520" height="44" rx="8" ry="8" fill="#eff6ff" stroke="#bfdbfe" stroke-width="1.5"/>
+<rect x="60" y="726" width="520" height="44" rx="8" ry="8" fill="#f0fdf4" stroke="#bbf7d0" stroke-width="1.5"/>
+<rect x="760" y="96" width="520" height="132" rx="8" ry="8" fill="#f0fdfa" stroke="#99f6e4" stroke-width="1.5"/>
+<rect x="760" y="248" width="520" height="108" rx="8" ry="8" fill="#fef2f2" stroke="#fecaca" stroke-width="1.5"/>
+<rect x="760" y="376" width="520" height="84" rx="8" ry="8" fill="#eff6ff" stroke="#bfdbfe" stroke-width="1.5"/>
+<text x="320.0" y="114.6" text-anchor="middle" font-size="11.5" font-weight="600" fill="#111827">输入</text>
+<text x="320.0" y="128.9" text-anchor="middle" font-size="9.5" fill="#6b7280">新候选 C + 同指称现有集 E（按 entity/QID 聚类）</text>
+<text x="320.0" y="174.6" text-anchor="middle" font-size="11.5" font-weight="600" fill="#111827">LOOP  对 E 中每个 e</text>
+<text x="320.0" y="188.9" text-anchor="middle" font-size="9.5" fill="#6b7280">SEQ 内层逐条调和</text>
+<text x="400.0" y="234.6" text-anchor="middle" font-size="11.5" font-weight="600" fill="#111827">SEL  rel = relate(C, e)</text>
+<text x="400.0" y="248.9" text-anchor="middle" font-size="9.5" fill="#6b7280">ENTAILS / CONTRADICTS / OVERLAPS / UNRELATED</text>
+<text x="470.0" y="292.8" text-anchor="middle" font-size="11" font-weight="600" fill="#111827">CONTRADICTS</text>
+<text x="470.0" y="306.3" text-anchor="middle" font-size="9" fill="#6b7280">→ 冲突消解（见下 SEL）</text>
+<text x="470.0" y="342.8" text-anchor="middle" font-size="11" font-weight="600" fill="#111827">ENTAILS / OVERLAPS</text>
+<text x="470.0" y="356.3" text-anchor="middle" font-size="9" fill="#6b7280">→ 挂边合并，不覆盖旧值</text>
+<text x="470.0" y="392.8" text-anchor="middle" font-size="11" font-weight="600" fill="#111827">UNRELATED</text>
+<text x="470.0" y="406.3" text-anchor="middle" font-size="9" fill="#6b7280">→ C 直接新增为独立 unit</text>
+<text x="400.0" y="454.6" text-anchor="middle" font-size="11.5" font-weight="600" fill="#111827">冲突消解 · 优先级裁决</text>
+<text x="400.0" y="468.9" text-anchor="middle" font-size="9.5" fill="#6b7280">scope&gt;origin&gt;时间&gt;confidence（见右）</text>
+<text x="470.0" y="512.8" text-anchor="middle" font-size="11" font-weight="600" fill="#111827">可裁决</text>
+<text x="470.0" y="526.3" text-anchor="middle" font-size="9" fill="#6b7280">胜 ACTIVE / 败 SUPERSEDED(soft) + 写 edge</text>
+<text x="470.0" y="562.8" text-anchor="middle" font-size="11" font-weight="600" fill="#111827">不可裁决</text>
+<text x="470.0" y="576.3" text-anchor="middle" font-size="9" fill="#6b7280">双方 CONFLICTED + 进人审 + 成对召回</text>
+<text x="320.0" y="624.6" text-anchor="middle" font-size="11.5" font-weight="600" fill="#111827">写 bi-temporal</text>
+<text x="320.0" y="638.9" text-anchor="middle" font-size="9.5" fill="#6b7280">validFrom / validTo / supersededBy / bw_unit_edge</text>
+<text x="320.0" y="684.6" text-anchor="middle" font-size="11.5" font-weight="600" fill="#111827">写 bw_lifecycle_event</text>
+<text x="320.0" y="698.9" text-anchor="middle" font-size="9.5" fill="#6b7280">append-only，无事件的状态变化 = bug</text>
+<text x="320.0" y="744.6" text-anchor="middle" font-size="11.5" font-weight="600" fill="#111827">输出</text>
+<text x="320.0" y="758.9" text-anchor="middle" font-size="9.5" fill="#6b7280">调和后 unit 集 + 边 + 事件（供 发布）</text>
+<text x="1020.0" y="128.4" text-anchor="middle" font-size="12" font-weight="600" fill="#111827">优先级裁决顺序（高→低）</text>
+<text x="1020.0" y="143.4" text-anchor="middle" font-size="10" fill="#6b7280">先比较 scope：更具体者胜（子 scope &gt; 父 scope）</text>
+<text x="1020.0" y="158.4" text-anchor="middle" font-size="10" fill="#6b7280">再比较 origin：更可信者胜（OBSERVED &gt; DECLARED &gt; DISTILLED）</text>
+<text x="1020.0" y="173.4" text-anchor="middle" font-size="10" fill="#6b7280">再比较采集时间：更新者胜（source_published_at）</text>
+<text x="1020.0" y="188.4" text-anchor="middle" font-size="10" fill="#6b7280">最后比较 confidence：更高者胜</text>
+<text x="1020.0" y="203.4" text-anchor="middle" font-size="10" fill="#6b7280">同级仍平 → 判「不可裁决」，转 CONFLICTED</text>
+<text x="1020.0" y="283.4" text-anchor="middle" font-size="12" font-weight="600" fill="#111827">冲突 ≠ 覆盖（三纪律）</text>
+<text x="1020.0" y="298.4" text-anchor="middle" font-size="10" fill="#6b7280">不物理覆盖旧值；败者软失效留 supersededBy</text>
+<text x="1020.0" y="313.4" text-anchor="middle" font-size="10" fill="#6b7280">CONFLICTED 召回必须成对返回，不单边裁决</text>
+<text x="1020.0" y="328.4" text-anchor="middle" font-size="10" fill="#6b7280">时间旅行可查：validTo 之前的版本仍可见</text>
+<text x="1020.0" y="406.9" text-anchor="middle" font-size="12" font-weight="600" fill="#111827">bi-temporal 双时间轴</text>
+<text x="1020.0" y="421.9" text-anchor="middle" font-size="10" fill="#6b7280">事件时间（源何时生效）vs 系统时间（何时入库/失效）</text>
+<text x="1020.0" y="436.9" text-anchor="middle" font-size="10" fill="#6b7280">纠正历史不改写，只追加新版本</text>
+<text x="760" y="492" text-anchor="start" font-size="10.5" font-weight="400" fill="#6b7280">不变式：默认软失效（留墓碑）；状态转移必写 bw_lifecycle_event；</text>
+<text x="760" y="509" text-anchor="start" font-size="10.5" font-weight="400" fill="#6b7280">仅 →SUPERSEDED / →ERASED 不可逆，其余可回退以支持误判恢复。</text>
+<text x="760" y="526" text-anchor="start" font-size="10.5" font-weight="400" fill="#6b7280">调和是增量优先：只重算受影响的同指称簇，不做全量重扫。</text>
+</svg>

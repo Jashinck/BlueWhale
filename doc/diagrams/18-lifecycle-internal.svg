@@ -1,0 +1,103 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1400 1000" width="1400" height="1000">
+<style>text{font-family:'Helvetica Neue', Helvetica, Arial, 'PingFang SC', 'Hiragino Sans GB', 'Microsoft YaHei', 'SimHei', sans-serif;}.mono{font-family:ui-monospace,SFMono-Regular,Menlo,Consolas,monospace;}</style>
+<defs>
+<marker id="arrow-main" markerWidth="10" markerHeight="7" refX="9" refY="3.5" orient="auto"><polygon points="0 0, 10 3.5, 0 7" fill="#2563eb"/></marker>
+<marker id="arrow-data" markerWidth="10" markerHeight="7" refX="9" refY="3.5" orient="auto"><polygon points="0 0, 10 3.5, 0 7" fill="#16a34a"/></marker>
+<marker id="arrow-ctrl" markerWidth="10" markerHeight="7" refX="9" refY="3.5" orient="auto"><polygon points="0 0, 10 3.5, 0 7" fill="#ea580c"/></marker>
+<marker id="arrow-async" markerWidth="10" markerHeight="7" refX="9" refY="3.5" orient="auto"><polygon points="0 0, 10 3.5, 0 7" fill="#9333ea"/></marker>
+<marker id="arrow-gray" markerWidth="10" markerHeight="7" refX="9" refY="3.5" orient="auto"><polygon points="0 0, 10 3.5, 0 7" fill="#6b7280"/></marker>
+<marker id="arrow-red" markerWidth="10" markerHeight="7" refX="9" refY="3.5" orient="auto"><polygon points="0 0, 10 3.5, 0 7" fill="#dc2626"/></marker>
+<marker id="arrow-teal" markerWidth="10" markerHeight="7" refX="9" refY="3.5" orient="auto"><polygon points="0 0, 10 3.5, 0 7" fill="#0d9488"/></marker>
+<marker id="arrow-ink" markerWidth="10" markerHeight="7" refX="9" refY="3.5" orient="auto"><polygon points="0 0, 10 3.5, 0 7" fill="#111827"/></marker>
+<filter id="soft" x="-20%%" y="-20%%" width="140%%" height="140%%"><feDropShadow dx="0" dy="1.5" stdDeviation="3" flood-color="#0f172a" flood-opacity="0.10"/></filter>
+</defs>
+<rect width="1400" height="1000" fill="#ffffff"/>
+<text x="40" y="42" font-size="19" font-weight="700" fill="#111827">生命周期与治理 · 内部架构</text>
+<text x="40" y="64" font-size="12.5" fill="#6b7280">状态机唯一入口 + 四时间轴 + 冲突调和 + 受控销毁 + 血缘影响分析 + 五个周期 job + 端口 + 存储</text>
+<rect x="40" y="84" width="1320" height="880" rx="12" ry="12" fill="#fef2f2" stroke="#fecaca" stroke-width="1.5" stroke-dasharray="6,4" opacity="0.55"/>
+<text x="54" y="106" font-size="13" font-weight="600" fill="#6b7280" letter-spacing="0.4">生命周期与治理模块</text>
+<path d="M 400.0,164.0 L 400.0,176.0" fill="none" stroke="#2563eb" stroke-width="1.6" marker-end="url(#arrow-main)" stroke-linejoin="round"/>
+<path d="M 400.0,228.0 L 400.0,240.0" fill="none" stroke="#2563eb" stroke-width="1.6" marker-end="url(#arrow-main)" stroke-linejoin="round"/>
+<path d="M 400.0,292.0 L 400.0,304.0" fill="none" stroke="#2563eb" stroke-width="1.6" marker-end="url(#arrow-main)" stroke-linejoin="round"/>
+<path d="M 400.0,356.0 L 400.0,368.0" fill="none" stroke="#2563eb" stroke-width="1.6" marker-end="url(#arrow-main)" stroke-linejoin="round"/>
+<path d="M 400.0,420.0 L 400.0,432.0" fill="none" stroke="#2563eb" stroke-width="1.6" marker-end="url(#arrow-main)" stroke-linejoin="round"/>
+<path d="M 400.0,484.0 L 400.0,496.0" fill="none" stroke="#2563eb" stroke-width="1.6" marker-end="url(#arrow-main)" stroke-linejoin="round"/>
+<path d="M 740.0,202.0 L 770.0,202.0 L 770.0,621.0 L 825.0,621.0" fill="none" stroke="#ea580c" stroke-width="1.6" marker-end="url(#arrow-ctrl)" stroke-linejoin="round"/>
+<path d="M 800.0,306.0 L 788.0,306.0 L 788.0,394.0 L 740.0,394.0" fill="none" stroke="#0d9488" stroke-width="1.6" stroke-dasharray="4,3" marker-end="url(#arrow-teal)" stroke-linejoin="round"/>
+<path d="M 1070.0,518.0 L 1070.0,596.0" fill="none" stroke="#6b7280" stroke-width="1.6" marker-end="url(#arrow-gray)" stroke-linejoin="round"/>
+<text x="792" y="400" text-anchor="end" font-size="9.5" font-weight="500" fill="#ea580c">写事件</text>
+<text x="792" y="348" text-anchor="end" font-size="9.5" font-weight="500" fill="#0d9488">销毁</text>
+<text x="1078" y="556" text-anchor="start" font-size="9.5" font-weight="500" fill="#6b7280">实现</text>
+<rect x="60" y="120" width="680" height="44" rx="8" ry="8" fill="#f9fafb" stroke="#e5e7eb" stroke-width="1.5"/>
+<rect x="60" y="176" width="680" height="52" rx="8" ry="8" fill="#fef2f2" stroke="#fecaca" stroke-width="1.5"/>
+<rect x="60" y="240" width="680" height="52" rx="8" ry="8" fill="#fef2f2" stroke="#fecaca" stroke-width="1.5"/>
+<rect x="60" y="304" width="680" height="52" rx="8" ry="8" fill="#fef2f2" stroke="#fecaca" stroke-width="1.5"/>
+<rect x="60" y="368" width="680" height="52" rx="8" ry="8" fill="#fef2f2" stroke="#fecaca" stroke-width="1.5"/>
+<rect x="60" y="432" width="680" height="52" rx="8" ry="8" fill="#fef2f2" stroke="#fecaca" stroke-width="1.5"/>
+<rect x="60" y="496" width="680" height="44" rx="8" ry="8" fill="#f0fdf4" stroke="#bbf7d0" stroke-width="1.5"/>
+<rect x="800" y="128" width="540" height="44" rx="8" ry="8" fill="#f0fdfa" stroke="#99f6e4" stroke-width="1.5"/>
+<rect x="800" y="180" width="540" height="44" rx="8" ry="8" fill="#f0fdfa" stroke="#99f6e4" stroke-width="1.5"/>
+<rect x="800" y="232" width="540" height="44" rx="8" ry="8" fill="#f0fdfa" stroke="#99f6e4" stroke-width="1.5"/>
+<rect x="800" y="284" width="540" height="44" rx="8" ry="8" fill="#f0fdfa" stroke="#99f6e4" stroke-width="1.5"/>
+<rect x="800" y="336" width="540" height="44" rx="8" ry="8" fill="#f0fdfa" stroke="#99f6e4" stroke-width="1.5"/>
+<rect x="800" y="420" width="540" height="44" rx="8" ry="8" fill="#faf5ff" stroke="#ddd6fe" stroke-width="1.5"/>
+<rect x="800" y="474" width="540" height="44" rx="8" ry="8" fill="#faf5ff" stroke="#ddd6fe" stroke-width="1.5"/>
+<path d="M 825.0 608 L 825.0 634 A 75.0 12 0 0 0 975.0 634 L 975.0 608 A 75.0 12 0 0 0 825.0 608 Z" fill="#eff6ff" stroke="#bfdbfe" stroke-width="1.5"/>
+<ellipse cx="900" cy="608" rx="75.0" ry="12" fill="#ffffff" stroke="#bfdbfe" stroke-width="1.5"/>
+<path d="M 1005.0 608 L 1005.0 634 A 75.0 12 0 0 0 1155.0 634 L 1155.0 608 A 75.0 12 0 0 0 1005.0 608 Z" fill="#eff6ff" stroke="#bfdbfe" stroke-width="1.5"/>
+<ellipse cx="1080" cy="608" rx="75.0" ry="12" fill="#ffffff" stroke="#bfdbfe" stroke-width="1.5"/>
+<path d="M 825.0 688 L 825.0 714 A 75.0 12 0 0 0 975.0 714 L 975.0 688 A 75.0 12 0 0 0 825.0 688 Z" fill="#eff6ff" stroke="#bfdbfe" stroke-width="1.5"/>
+<ellipse cx="900" cy="688" rx="75.0" ry="12" fill="#ffffff" stroke="#bfdbfe" stroke-width="1.5"/>
+<path d="M 1005.0 688 L 1005.0 714 A 75.0 12 0 0 0 1155.0 714 L 1155.0 688 A 75.0 12 0 0 0 1005.0 688 Z" fill="#eff6ff" stroke="#bfdbfe" stroke-width="1.5"/>
+<ellipse cx="1080" cy="688" rx="75.0" ry="12" fill="#ffffff" stroke="#bfdbfe" stroke-width="1.5"/>
+<path d="M 825.0 768 L 825.0 794 A 75.0 12 0 0 0 975.0 794 L 975.0 768 A 75.0 12 0 0 0 825.0 768 Z" fill="#eff6ff" stroke="#bfdbfe" stroke-width="1.5"/>
+<ellipse cx="900" cy="768" rx="75.0" ry="12" fill="#ffffff" stroke="#bfdbfe" stroke-width="1.5"/>
+<text x="400.0" y="138.6" text-anchor="middle" font-size="12.5" font-weight="600" fill="#111827">触发 · Transition / Actor</text>
+<text x="400.0" y="153.6" text-anchor="middle" font-size="10" fill="#6b7280">源变更 · nCorrected 超阈 · 复审逾期 · 合规请求</text>
+<text x="400.0" y="198.6" text-anchor="middle" font-size="12.5" font-weight="600" fill="#111827">StateMachine</text>
+<text x="400.0" y="213.6" text-anchor="middle" font-size="10" fill="#6b7280">transition() 唯一入口：每次转移必写 lifecycle event</text>
+<text x="400.0" y="262.6" text-anchor="middle" font-size="12.5" font-weight="600" fill="#111827">TimelineService</text>
+<text x="400.0" y="277.6" text-anchor="middle" font-size="10" fill="#6b7280">四时间轴（现实/系统/采集/治理）读写</text>
+<text x="400.0" y="326.6" text-anchor="middle" font-size="12.5" font-weight="600" fill="#111827">ConflictResolver</text>
+<text x="400.0" y="341.6" text-anchor="middle" font-size="10" fill="#6b7280">调和 PAD：裁决顺序 + bi-temporal 写边</text>
+<text x="400.0" y="390.6" text-anchor="middle" font-size="12.5" font-weight="600" fill="#111827">ErasureEngine</text>
+<text x="400.0" y="405.6" text-anchor="middle" font-size="10" fill="#6b7280">受控销毁：legal hold 判定 + 级联 + 召回探针验证</text>
+<text x="400.0" y="454.6" text-anchor="middle" font-size="12.5" font-weight="600" fill="#111827">ImpactService</text>
+<text x="400.0" y="469.6" text-anchor="middle" font-size="10" fill="#6b7280">血缘影响分析 impact(unitId, depth)</text>
+<text x="400.0" y="514.6" text-anchor="middle" font-size="12.5" font-weight="600" fill="#111827">输出 · TransitionResult</text>
+<text x="400.0" y="529.6" text-anchor="middle" font-size="10" fill="#6b7280">状态转移结果 + 事件证据（append-only）</text>
+<text x="800" y="112" text-anchor="start" font-size="12.5" font-weight="600" fill="#111827">周期 job（各自独立幂等、可重入、可单跑）</text>
+<text x="1070.0" y="146.4" text-anchor="middle" font-size="12" font-weight="600" fill="#111827">ReconcileJob</text>
+<text x="1070.0" y="161.4" text-anchor="middle" font-size="10" fill="#6b7280">冲突调和，源变更触发 + 兜底轮询</text>
+<text x="1070.0" y="198.4" text-anchor="middle" font-size="12" font-weight="600" fill="#111827">ReviewJob</text>
+<text x="1070.0" y="213.4" text-anchor="middle" font-size="10" fill="#6b7280">复审逾期扫描 + 自动续期，日级</text>
+<text x="1070.0" y="250.4" text-anchor="middle" font-size="12" font-weight="600" fill="#111827">RetentionJob</text>
+<text x="1070.0" y="265.4" text-anchor="middle" font-size="10" fill="#6b7280">保留期到期 → EXPIRED，日级</text>
+<text x="1070.0" y="302.4" text-anchor="middle" font-size="12" font-weight="600" fill="#111827">ErasureJob</text>
+<text x="1070.0" y="317.4" text-anchor="middle" font-size="10" fill="#6b7280">EXPIRED → ERASED，须校验 legal hold</text>
+<text x="1070.0" y="354.4" text-anchor="middle" font-size="12" font-weight="600" fill="#111827">PropagationJob</text>
+<text x="1070.0" y="369.4" text-anchor="middle" font-size="10" fill="#6b7280">血缘传播，事件触发</text>
+<text x="800" y="404" text-anchor="start" font-size="12.5" font-weight="600" fill="#111827">端口（SPI，定义于 domain）</text>
+<text x="1070.0" y="438.4" text-anchor="middle" font-size="12" font-weight="600" fill="#111827">ClockPort</text>
+<text x="1070.0" y="453.4" text-anchor="middle" font-size="10" fill="#6b7280">时间源（四时间轴 / 衰减 / 复审到期）</text>
+<text x="1070.0" y="492.4" text-anchor="middle" font-size="12" font-weight="600" fill="#111827">PolicyPort</text>
+<text x="1070.0" y="507.4" text-anchor="middle" font-size="10" fill="#6b7280">保留策略 / 衰减策略 / 失效规则</text>
+<text x="800" y="548" text-anchor="start" font-size="12.5" font-weight="600" fill="#111827">存储</text>
+<text x="900" y="634.3" text-anchor="middle" font-size="10.5" font-weight="600" fill="#111827">bw_lifecycle_event</text>
+<text x="1080" y="634.5" text-anchor="middle" font-size="11" font-weight="600" fill="#111827">bw_lineage</text>
+<text x="900" y="714.5" text-anchor="middle" font-size="11" font-weight="600" fill="#111827">bw_asset</text>
+<text x="1080" y="714.5" text-anchor="middle" font-size="11" font-weight="600" fill="#111827">bw_erasure</text>
+<text x="900" y="794.5" text-anchor="middle" font-size="11" font-weight="600" fill="#111827">bw_review</text>
+<text x="560" y="848" text-anchor="start" font-size="10.5" font-weight="400" fill="#6b7280">三不变式：默认软失效；状态转移必写事件；不可逆转移仅 →SUPERSEDED 与 →ERASED。</text>
+<text x="560" y="865" text-anchor="start" font-size="10.5" font-weight="400" fill="#6b7280">legal hold 优先于一切擦除；ERASED 只留墓碑（bw_erasure），召回探针验证不可见。</text>
+<rect x="60" y="830" width="244" height="114" rx="8" ry="8" fill="#ffffff" stroke="#d1d5db" stroke-width="1"/>
+<text x="72" y="848" font-size="11" font-weight="600" fill="#6b7280">图例</text>
+<line x1="74" y1="862" x2="100" y2="862" stroke="#2563eb" stroke-width="2" marker-end="url(#arrow-main)"/>
+<text x="108" y="866.0" font-size="11" fill="#111827">引擎流转</text>
+<line x1="74" y1="882" x2="100" y2="882" stroke="#ea580c" stroke-width="2" marker-end="url(#arrow-ctrl)"/>
+<text x="108" y="886.0" font-size="11" fill="#111827">事件写入（append-only）</text>
+<line x1="74" y1="902" x2="100" y2="902" stroke="#0d9488" stroke-width="2" stroke-dasharray="4,3" marker-end="url(#arrow-teal)"/>
+<text x="108" y="906.0" font-size="11" fill="#111827">job 触发（异步）</text>
+<line x1="74" y1="922" x2="100" y2="922" stroke="#6b7280" stroke-width="2" marker-end="url(#arrow-gray)"/>
+<text x="108" y="926.0" font-size="11" fill="#111827">端口实现</text>
+</svg>

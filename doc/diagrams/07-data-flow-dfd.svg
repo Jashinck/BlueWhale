@@ -1,0 +1,239 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1600 1000" width="1600" height="1000">
+<style>text{font-family:'Helvetica Neue', Helvetica, Arial, 'PingFang SC', 'Hiragino Sans GB', 'Microsoft YaHei', 'SimHei', sans-serif;}.mono{font-family:ui-monospace,SFMono-Regular,Menlo,Consolas,monospace;}</style>
+<defs>
+<marker id="arrow-main" markerWidth="10" markerHeight="7" refX="9" refY="3.5" orient="auto"><polygon points="0 0, 10 3.5, 0 7" fill="#2563eb"/></marker>
+<marker id="arrow-data" markerWidth="10" markerHeight="7" refX="9" refY="3.5" orient="auto"><polygon points="0 0, 10 3.5, 0 7" fill="#16a34a"/></marker>
+<marker id="arrow-ctrl" markerWidth="10" markerHeight="7" refX="9" refY="3.5" orient="auto"><polygon points="0 0, 10 3.5, 0 7" fill="#ea580c"/></marker>
+<marker id="arrow-async" markerWidth="10" markerHeight="7" refX="9" refY="3.5" orient="auto"><polygon points="0 0, 10 3.5, 0 7" fill="#9333ea"/></marker>
+<marker id="arrow-gray" markerWidth="10" markerHeight="7" refX="9" refY="3.5" orient="auto"><polygon points="0 0, 10 3.5, 0 7" fill="#6b7280"/></marker>
+<marker id="arrow-red" markerWidth="10" markerHeight="7" refX="9" refY="3.5" orient="auto"><polygon points="0 0, 10 3.5, 0 7" fill="#dc2626"/></marker>
+<marker id="arrow-teal" markerWidth="10" markerHeight="7" refX="9" refY="3.5" orient="auto"><polygon points="0 0, 10 3.5, 0 7" fill="#0d9488"/></marker>
+<marker id="arrow-ink" markerWidth="10" markerHeight="7" refX="9" refY="3.5" orient="auto"><polygon points="0 0, 10 3.5, 0 7" fill="#111827"/></marker>
+<filter id="soft" x="-20%%" y="-20%%" width="140%%" height="140%%"><feDropShadow dx="0" dy="1.5" stdDeviation="3" flood-color="#0f172a" flood-opacity="0.10"/></filter>
+</defs>
+<rect width="1600" height="1000" fill="#ffffff"/>
+<text x="40" y="42" font-size="19" font-weight="700" fill="#111827">BlueWhale Context 数据流转图（DFD）—— 每一跳的数据形态与目标存储</text>
+<text x="40" y="64" font-size="12.5" fill="#6b7280">知识写入、记忆写入、上下文读取与反馈通过三条通道连接</text>
+<rect x="40" y="84" width="1520" height="262" rx="12" ry="12" fill="#eff6ff" stroke="#bfdbfe" stroke-width="1.5" stroke-dasharray="6,4" opacity="0.55"/>
+<text x="54" y="106" font-size="13" font-weight="600" fill="#6b7280" letter-spacing="0.4">知识工程写入流</text>
+<rect x="40" y="358" width="1520" height="242" rx="12" ry="12" fill="#f0fdf4" stroke="#bbf7d0" stroke-width="1.5" stroke-dasharray="6,4" opacity="0.55"/>
+<text x="54" y="380" font-size="13" font-weight="600" fill="#6b7280" letter-spacing="0.4">记忆工程写入流</text>
+<rect x="40" y="612" width="1520" height="242" rx="12" ry="12" fill="#f0fdfa" stroke="#99f6e4" stroke-width="1.5" stroke-dasharray="6,4" opacity="0.55"/>
+<text x="54" y="634" font-size="13" font-weight="600" fill="#6b7280" letter-spacing="0.4">上下文读取流与使用反馈</text>
+<path d="M 168.0,139.0 L 184.0,139.0" fill="none" stroke="#2563eb" stroke-width="1.6" marker-end="url(#arrow-main)" stroke-linejoin="round"/>
+<path d="M 336.0,139.0 L 400.0,139.0" fill="none" stroke="#2563eb" stroke-width="1.6" marker-end="url(#arrow-main)" stroke-linejoin="round"/>
+<path d="M 552.0,139.0 L 616.0,139.0" fill="none" stroke="#2563eb" stroke-width="1.6" marker-end="url(#arrow-main)" stroke-linejoin="round"/>
+<path d="M 768.0,139.0 L 832.0,139.0" fill="none" stroke="#2563eb" stroke-width="1.6" marker-end="url(#arrow-main)" stroke-linejoin="round"/>
+<path d="M 984.0,139.0 L 1048.0,139.0" fill="none" stroke="#2563eb" stroke-width="1.6" marker-end="url(#arrow-main)" stroke-linejoin="round"/>
+<path d="M 1200.0,139.0 L 1264.0,139.0" fill="none" stroke="#2563eb" stroke-width="1.6" marker-end="url(#arrow-main)" stroke-linejoin="round"/>
+<path d="M 368.0,166.0 L 368.0,172.0" fill="none" stroke="#6b7280" stroke-width="1.0" stroke-dasharray="2,2" stroke-linejoin="round"/>
+<path d="M 584.0,166.0 L 584.0,172.0" fill="none" stroke="#6b7280" stroke-width="1.0" stroke-dasharray="2,2" stroke-linejoin="round"/>
+<path d="M 800.0,166.0 L 800.0,172.0" fill="none" stroke="#6b7280" stroke-width="1.0" stroke-dasharray="2,2" stroke-linejoin="round"/>
+<path d="M 1016.0,166.0 L 1016.0,172.0" fill="none" stroke="#6b7280" stroke-width="1.0" stroke-dasharray="2,2" stroke-linejoin="round"/>
+<path d="M 1232.0,166.0 L 1232.0,172.0" fill="none" stroke="#6b7280" stroke-width="1.0" stroke-dasharray="2,2" stroke-linejoin="round"/>
+<path d="M 1340.0,166.0 L 1340.0,250.0" fill="none" stroke="#2563eb" stroke-width="1.6" marker-end="url(#arrow-main)" stroke-linejoin="round"/>
+<path d="M 1240.0,290.0 L 248.0,290.0 Q 240.0,290.0 240.0,282.0 L 240.0,166.0" fill="none" stroke="#6b7280" stroke-width="1.4" stroke-dasharray="5,3" marker-end="url(#arrow-gray)" stroke-linejoin="round"/>
+<path d="M 168.0,413.0 L 184.0,413.0" fill="none" stroke="#16a34a" stroke-width="1.6" marker-end="url(#arrow-data)" stroke-linejoin="round"/>
+<path d="M 336.0,413.0 L 400.0,413.0" fill="none" stroke="#16a34a" stroke-width="1.6" marker-end="url(#arrow-data)" stroke-linejoin="round"/>
+<path d="M 552.0,413.0 L 616.0,413.0" fill="none" stroke="#16a34a" stroke-width="1.6" marker-end="url(#arrow-data)" stroke-linejoin="round"/>
+<path d="M 768.0,413.0 L 832.0,413.0" fill="none" stroke="#16a34a" stroke-width="1.6" marker-end="url(#arrow-data)" stroke-linejoin="round"/>
+<path d="M 984.0,413.0 L 1048.0,413.0" fill="none" stroke="#16a34a" stroke-width="1.6" marker-end="url(#arrow-data)" stroke-linejoin="round"/>
+<path d="M 1200.0,413.0 L 1264.0,413.0" fill="none" stroke="#16a34a" stroke-width="1.6" marker-end="url(#arrow-data)" stroke-linejoin="round"/>
+<path d="M 368.0,440.0 L 368.0,446.0" fill="none" stroke="#6b7280" stroke-width="1.0" stroke-dasharray="2,2" stroke-linejoin="round"/>
+<path d="M 584.0,440.0 L 584.0,446.0" fill="none" stroke="#6b7280" stroke-width="1.0" stroke-dasharray="2,2" stroke-linejoin="round"/>
+<path d="M 800.0,440.0 L 800.0,446.0" fill="none" stroke="#6b7280" stroke-width="1.0" stroke-dasharray="2,2" stroke-linejoin="round"/>
+<path d="M 1016.0,440.0 L 1016.0,446.0" fill="none" stroke="#6b7280" stroke-width="1.0" stroke-dasharray="2,2" stroke-linejoin="round"/>
+<path d="M 1232.0,440.0 L 1232.0,446.0" fill="none" stroke="#6b7280" stroke-width="1.0" stroke-dasharray="2,2" stroke-linejoin="round"/>
+<path d="M 1340.0,440.0 L 1340.0,524.0" fill="none" stroke="#16a34a" stroke-width="1.6" marker-end="url(#arrow-data)" stroke-linejoin="round"/>
+<path d="M 168.0,667.0 L 184.0,667.0" fill="none" stroke="#2563eb" stroke-width="1.6" marker-end="url(#arrow-main)" stroke-linejoin="round"/>
+<path d="M 336.0,667.0 L 376.0,667.0" fill="none" stroke="#2563eb" stroke-width="1.6" marker-end="url(#arrow-main)" stroke-linejoin="round"/>
+<path d="M 528.0,667.0 L 568.0,667.0" fill="none" stroke="#2563eb" stroke-width="1.6" marker-end="url(#arrow-main)" stroke-linejoin="round"/>
+<path d="M 720.0,667.0 L 760.0,667.0" fill="none" stroke="#2563eb" stroke-width="1.6" marker-end="url(#arrow-main)" stroke-linejoin="round"/>
+<path d="M 912.0,667.0 L 952.0,667.0" fill="none" stroke="#2563eb" stroke-width="1.6" marker-end="url(#arrow-main)" stroke-linejoin="round"/>
+<path d="M 1104.0,667.0 L 1144.0,667.0" fill="none" stroke="#2563eb" stroke-width="1.6" marker-end="url(#arrow-main)" stroke-linejoin="round"/>
+<path d="M 1296.0,667.0 L 1336.0,667.0" fill="none" stroke="#2563eb" stroke-width="1.6" marker-end="url(#arrow-main)" stroke-linejoin="round"/>
+<path d="M 356.0,694.0 L 356.0,720.0" fill="none" stroke="#6b7280" stroke-width="1.0" stroke-dasharray="2,2" stroke-linejoin="round"/>
+<path d="M 548.0,694.0 L 548.0,720.0" fill="none" stroke="#6b7280" stroke-width="1.0" stroke-dasharray="2,2" stroke-linejoin="round"/>
+<path d="M 740.0,694.0 L 740.0,720.0" fill="none" stroke="#6b7280" stroke-width="1.0" stroke-dasharray="2,2" stroke-linejoin="round"/>
+<path d="M 932.0,694.0 L 932.0,720.0" fill="none" stroke="#6b7280" stroke-width="1.0" stroke-dasharray="2,2" stroke-linejoin="round"/>
+<path d="M 1124.0,694.0 L 1124.0,720.0" fill="none" stroke="#6b7280" stroke-width="1.0" stroke-dasharray="2,2" stroke-linejoin="round"/>
+<path d="M 1316.0,694.0 L 1316.0,720.0" fill="none" stroke="#6b7280" stroke-width="1.0" stroke-dasharray="2,2" stroke-linejoin="round"/>
+<path d="M 1412.0,694.0 L 1412.0,764.0 Q 1412.0,772.0 1404.0,772.0 L 1345.0,772.0 Q 1340.0,772.0 1340.0,777.0 L 1340.0,782.0" fill="none" stroke="#9333ea" stroke-width="1.6" stroke-dasharray="5,3" marker-end="url(#arrow-async)" stroke-linejoin="round"/>
+<path d="M 1340.0,580.0 L 1340.0,620.0 Q 1340.0,628.0 1332.0,628.0 L 650.0,628.0 Q 644.0,628.0 644.0,634.0 L 644.0,640.0" fill="none" stroke="#6b7280" stroke-width="1.8" stroke-dasharray="4,3" marker-end="url(#arrow-gray)" stroke-linejoin="round"/>
+<path d="M 1440.0,808.0 L 1500.0,808.0 Q 1508.0,808.0 1508.0,800.0 L 1508.0,270.0" fill="none" stroke="#9333ea" stroke-width="1.6" stroke-dasharray="5,3" stroke-linejoin="round"/>
+<path d="M 1508.0,270.0 L 1440.0,270.0" fill="none" stroke="#9333ea" stroke-width="1.8" stroke-dasharray="5,3" marker-end="url(#arrow-async)" stroke-linejoin="round"/>
+<path d="M 1508.0,540.0 L 1440.0,540.0" fill="none" stroke="#9333ea" stroke-width="1.8" stroke-dasharray="5,3" marker-end="url(#arrow-async)" stroke-linejoin="round"/>
+<path d="M 1340.0,386.0 L 1340.0,360.0 Q 1340.0,352.0 1332.0,352.0 L 916.0,352.0 Q 908.0,352.0 908.0,344.0 L 908.0,166.0" fill="none" stroke="#ea580c" stroke-width="1.8" stroke-dasharray="6,3" marker-end="url(#arrow-ctrl)" stroke-linejoin="round"/>
+<rect x="1349.0" y="201.9" width="46.8" height="14.2" rx="3" ry="3" fill="#ffffff" opacity="0.94"/>
+<text x="1352" y="210" text-anchor="start" font-size="9.5" font-weight="500" fill="#2563eb">发布写入</text>
+<rect x="623.2" y="275.9" width="233.5" height="14.2" rx="3" ry="3" fill="#ffffff" opacity="0.94"/>
+<text x="740" y="284" text-anchor="middle" font-size="9.5" font-weight="500" fill="#6b7280">源变更 / 复审逾期 → 增量重算（只重跑受影响子图）</text>
+<rect x="1349.0" y="475.9" width="27.4" height="14.2" rx="3" ry="3" fill="#ffffff" opacity="0.94"/>
+<text x="1352" y="484" text-anchor="start" font-size="9.5" font-weight="500" fill="#16a34a">写入</text>
+<rect x="1349.0" y="721.9" width="27.4" height="14.2" rx="3" ry="3" fill="#ffffff" opacity="0.94"/>
+<text x="1352" y="730" text-anchor="start" font-size="9.5" font-weight="500" fill="#9333ea">采集</text>
+<rect x="828.8" y="613.9" width="342.4" height="14.2" rx="3" ry="3" fill="#ffffff" opacity="0.94"/>
+<text x="1000" y="622" text-anchor="middle" font-size="9.5" font-weight="500" fill="#6b7280">读取召回：bw_context_unit 三索引 → 候选（知识工程/记忆工程 同一张表）</text>
+<text x="1444" y="262" text-anchor="start" font-size="9.3" font-weight="500" fill="#9333ea">归因→知识工程</text>
+<text x="1444" y="532" text-anchor="start" font-size="9.3" font-weight="500" fill="#9333ea">归因→记忆工程</text>
+<rect x="993.8" y="337.9" width="252.3" height="14.2" rx="3" ry="3" fill="#ffffff" opacity="0.94"/>
+<text x="1120" y="346" text-anchor="middle" font-size="9.5" font-weight="500" fill="#ea580c">晋升桥 Promotion（复盘判定 → 知识工程 规范化·消歧）</text>
+<rect x="56" y="112" width="112" height="54" rx="8" ry="8" fill="#f9fafb" stroke="#e5e7eb" stroke-width="1.5"/>
+<rect x="184" y="112" width="152" height="54" rx="8" ry="8" fill="#eff6ff" stroke="#bfdbfe" stroke-width="1.5"/>
+<rect x="400" y="112" width="152" height="54" rx="8" ry="8" fill="#eff6ff" stroke="#bfdbfe" stroke-width="1.5"/>
+<rect x="616" y="112" width="152" height="54" rx="8" ry="8" fill="#eff6ff" stroke="#bfdbfe" stroke-width="1.5"/>
+<rect x="832" y="112" width="152" height="54" rx="8" ry="8" fill="#eff6ff" stroke="#bfdbfe" stroke-width="1.5"/>
+<rect x="1048" y="112" width="152" height="54" rx="8" ry="8" fill="#eff6ff" stroke="#bfdbfe" stroke-width="1.5"/>
+<rect x="1264" y="112" width="152" height="54" rx="8" ry="8" fill="#eff6ff" stroke="#bfdbfe" stroke-width="1.5"/>
+<rect x="276.0" y="172.0" width="184" height="48" rx="24.0" ry="24.0" fill="#eff6ff" stroke="#bfdbfe" stroke-width="1.2"/>
+<rect x="492.0" y="172.0" width="184" height="48" rx="24.0" ry="24.0" fill="#eff6ff" stroke="#bfdbfe" stroke-width="1.2"/>
+<rect x="708.0" y="172.0" width="184" height="48" rx="24.0" ry="24.0" fill="#eff6ff" stroke="#bfdbfe" stroke-width="1.2"/>
+<rect x="924.0" y="172.0" width="184" height="48" rx="24.0" ry="24.0" fill="#eff6ff" stroke="#bfdbfe" stroke-width="1.2"/>
+<rect x="1140.0" y="172.0" width="184" height="48" rx="24.0" ry="24.0" fill="#eff6ff" stroke="#bfdbfe" stroke-width="1.2"/>
+<path d="M 1240.0 262 L 1240.0 294 A 100.0 12 0 0 0 1440.0 294 L 1440.0 262 A 100.0 12 0 0 0 1240.0 262 Z" fill="#eff6ff" stroke="#bfdbfe" stroke-width="1.5"/>
+<ellipse cx="1340" cy="262" rx="100.0" ry="12" fill="#ffffff" stroke="#bfdbfe" stroke-width="1.5"/>
+<rect x="56" y="386" width="112" height="54" rx="8" ry="8" fill="#f9fafb" stroke="#e5e7eb" stroke-width="1.5"/>
+<rect x="184" y="386" width="152" height="54" rx="8" ry="8" fill="#f0fdf4" stroke="#bbf7d0" stroke-width="1.5"/>
+<rect x="400" y="386" width="152" height="54" rx="8" ry="8" fill="#f0fdf4" stroke="#bbf7d0" stroke-width="1.5"/>
+<rect x="616" y="386" width="152" height="54" rx="8" ry="8" fill="#f0fdf4" stroke="#bbf7d0" stroke-width="1.5"/>
+<rect x="832" y="386" width="152" height="54" rx="8" ry="8" fill="#f0fdf4" stroke="#bbf7d0" stroke-width="1.5"/>
+<rect x="1048" y="386" width="152" height="54" rx="8" ry="8" fill="#f0fdf4" stroke="#bbf7d0" stroke-width="1.5"/>
+<rect x="1264" y="386" width="152" height="54" rx="8" ry="8" fill="#f0fdf4" stroke="#bbf7d0" stroke-width="1.5"/>
+<rect x="276.0" y="446.0" width="184" height="48" rx="24.0" ry="24.0" fill="#f0fdf4" stroke="#bbf7d0" stroke-width="1.2"/>
+<rect x="492.0" y="446.0" width="184" height="48" rx="24.0" ry="24.0" fill="#f0fdf4" stroke="#bbf7d0" stroke-width="1.2"/>
+<rect x="708.0" y="446.0" width="184" height="48" rx="24.0" ry="24.0" fill="#f0fdf4" stroke="#bbf7d0" stroke-width="1.2"/>
+<rect x="924.0" y="446.0" width="184" height="48" rx="24.0" ry="24.0" fill="#f0fdf4" stroke="#bbf7d0" stroke-width="1.2"/>
+<rect x="1140.0" y="446.0" width="184" height="48" rx="24.0" ry="24.0" fill="#f0fdf4" stroke="#bbf7d0" stroke-width="1.2"/>
+<path d="M 1240.0 536 L 1240.0 568 A 100.0 12 0 0 0 1440.0 568 L 1440.0 536 A 100.0 12 0 0 0 1240.0 536 Z" fill="#f0fdf4" stroke="#bbf7d0" stroke-width="1.5"/>
+<ellipse cx="1340" cy="536" rx="100.0" ry="12" fill="#ffffff" stroke="#bbf7d0" stroke-width="1.5"/>
+<rect x="56" y="640" width="112" height="54" rx="8" ry="8" fill="#f9fafb" stroke="#e5e7eb" stroke-width="1.5"/>
+<rect x="184" y="640" width="152" height="54" rx="8" ry="8" fill="#f0fdfa" stroke="#99f6e4" stroke-width="1.5"/>
+<rect x="376" y="640" width="152" height="54" rx="8" ry="8" fill="#f0fdfa" stroke="#99f6e4" stroke-width="1.5"/>
+<rect x="568" y="640" width="152" height="54" rx="8" ry="8" fill="#f0fdfa" stroke="#99f6e4" stroke-width="1.5"/>
+<rect x="760" y="640" width="152" height="54" rx="8" ry="8" fill="#f0fdfa" stroke="#99f6e4" stroke-width="1.5"/>
+<rect x="952" y="640" width="152" height="54" rx="8" ry="8" fill="#f0fdfa" stroke="#99f6e4" stroke-width="1.5"/>
+<rect x="1144" y="640" width="152" height="54" rx="8" ry="8" fill="#f0fdfa" stroke="#99f6e4" stroke-width="1.5"/>
+<rect x="1336" y="640" width="152" height="54" rx="8" ry="8" fill="#f0fdfa" stroke="#99f6e4" stroke-width="1.5"/>
+<rect x="272.0" y="721.0" width="168" height="46" rx="23.0" ry="23.0" fill="#f0fdfa" stroke="#99f6e4" stroke-width="1.2"/>
+<rect x="464.0" y="721.0" width="168" height="46" rx="23.0" ry="23.0" fill="#f0fdfa" stroke="#99f6e4" stroke-width="1.2"/>
+<rect x="656.0" y="721.0" width="168" height="46" rx="23.0" ry="23.0" fill="#f0fdfa" stroke="#99f6e4" stroke-width="1.2"/>
+<rect x="848.0" y="721.0" width="168" height="46" rx="23.0" ry="23.0" fill="#f0fdfa" stroke="#99f6e4" stroke-width="1.2"/>
+<rect x="1040.0" y="721.0" width="168" height="46" rx="23.0" ry="23.0" fill="#f0fdfa" stroke="#99f6e4" stroke-width="1.2"/>
+<rect x="1232.0" y="721.0" width="168" height="46" rx="23.0" ry="23.0" fill="#f0fdfa" stroke="#99f6e4" stroke-width="1.2"/>
+<path d="M 1240.0 794 L 1240.0 822 A 100.0 12 0 0 0 1440.0 822 L 1440.0 794 A 100.0 12 0 0 0 1240.0 794 Z" fill="#faf5ff" stroke="#ddd6fe" stroke-width="1.5"/>
+<ellipse cx="1340" cy="794" rx="100.0" ry="12" fill="#ffffff" stroke="#ddd6fe" stroke-width="1.5"/>
+<text x="112.0" y="136.2" text-anchor="middle" font-size="12" font-weight="600" fill="#111827">外部源</text>
+<text x="112.0" y="149.7" text-anchor="middle" font-size="9" fill="#6b7280">md·doc·ppt·xls·web</text>
+<text x="260.0" y="135.8" text-anchor="middle" font-size="11" font-weight="600" fill="#111827">接入与解析</text>
+<text x="260.0" y="149.3" text-anchor="middle" font-size="9" fill="#6b7280">Connector+DocTree</text>
+<text x="476.0" y="135.8" text-anchor="middle" font-size="11" font-weight="600" fill="#111827">分段·建目录</text>
+<text x="476.0" y="149.3" text-anchor="middle" font-size="9" fill="#6b7280">SegTree+摘要/概览</text>
+<text x="692.0" y="135.8" text-anchor="middle" font-size="11" font-weight="600" fill="#111827">抽取</text>
+<text x="692.0" y="149.3" text-anchor="middle" font-size="9" fill="#6b7280">Claim/Entity/Rel</text>
+<text x="908.0" y="135.8" text-anchor="middle" font-size="11" font-weight="600" fill="#111827">规范化·消歧</text>
+<text x="908.0" y="149.3" text-anchor="middle" font-size="9" fill="#6b7280">本体对齐 QID</text>
+<text x="1124.0" y="135.8" text-anchor="middle" font-size="11" font-weight="600" fill="#111827">调和</text>
+<text x="1124.0" y="149.3" text-anchor="middle" font-size="9" fill="#6b7280">bi-temporal 冲突</text>
+<text x="1340.0" y="135.8" text-anchor="middle" font-size="11" font-weight="600" fill="#111827">发布·建索引</text>
+<text x="1340.0" y="149.3" text-anchor="middle" font-size="9" fill="#6b7280">三索引+权限</text>
+<text x="368.0" y="200.1" text-anchor="middle" font-size="11.5" font-weight="400" fill="#111827"></text>
+<text x="368.0" y="193" text-anchor="middle" font-size="9.3" font-weight="400" fill="#111827">SourceRef + contentHash</text>
+<text x="368.0" y="209" text-anchor="middle" font-size="9.3" font-weight="400" fill="#6b7280">→ bw_source</text>
+<text x="584.0" y="200.1" text-anchor="middle" font-size="11.5" font-weight="400" fill="#111827"></text>
+<text x="584.0" y="193" text-anchor="middle" font-size="9.3" font-weight="400" fill="#111827">DocTree + SegTree + 摘要/概览</text>
+<text x="584.0" y="209" text-anchor="middle" font-size="9.3" font-weight="400" fill="#6b7280">→ bw_segment</text>
+<text x="800.0" y="200.1" text-anchor="middle" font-size="11.5" font-weight="400" fill="#111827"></text>
+<text x="800.0" y="193" text-anchor="middle" font-size="9.3" font-weight="400" fill="#111827">Claim/Entity/Relation/Rule</text>
+<text x="800.0" y="209" text-anchor="middle" font-size="9.3" font-weight="400" fill="#6b7280">+ evidenceSpan·qualifier</text>
+<text x="1016.0" y="200.1" text-anchor="middle" font-size="11.5" font-weight="400" fill="#111827"></text>
+<text x="1016.0" y="193" text-anchor="middle" font-size="9.3" font-weight="400" fill="#111827">消歧候选 (QID 归一)</text>
+<text x="1016.0" y="209" text-anchor="middle" font-size="9.3" font-weight="400" fill="#6b7280">+ confidence</text>
+<text x="1232.0" y="200.1" text-anchor="middle" font-size="11.5" font-weight="400" fill="#111827"></text>
+<text x="1232.0" y="193" text-anchor="middle" font-size="9.3" font-weight="400" fill="#111827">bi-temporal 单元</text>
+<text x="1232.0" y="209" text-anchor="middle" font-size="9.3" font-weight="400" fill="#6b7280">validFrom/To·冲突标记</text>
+<text x="1340" y="285.2" text-anchor="middle" font-size="12.5" font-weight="600" fill="#111827">bw_context_unit</text>
+<text x="1340" y="299.6" text-anchor="middle" font-size="9" fill="#6b7280">kind=KNOWLEDGE + 三索引</text>
+<text x="112.0" y="410.1" text-anchor="middle" font-size="12" font-weight="600" fill="#111827">交互轨迹</text>
+<text x="112.0" y="423.6" text-anchor="middle" font-size="9" fill="#6b7280">对话·工具·结果</text>
+<text x="260.0" y="409.8" text-anchor="middle" font-size="11" font-weight="600" fill="#111827">捕获</text>
+<text x="260.0" y="423.3" text-anchor="middle" font-size="9" fill="#6b7280">episode 登记</text>
+<text x="476.0" y="409.8" text-anchor="middle" font-size="11" font-weight="600" fill="#111827">抽取</text>
+<text x="476.0" y="423.3" text-anchor="middle" font-size="9" fill="#6b7280">ADD/UPD/DEL/NOOP</text>
+<text x="692.0" y="409.8" text-anchor="middle" font-size="11" font-weight="600" fill="#111827">挂链</text>
+<text x="692.0" y="423.3" text-anchor="middle" font-size="9" fill="#6b7280">时间线 prev/next</text>
+<text x="908.0" y="409.8" text-anchor="middle" font-size="11" font-weight="600" fill="#111827">巩固·蒸馏</text>
+<text x="908.0" y="423.3" text-anchor="middle" font-size="9" fill="#6b7280">跨 episode 归纳</text>
+<text x="1124.0" y="409.8" text-anchor="middle" font-size="11" font-weight="600" fill="#111827">衰减·强化</text>
+<text x="1124.0" y="423.3" text-anchor="middle" font-size="9" fill="#6b7280">自适应 score</text>
+<text x="1340.0" y="409.8" text-anchor="middle" font-size="11" font-weight="600" fill="#111827">复盘</text>
+<text x="1340.0" y="423.3" text-anchor="middle" font-size="9" fill="#6b7280">纠偏·晋升判定</text>
+<text x="368.0" y="474.1" text-anchor="middle" font-size="11.5" font-weight="400" fill="#111827"></text>
+<text x="368.0" y="467" text-anchor="middle" font-size="9.3" font-weight="400" fill="#111827">Episode (append-only)</text>
+<text x="368.0" y="483" text-anchor="middle" font-size="9.3" font-weight="400" fill="#6b7280">→ bw_episode</text>
+<text x="584.0" y="474.1" text-anchor="middle" font-size="11.5" font-weight="400" fill="#111827"></text>
+<text x="584.0" y="467" text-anchor="middle" font-size="9.3" font-weight="400" fill="#111827">记忆操作 + 目标 unit</text>
+<text x="584.0" y="483" text-anchor="middle" font-size="9.3" font-weight="400" fill="#6b7280">ADD/UPDATE/DELETE/NOOP</text>
+<text x="800.0" y="474.1" text-anchor="middle" font-size="11.5" font-weight="400" fill="#111827"></text>
+<text x="800.0" y="467" text-anchor="middle" font-size="9.3" font-weight="400" fill="#111827">MemoryUnit + 时间链</text>
+<text x="800.0" y="483" text-anchor="middle" font-size="9.3" font-weight="400" fill="#6b7280">→ bw_context_unit(MEMORY)</text>
+<text x="1016.0" y="474.1" text-anchor="middle" font-size="11.5" font-weight="400" fill="#111827"></text>
+<text x="1016.0" y="467" text-anchor="middle" font-size="9.3" font-weight="400" fill="#111827">蒸馏产物 (跨 episode)</text>
+<text x="1016.0" y="483" text-anchor="middle" font-size="9.3" font-weight="400" fill="#6b7280">+ 晋升候选</text>
+<text x="1232.0" y="474.1" text-anchor="middle" font-size="11.5" font-weight="400" fill="#111827"></text>
+<text x="1232.0" y="467" text-anchor="middle" font-size="9.3" font-weight="400" fill="#111827">衰减 / 强化后 score</text>
+<text x="1232.0" y="483" text-anchor="middle" font-size="9.3" font-weight="400" fill="#6b7280">→ bw_context_unit</text>
+<text x="1340" y="559.2" text-anchor="middle" font-size="12.5" font-weight="600" fill="#111827">bw_context_unit</text>
+<text x="1340" y="573.6" text-anchor="middle" font-size="9" fill="#6b7280">kind=MEMORY + bw_episode 账本</text>
+<text x="112.0" y="664.0" text-anchor="middle" font-size="11.5" font-weight="600" fill="#111827">resolve()</text>
+<text x="112.0" y="677.5" text-anchor="middle" font-size="9" fill="#6b7280">query·scope·budget</text>
+<text x="260.0" y="663.8" text-anchor="middle" font-size="11" font-weight="600" fill="#111827">权限前置</text>
+<text x="260.0" y="677.3" text-anchor="middle" font-size="9" fill="#6b7280">AccessPolicy 裁剪</text>
+<text x="452.0" y="663.8" text-anchor="middle" font-size="11" font-weight="600" fill="#111827">意图门控</text>
+<text x="452.0" y="677.3" text-anchor="middle" font-size="9" fill="#6b7280">检索?·哪条线</text>
+<text x="644.0" y="663.8" text-anchor="middle" font-size="11" font-weight="600" fill="#111827">召回与融合</text>
+<text x="644.0" y="677.3" text-anchor="middle" font-size="9" fill="#6b7280">dense+BM25+图 k=60</text>
+<text x="836.0" y="663.8" text-anchor="middle" font-size="11" font-weight="600" fill="#111827">重排与去冗</text>
+<text x="836.0" y="677.3" text-anchor="middle" font-size="9" fill="#6b7280">cross-encoder·去冗</text>
+<text x="1028.0" y="663.8" text-anchor="middle" font-size="11" font-weight="600" fill="#111827">预算装载</text>
+<text x="1028.0" y="677.3" text-anchor="middle" font-size="9" fill="#6b7280">CORE/ON_DEMAND</text>
+<text x="1220.0" y="663.8" text-anchor="middle" font-size="11" font-weight="600" fill="#111827">ContextBundle</text>
+<text x="1220.0" y="677.3" text-anchor="middle" font-size="9" fill="#6b7280">+citations+trace</text>
+<text x="1412.0" y="663.8" text-anchor="middle" font-size="11" font-weight="600" fill="#111827">注入 prompt</text>
+<text x="1412.0" y="677.3" text-anchor="middle" font-size="9" fill="#6b7280">→ LLM / Agent</text>
+<text x="356.0" y="748.1" text-anchor="middle" font-size="11.5" font-weight="400" fill="#111827"></text>
+<text x="356.0" y="741" text-anchor="middle" font-size="9.3" font-weight="400" fill="#111827">权限裁剪后的可见域</text>
+<text x="356.0" y="757" text-anchor="middle" font-size="9.3" font-weight="400" fill="#6b7280">scope ∩ AccessPolicy</text>
+<text x="548.0" y="748.1" text-anchor="middle" font-size="11.5" font-weight="400" fill="#111827"></text>
+<text x="548.0" y="741" text-anchor="middle" font-size="9.3" font-weight="400" fill="#111827">意图 + 事件时间线、实体关系图或精炼文档层</text>
+<text x="548.0" y="757" text-anchor="middle" font-size="9.3" font-weight="400" fill="#6b7280">或 EMPTY + 原因码</text>
+<text x="740.0" y="748.1" text-anchor="middle" font-size="11.5" font-weight="400" fill="#111827"></text>
+<text x="740.0" y="741" text-anchor="middle" font-size="9.3" font-weight="400" fill="#111827">多路候选 + 分数</text>
+<text x="740.0" y="757" text-anchor="middle" font-size="9.3" font-weight="400" fill="#6b7280">dense / BM25 / 图遍历</text>
+<text x="932.0" y="748.1" text-anchor="middle" font-size="11.5" font-weight="400" fill="#111827"></text>
+<text x="932.0" y="741" text-anchor="middle" font-size="9.3" font-weight="400" fill="#111827">融合重排去冗 topN</text>
+<text x="932.0" y="757" text-anchor="middle" font-size="9.3" font-weight="400" fill="#6b7280">RRF→rerank→MMR</text>
+<text x="1124.0" y="748.1" text-anchor="middle" font-size="11.5" font-weight="400" fill="#111827"></text>
+<text x="1124.0" y="741" text-anchor="middle" font-size="9.3" font-weight="400" fill="#111827">CORE/ON_DEMAND 切分</text>
+<text x="1124.0" y="757" text-anchor="middle" font-size="9.3" font-weight="400" fill="#6b7280">+ 摘要→概览 展开决策</text>
+<text x="1316.0" y="748.1" text-anchor="middle" font-size="11.5" font-weight="400" fill="#111827"></text>
+<text x="1316.0" y="741" text-anchor="middle" font-size="9.3" font-weight="400" fill="#111827">ContextBundle</text>
+<text x="1316.0" y="757" text-anchor="middle" font-size="9.3" font-weight="400" fill="#6b7280">items+citations+trace</text>
+<text x="1340" y="815.6" text-anchor="middle" font-size="12.5" font-weight="600" fill="#111827">bw_usage_event</text>
+<text x="1340" y="829.2" text-anchor="middle" font-size="8.5" fill="#6b7280">adopted·corrected·outcome·cost</text>
+<text x="1000" y="890" text-anchor="start" font-size="10" font-weight="400" fill="#6b7280">数据药丸 = 该跳的数据形态；「→ 表名」= 落库目标。</text>
+<text x="1000" y="907" text-anchor="start" font-size="10" font-weight="400" fill="#6b7280">知识工程/记忆工程 两个 bw_context_unit 是同一张表的不同 kind；存储只画关键终端表。</text>
+<text x="1000" y="924" text-anchor="start" font-size="10" font-weight="400" fill="#6b7280">反馈通道 = usage_event 归因 → 知识工程 调权/reconcile、记忆工程 纠正回写（异步）。</text>
+<text x="1000" y="941" text-anchor="start" font-size="10" font-weight="400" fill="#6b7280">三不变式：默认软失效（留墓碑）· 状态转移必写 bw_lifecycle_event · 仅 →SUPERSEDED/→ERASED 不可逆。</text>
+<rect x="56" y="872" width="524" height="94" rx="8" ry="8" fill="#ffffff" stroke="#d1d5db" stroke-width="1"/>
+<text x="68" y="890" font-size="10.5" font-weight="600" fill="#6b7280">图例 · 箭头语义</text>
+<line x1="70" y1="904" x2="96" y2="904" stroke="#2563eb" stroke-width="2" marker-end="url(#arrow-main)"/>
+<text x="104" y="908.0" font-size="10.5" fill="#111827">知识工程 / 上下文供给 主流程</text>
+<line x1="70" y1="924" x2="96" y2="924" stroke="#16a34a" stroke-width="2" marker-end="url(#arrow-data)"/>
+<text x="104" y="928.0" font-size="10.5" fill="#111827">记忆工程 写入主流程</text>
+<line x1="70" y1="944" x2="96" y2="944" stroke="#6b7280" stroke-width="2" stroke-dasharray="4,3" marker-end="url(#arrow-gray)"/>
+<text x="104" y="948.0" font-size="10.5" fill="#111827">读取 / 增量重算</text>
+<line x1="320" y1="904" x2="346" y2="904" stroke="#9333ea" stroke-width="2" stroke-dasharray="5,3" marker-end="url(#arrow-async)"/>
+<text x="354" y="908.0" font-size="10.5" fill="#111827">使用反馈归因（异步）</text>
+<line x1="320" y1="924" x2="346" y2="924" stroke="#ea580c" stroke-width="2" stroke-dasharray="6,3" marker-end="url(#arrow-ctrl)"/>
+<text x="354" y="928.0" font-size="10.5" fill="#111827">晋升桥 记忆工程→知识工程</text>
+</svg>

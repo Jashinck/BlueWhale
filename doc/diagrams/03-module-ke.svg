@@ -1,0 +1,137 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1280 770" width="1280" height="770">
+<style>text{font-family:'Helvetica Neue', Helvetica, Arial, 'PingFang SC', 'Hiragino Sans GB', 'Microsoft YaHei', 'SimHei', sans-serif;}.mono{font-family:ui-monospace,SFMono-Regular,Menlo,Consolas,monospace;}</style>
+<defs>
+<marker id="arrow-main" markerWidth="10" markerHeight="7" refX="9" refY="3.5" orient="auto"><polygon points="0 0, 10 3.5, 0 7" fill="#2563eb"/></marker>
+<marker id="arrow-data" markerWidth="10" markerHeight="7" refX="9" refY="3.5" orient="auto"><polygon points="0 0, 10 3.5, 0 7" fill="#16a34a"/></marker>
+<marker id="arrow-ctrl" markerWidth="10" markerHeight="7" refX="9" refY="3.5" orient="auto"><polygon points="0 0, 10 3.5, 0 7" fill="#ea580c"/></marker>
+<marker id="arrow-async" markerWidth="10" markerHeight="7" refX="9" refY="3.5" orient="auto"><polygon points="0 0, 10 3.5, 0 7" fill="#9333ea"/></marker>
+<marker id="arrow-gray" markerWidth="10" markerHeight="7" refX="9" refY="3.5" orient="auto"><polygon points="0 0, 10 3.5, 0 7" fill="#6b7280"/></marker>
+<marker id="arrow-red" markerWidth="10" markerHeight="7" refX="9" refY="3.5" orient="auto"><polygon points="0 0, 10 3.5, 0 7" fill="#dc2626"/></marker>
+<marker id="arrow-teal" markerWidth="10" markerHeight="7" refX="9" refY="3.5" orient="auto"><polygon points="0 0, 10 3.5, 0 7" fill="#0d9488"/></marker>
+<marker id="arrow-ink" markerWidth="10" markerHeight="7" refX="9" refY="3.5" orient="auto"><polygon points="0 0, 10 3.5, 0 7" fill="#111827"/></marker>
+<filter id="soft" x="-20%%" y="-20%%" width="140%%" height="140%%"><feDropShadow dx="0" dy="1.5" stdDeviation="3" flood-color="#0f172a" flood-opacity="0.10"/></filter>
+</defs>
+<rect width="1280" height="770" fill="#ffffff"/>
+<text x="40" y="42" font-size="19" font-weight="700" fill="#111827">知识工程模块架构图 —— 七段式管线（增量优先 · 摘要先行 · 冲突≠覆盖）</text>
+<text x="40" y="64" font-size="12.5" fill="#6b7280">每段只依赖 domain 端口；抽取/调和/发布为高风险步骤，限定 scope 隔离并按 origin 分档审核</text>
+<rect x="55" y="290" width="1170" height="70" rx="12" ry="12" fill="#fef2f2" stroke="#fecaca" stroke-width="1.5" stroke-dasharray="6,4" opacity="0.55"/>
+<text x="69" y="312" font-size="13" font-weight="600" fill="#6b7280" letter-spacing="0.4">横切：生命周期与治理引擎（贯穿七段，每段必写事件）</text>
+<path d="M 215.0,165.0 L 225.0,165.0" fill="none" stroke="#2563eb" stroke-width="2.0" marker-end="url(#arrow-main)" stroke-linejoin="round"/>
+<path d="M 385.0,165.0 L 395.0,165.0" fill="none" stroke="#2563eb" stroke-width="2.0" marker-end="url(#arrow-main)" stroke-linejoin="round"/>
+<path d="M 555.0,165.0 L 565.0,165.0" fill="none" stroke="#2563eb" stroke-width="2.0" marker-end="url(#arrow-main)" stroke-linejoin="round"/>
+<path d="M 725.0,165.0 L 735.0,165.0" fill="none" stroke="#2563eb" stroke-width="2.0" marker-end="url(#arrow-main)" stroke-linejoin="round"/>
+<path d="M 895.0,165.0 L 905.0,165.0" fill="none" stroke="#2563eb" stroke-width="2.0" marker-end="url(#arrow-main)" stroke-linejoin="round"/>
+<path d="M 1065.0,165.0 L 1075.0,165.0" fill="none" stroke="#2563eb" stroke-width="2.0" marker-end="url(#arrow-main)" stroke-linejoin="round"/>
+<path d="M 215.0,175.0 L 215.0,234.0" fill="none" stroke="#6b7280" stroke-width="1.2" stroke-dasharray="3,3" marker-end="url(#arrow-gray)" stroke-linejoin="round"/>
+<path d="M 385.0,175.0 L 385.0,234.0" fill="none" stroke="#6b7280" stroke-width="1.2" stroke-dasharray="3,3" marker-end="url(#arrow-gray)" stroke-linejoin="round"/>
+<path d="M 555.0,175.0 L 555.0,234.0" fill="none" stroke="#6b7280" stroke-width="1.2" stroke-dasharray="3,3" marker-end="url(#arrow-gray)" stroke-linejoin="round"/>
+<path d="M 725.0,175.0 L 725.0,234.0" fill="none" stroke="#6b7280" stroke-width="1.2" stroke-dasharray="3,3" marker-end="url(#arrow-gray)" stroke-linejoin="round"/>
+<path d="M 895.0,175.0 L 895.0,234.0" fill="none" stroke="#6b7280" stroke-width="1.2" stroke-dasharray="3,3" marker-end="url(#arrow-gray)" stroke-linejoin="round"/>
+<path d="M 1065.0,175.0 L 1065.0,234.0" fill="none" stroke="#6b7280" stroke-width="1.2" stroke-dasharray="3,3" marker-end="url(#arrow-gray)" stroke-linejoin="round"/>
+<path d="M 640.0,290.0 L 640.0,262.0" fill="none" stroke="#0d9488" stroke-width="1.8" marker-end="url(#arrow-teal)" stroke-linejoin="round"/>
+<path d="M 1235.0,165.0 L 1248.0,165.0 Q 1256.0,165.0 1256.0,173.0 L 1256.0,427.0 Q 1256.0,435.0 1248.0,435.0 L 1223.0,435.0" fill="none" stroke="#16a34a" stroke-width="1.8" marker-end="url(#arrow-data)" stroke-linejoin="round"/>
+<path d="M 760.0,466.0 L 760.0,500.0" fill="none" stroke="#6b7280" stroke-width="1.8" marker-end="url(#arrow-gray)" stroke-linejoin="round"/>
+<path d="M 1040.0,500.0 L 1040.0,496.0 Q 1040.0,492.0 1036.0,492.0 L 38.0,492.0 Q 30.0,492.0 30.0,484.0 L 30.0,173.0 Q 30.0,165.0 38.0,165.0 L 55.0,165.0" fill="none" stroke="#ea580c" stroke-width="1.6" stroke-dasharray="6,4" marker-end="url(#arrow-ctrl)" stroke-linejoin="round"/>
+<rect x="647.0" y="271.5" width="59.0" height="15.0" rx="3" ry="3" fill="#ffffff" opacity="0.94"/>
+<text x="650" y="280" text-anchor="start" font-size="10" font-weight="500" fill="#0d9488">每段写事件</text>
+<rect x="767.0" y="475.5" width="38.6" height="15.0" rx="3" ry="3" fill="#ffffff" opacity="0.94"/>
+<text x="770" y="484" text-anchor="start" font-size="10" font-weight="500" fill="#6b7280">持久化</text>
+<rect x="55" y="110" width="160" height="110" rx="8" ry="8" fill="#fff7ed" stroke="#fed7aa" stroke-width="1.5"/>
+<rect x="225" y="110" width="160" height="110" rx="8" ry="8" fill="#fff7ed" stroke="#fed7aa" stroke-width="1.5"/>
+<rect x="395" y="110" width="160" height="110" rx="8" ry="8" fill="#fff7ed" stroke="#fed7aa" stroke-width="1.5"/>
+<rect x="565" y="110" width="160" height="110" rx="8" ry="8" fill="#fff7ed" stroke="#fed7aa" stroke-width="1.5"/>
+<rect x="735" y="110" width="160" height="110" rx="8" ry="8" fill="#fff7ed" stroke="#fed7aa" stroke-width="1.5"/>
+<rect x="905" y="110" width="160" height="110" rx="8" ry="8" fill="#fff7ed" stroke="#fed7aa" stroke-width="1.5"/>
+<rect x="1075" y="110" width="160" height="110" rx="8" ry="8" fill="#fff7ed" stroke="#fed7aa" stroke-width="1.5"/>
+<rect x="160.0" y="234.0" width="110" height="22" rx="11.0" ry="11.0" fill="#ffffff" stroke="#d1d5db" stroke-width="1.2"/>
+<rect x="330.0" y="234.0" width="110" height="22" rx="11.0" ry="11.0" fill="#ffffff" stroke="#d1d5db" stroke-width="1.2"/>
+<rect x="500.0" y="234.0" width="110" height="22" rx="11.0" ry="11.0" fill="#ffffff" stroke="#d1d5db" stroke-width="1.2"/>
+<rect x="670.0" y="234.0" width="110" height="22" rx="11.0" ry="11.0" fill="#ffffff" stroke="#d1d5db" stroke-width="1.2"/>
+<rect x="840.0" y="234.0" width="110" height="22" rx="11.0" ry="11.0" fill="#ffffff" stroke="#d1d5db" stroke-width="1.2"/>
+<rect x="1010.0" y="234.0" width="110" height="22" rx="11.0" ry="11.0" fill="#ffffff" stroke="#d1d5db" stroke-width="1.2"/>
+<rect x="70.0" y="326.0" width="240" height="24" rx="12.0" ry="12.0" fill="#fef2f2" stroke="#fecaca" stroke-width="1.2"/>
+<rect x="324.0" y="326.0" width="260" height="24" rx="12.0" ry="12.0" fill="#fef2f2" stroke="#fecaca" stroke-width="1.2"/>
+<rect x="598.0" y="326.0" width="360" height="24" rx="12.0" ry="12.0" fill="#fef2f2" stroke="#fecaca" stroke-width="1.2"/>
+<rect x="972.0" y="326.0" width="250" height="24" rx="12.0" ry="12.0" fill="#fef2f2" stroke="#fecaca" stroke-width="1.2"/>
+<rect x="55" y="404" width="280" height="62" rx="8" ry="8" fill="#f0fdfa" stroke="#99f6e4" stroke-width="1.5"/>
+<rect x="351" y="404" width="280" height="62" rx="8" ry="8" fill="#f0fdfa" stroke="#99f6e4" stroke-width="1.5"/>
+<rect x="647" y="404" width="280" height="62" rx="8" ry="8" fill="#f0fdfa" stroke="#99f6e4" stroke-width="1.5"/>
+<rect x="943" y="404" width="280" height="62" rx="8" ry="8" fill="#f0fdfa" stroke="#99f6e4" stroke-width="1.5"/>
+<rect x="55" y="500" width="380" height="70" rx="8" ry="8" fill="#faf5ff" stroke="#ddd6fe" stroke-width="1.5"/>
+<rect x="455" y="500" width="380" height="70" rx="8" ry="8" fill="#eff6ff" stroke="#bfdbfe" stroke-width="1.5"/>
+<rect x="855" y="500" width="370" height="70" rx="8" ry="8" fill="#f9fafb" stroke="#e5e7eb" stroke-width="1.5"/>
+<text x="135.0" y="147.8" text-anchor="middle" font-size="13" font-weight="600" fill="#111827">接入</text>
+<text x="135.0" y="162.1" text-anchor="middle" font-size="9.5" fill="#6b7280">Connector SPI</text>
+<text x="135.0" y="176.3" text-anchor="middle" font-size="9.5" fill="#6b7280">源：md/doc/ppt/xls/git</text>
+<text x="135.0" y="190.6" text-anchor="middle" font-size="9.5" fill="#6b7280">产物：SourceRef + 指纹</text>
+<text x="305.0" y="147.8" text-anchor="middle" font-size="13" font-weight="600" fill="#111827">解析归一</text>
+<text x="305.0" y="162.1" text-anchor="middle" font-size="9.5" fill="#6b7280">OCR · 表格 · 代码结构</text>
+<text x="305.0" y="176.3" text-anchor="middle" font-size="9.5" fill="#6b7280">格式统一为 DocTree</text>
+<text x="305.0" y="190.6" text-anchor="middle" font-size="9.5" fill="#6b7280">保留标题层级</text>
+<text x="475.0" y="147.8" text-anchor="middle" font-size="13" font-weight="600" fill="#111827">结构分段</text>
+<text x="475.0" y="162.1" text-anchor="middle" font-size="9.5" fill="#6b7280">章节/函数/表 切分</text>
+<text x="475.0" y="176.3" text-anchor="middle" font-size="9.5" fill="#6b7280">生成目录树</text>
+<text x="475.0" y="190.6" text-anchor="middle" font-size="9.5" fill="#6b7280">产物：SegTree + 摘要/概览</text>
+<text x="645.0" y="147.8" text-anchor="middle" font-size="13" font-weight="600" fill="#111827">抽取</text>
+<text x="645.0" y="162.1" text-anchor="middle" font-size="9.5" fill="#6b7280">Claim·Entity·Relation·Rule</text>
+<text x="645.0" y="176.3" text-anchor="middle" font-size="9.5" fill="#6b7280">输出 WikiPatch(md diff)</text>
+<text x="645.0" y="190.6" text-anchor="middle" font-size="9.5" fill="#6b7280">claim 标等级 源文/推导/专家/复盘</text>
+<text x="815.0" y="147.8" text-anchor="middle" font-size="13" font-weight="600" fill="#111827">规范化</text>
+<text x="815.0" y="162.1" text-anchor="middle" font-size="9.5" fill="#6b7280">先合并后新增 · 消歧</text>
+<text x="815.0" y="176.3" text-anchor="middle" font-size="9.5" fill="#6b7280">本体对齐 · 新类型待裁决</text>
+<text x="815.0" y="190.6" text-anchor="middle" font-size="9.5" fill="#6b7280">产物：linked Claims</text>
+<text x="985.0" y="147.8" text-anchor="middle" font-size="13" font-weight="600" fill="#111827">调和</text>
+<text x="985.0" y="162.1" text-anchor="middle" font-size="9.5" fill="#6b7280">冲突检测 · authority 优先</text>
+<text x="985.0" y="176.3" text-anchor="middle" font-size="9.5" fill="#6b7280">同属性跨页冲突检查</text>
+<text x="985.0" y="190.6" text-anchor="middle" font-size="9.5" fill="#6b7280">产物：Unit 候选 + 矛盾边</text>
+<text x="1155.0" y="147.8" text-anchor="middle" font-size="13" font-weight="600" fill="#111827">发布治理</text>
+<text x="1155.0" y="162.1" text-anchor="middle" font-size="9.5" fill="#6b7280">提交 ChangeRequest 闸门</text>
+<text x="1155.0" y="176.3" text-anchor="middle" font-size="9.5" fill="#6b7280">审核 · 回归 · 批次发布</text>
+<text x="1155.0" y="190.6" text-anchor="middle" font-size="9.5" fill="#6b7280">产物：ACTIVE Unit + md 回写</text>
+<text x="215" y="248.6" text-anchor="middle" font-size="10" font-weight="400" fill="#111827">SourceRef</text>
+<text x="385" y="248.6" text-anchor="middle" font-size="10" font-weight="400" fill="#111827">DocTree</text>
+<text x="555" y="248.6" text-anchor="middle" font-size="10" font-weight="400" fill="#111827">SegTree</text>
+<text x="725" y="248.6" text-anchor="middle" font-size="10" font-weight="400" fill="#111827">Claims</text>
+<text x="895" y="248.6" text-anchor="middle" font-size="10" font-weight="400" fill="#111827">Linked</text>
+<text x="1065" y="248.6" text-anchor="middle" font-size="10" font-weight="400" fill="#111827">Unit 候选</text>
+<text x="190.0" y="341.6" text-anchor="middle" font-size="10" font-weight="400" fill="#111827">状态迁移 lifecycle_event</text>
+<text x="454.0" y="341.6" text-anchor="middle" font-size="10" font-weight="400" fill="#111827">血缘登记 lineage / DERIVED_FROM</text>
+<text x="778.0" y="341.6" text-anchor="middle" font-size="10" font-weight="400" fill="#111827">审核闸门：DECLARED 人审 · OBSERVED 抽检 · DISTILLED 双模型互检</text>
+<text x="1097.0" y="341.6" text-anchor="middle" font-size="10" font-weight="400" fill="#111827">quarantine：注入嫌疑 → QUARANTINED</text>
+<text x="55" y="392" text-anchor="start" font-size="12.5" font-weight="600" fill="#111827">索引层（发布后构建，检索只读取 摘要/概览）</text>
+<text x="195.0" y="431.6" text-anchor="middle" font-size="12.5" font-weight="600" fill="#111827">向量索引</text>
+<text x="195.0" y="446.6" text-anchor="middle" font-size="10" fill="#6b7280">pgvector HNSW · 摘要/概览 embed</text>
+<text x="491.0" y="431.6" text-anchor="middle" font-size="12.5" font-weight="600" fill="#111827">词法索引</text>
+<text x="491.0" y="446.6" text-anchor="middle" font-size="10" fill="#6b7280">BM25 / ES</text>
+<text x="787.0" y="431.6" text-anchor="middle" font-size="12.5" font-weight="600" fill="#111827">图索引</text>
+<text x="787.0" y="446.6" text-anchor="middle" font-size="10" fill="#6b7280">UnitEdge 双时态遍历</text>
+<text x="1083.0" y="431.6" text-anchor="middle" font-size="12.5" font-weight="600" fill="#111827">目录树</text>
+<text x="1083.0" y="446.6" text-anchor="middle" font-size="10" fill="#6b7280">.abstract(摘要) / .overview(概览)</text>
+<text transform="rotate(-90 1248 300)" x="1248" y="300" text-anchor="middle" font-size="10.5" fill="#16a34a">发布 → 建索引</text>
+<text x="245.0" y="524.1" text-anchor="middle" font-size="12.5" font-weight="600" fill="#111827">端口族（domain 定义）</text>
+<text x="245.0" y="539.1" text-anchor="middle" font-size="10" fill="#6b7280">ConnectorPort · ParserPort · SplitterPort</text>
+<text x="245.0" y="554.1" text-anchor="middle" font-size="10" fill="#6b7280">ExtractionPort（推理模型） · OntologyPort · IndexPort</text>
+<text x="645.0" y="524.1" text-anchor="middle" font-size="12.5" font-weight="600" fill="#111827">存储表（PostgreSQL）</text>
+<text x="645.0" y="539.1" text-anchor="middle" font-size="10" fill="#6b7280">bw_asset · bw_segment(树) · bw_context_unit</text>
+<text x="645.0" y="554.1" text-anchor="middle" font-size="10" fill="#6b7280">bw_unit_edge · bw_lifecycle_event · bw_review</text>
+<text x="1040.0" y="524.1" text-anchor="middle" font-size="12.5" font-weight="600" fill="#111827">外部依赖</text>
+<text x="1040.0" y="539.1" text-anchor="middle" font-size="10" fill="#6b7280">Git md 单一事实源 + PR 审核</text>
+<text x="1040.0" y="554.1" text-anchor="middle" font-size="10" fill="#6b7280">对象存储原文 · Redis 抽取队列</text>
+<text transform="rotate(-90 22 330)" x="22" y="330" text-anchor="middle" font-size="10.5" fill="#ea580c">源变更事件 → 增量重算（不全库重算）</text>
+<text x="700" y="636" text-anchor="start" font-size="11" font-weight="400" fill="#6b7280">关键实践：摘要先行（先读 摘要 判相关 → 概览 判细节 → 才读 原文）</text>
+<text x="700" y="656" text-anchor="start" font-size="11" font-weight="400" fill="#6b7280">关键实践：冲突时旧边打 expired_at + invalid_at，不删除（bi-temporal）</text>
+<text x="700" y="676" text-anchor="start" font-size="11" font-weight="400" fill="#6b7280">关键实践：图谱克制 —— 仅知识密集型查询启用 GraphRAG 路由</text>
+<text x="700" y="696" text-anchor="start" font-size="11" font-weight="400" fill="#6b7280">闭环设计：所有写入经 ChangeRequest；使用信号经 distill 回流为 变更单草稿（见图 22）</text>
+<rect x="55" y="610" width="524" height="94" rx="8" ry="8" fill="#ffffff" stroke="#d1d5db" stroke-width="1"/>
+<text x="67" y="628" font-size="11" font-weight="600" fill="#6b7280">图例</text>
+<line x1="69" y1="642" x2="95" y2="642" stroke="#2563eb" stroke-width="2" marker-end="url(#arrow-main)"/>
+<text x="103" y="646.0" font-size="11" fill="#111827">管线主数据流</text>
+<line x1="69" y1="662" x2="95" y2="662" stroke="#16a34a" stroke-width="2" marker-end="url(#arrow-data)"/>
+<text x="103" y="666.0" font-size="11" fill="#111827">建索引 / 持久化</text>
+<line x1="69" y1="682" x2="95" y2="682" stroke="#0d9488" stroke-width="2" marker-end="url(#arrow-teal)"/>
+<text x="103" y="686.0" font-size="11" fill="#111827">治理事件写入</text>
+<line x1="319" y1="642" x2="345" y2="642" stroke="#ea580c" stroke-width="2" stroke-dasharray="6,4" marker-end="url(#arrow-ctrl)"/>
+<text x="353" y="646.0" font-size="11" fill="#111827">增量触发（异步）</text>
+<line x1="319" y1="662" x2="345" y2="662" stroke="#6b7280" stroke-width="2" stroke-dasharray="3,3" marker-end="url(#arrow-gray)"/>
+<text x="353" y="666.0" font-size="11" fill="#111827">产物落点 / 委托</text>
+</svg>

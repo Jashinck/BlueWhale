@@ -1,0 +1,126 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1280 950" width="1280" height="950">
+<style>text{font-family:'Helvetica Neue', Helvetica, Arial, 'PingFang SC', 'Hiragino Sans GB', 'Microsoft YaHei', 'SimHei', sans-serif;}.mono{font-family:ui-monospace,SFMono-Regular,Menlo,Consolas,monospace;}</style>
+<defs>
+<marker id="arrow-main" markerWidth="10" markerHeight="7" refX="9" refY="3.5" orient="auto"><polygon points="0 0, 10 3.5, 0 7" fill="#2563eb"/></marker>
+<marker id="arrow-data" markerWidth="10" markerHeight="7" refX="9" refY="3.5" orient="auto"><polygon points="0 0, 10 3.5, 0 7" fill="#16a34a"/></marker>
+<marker id="arrow-ctrl" markerWidth="10" markerHeight="7" refX="9" refY="3.5" orient="auto"><polygon points="0 0, 10 3.5, 0 7" fill="#ea580c"/></marker>
+<marker id="arrow-async" markerWidth="10" markerHeight="7" refX="9" refY="3.5" orient="auto"><polygon points="0 0, 10 3.5, 0 7" fill="#9333ea"/></marker>
+<marker id="arrow-gray" markerWidth="10" markerHeight="7" refX="9" refY="3.5" orient="auto"><polygon points="0 0, 10 3.5, 0 7" fill="#6b7280"/></marker>
+<marker id="arrow-red" markerWidth="10" markerHeight="7" refX="9" refY="3.5" orient="auto"><polygon points="0 0, 10 3.5, 0 7" fill="#dc2626"/></marker>
+<marker id="arrow-teal" markerWidth="10" markerHeight="7" refX="9" refY="3.5" orient="auto"><polygon points="0 0, 10 3.5, 0 7" fill="#0d9488"/></marker>
+<marker id="arrow-ink" markerWidth="10" markerHeight="7" refX="9" refY="3.5" orient="auto"><polygon points="0 0, 10 3.5, 0 7" fill="#111827"/></marker>
+<filter id="soft" x="-20%%" y="-20%%" width="140%%" height="140%%"><feDropShadow dx="0" dy="1.5" stdDeviation="3" flood-color="#0f172a" flood-opacity="0.10"/></filter>
+</defs>
+<rect width="1280" height="950" fill="#ffffff"/>
+<text x="40" y="42" font-size="19" font-weight="700" fill="#111827">BlueWhale — 模块架构图（Client 端 + Server 端 · 依赖方向 · 包内分层）</text>
+<text x="40" y="64" font-size="12.5" fill="#6b7280">Server 为默认部署，内部沿用 Langur DDD；client 端 = Agent runtime + 管理端（独立应用，知识工程与管理端），非 BlueWhale Maven 模块</text>
+<rect x="40" y="84" width="1200" height="72" rx="12" ry="12" fill="#eff6ff" stroke="#bfdbfe" stroke-width="1.5" stroke-dasharray="6,4" opacity="0.55"/>
+<text x="54" y="106" font-size="13" font-weight="600" fill="#6b7280" letter-spacing="0.4">Client 端（独立，非 BlueWhale Maven 模块）</text>
+<rect x="800" y="180" width="440" height="306" rx="12" ry="12" fill="#faf5ff" stroke="#ddd6fe" stroke-width="1.5" stroke-dasharray="6,4" opacity="0.55"/>
+<text x="814" y="202" font-size="13" font-weight="600" fill="#6b7280" letter-spacing="0.4">bluewhale-core 包内分层（ArchUnit 层守卫，沿用 Langur DDD）</text>
+<rect x="800" y="504" width="440" height="236" rx="12" ry="12" fill="#f9fafb" stroke="#e5e7eb" stroke-width="1.5" stroke-dasharray="6,4" opacity="0.55"/>
+<text x="814" y="526" font-size="13" font-weight="600" fill="#6b7280" letter-spacing="0.4">工程纪律（沿用 Langur 既有约束）</text>
+<path d="M 220.0,148.0 L 220.0,180.0" fill="none" stroke="#2563eb" stroke-width="2.0" marker-end="url(#arrow-main)" stroke-linejoin="round"/>
+<path d="M 560.0,148.0 L 560.0,180.0" fill="none" stroke="#2563eb" stroke-width="2.0" marker-end="url(#arrow-main)" stroke-linejoin="round"/>
+<path d="M 860.0,148.0 L 860.0,180.0" fill="none" stroke="#2563eb" stroke-width="2.0" marker-end="url(#arrow-main)" stroke-linejoin="round"/>
+<path d="M 1110.0,148.0 L 1110.0,180.0" fill="none" stroke="#6b7280" stroke-width="1.6" stroke-dasharray="4,3" marker-end="url(#arrow-gray)" stroke-linejoin="round"/>
+<path d="M 220.0,220.0 L 220.0,248.0" fill="none" stroke="#2563eb" stroke-width="2.0" marker-end="url(#arrow-main)" stroke-linejoin="round"/>
+<path d="M 570.0,220.0 L 570.0,248.0" fill="none" stroke="#2563eb" stroke-width="2.0" marker-end="url(#arrow-main)" stroke-linejoin="round"/>
+<path d="M 220.0,308.0 L 220.0,336.0" fill="none" stroke="#2563eb" stroke-width="2.0" marker-end="url(#arrow-main)" stroke-linejoin="round"/>
+<path d="M 220.0,396.0 L 220.0,424.0" fill="none" stroke="#2563eb" stroke-width="2.0" marker-end="url(#arrow-main)" stroke-linejoin="round"/>
+<path d="M 160.0,528.0 L 160.0,496.0" fill="none" stroke="#16a34a" stroke-width="1.8" marker-end="url(#arrow-data)" stroke-linejoin="round"/>
+<path d="M 385.0,528.0 L 385.0,496.0" fill="none" stroke="#16a34a" stroke-width="1.8" marker-end="url(#arrow-data)" stroke-linejoin="round"/>
+<path d="M 615.0,528.0 L 615.0,496.0" fill="none" stroke="#16a34a" stroke-width="1.8" marker-end="url(#arrow-data)" stroke-linejoin="round"/>
+<path d="M 160.0,588.0 L 160.0,616.0" fill="none" stroke="#6b7280" stroke-width="1.6" marker-end="url(#arrow-gray)" stroke-linejoin="round"/>
+<path d="M 385.0,588.0 L 385.0,616.0" fill="none" stroke="#6b7280" stroke-width="1.6" marker-end="url(#arrow-gray)" stroke-linejoin="round"/>
+<path d="M 615.0,588.0 L 615.0,616.0" fill="none" stroke="#6b7280" stroke-width="1.6" marker-end="url(#arrow-gray)" stroke-linejoin="round"/>
+<path d="M 1020.0,258.0 L 1020.0,274.0" fill="none" stroke="#2563eb" stroke-width="1.8" marker-end="url(#arrow-main)" stroke-linejoin="round"/>
+<path d="M 1020.0,318.0 L 1020.0,334.0" fill="none" stroke="#2563eb" stroke-width="1.8" marker-end="url(#arrow-main)" stroke-linejoin="round"/>
+<path d="M 1020.0,414.0 L 1020.0,394.0" fill="none" stroke="#16a34a" stroke-width="1.8" marker-end="url(#arrow-data)" stroke-linejoin="round"/>
+<text x="1130" y="166" text-anchor="start" font-size="10" font-weight="500" fill="#6b7280">同进程 DI</text>
+<rect x="167.0" y="507.5" width="81.8" height="15.0" rx="3" ry="3" fill="#ffffff" opacity="0.94"/>
+<text x="170" y="516" text-anchor="start" font-size="10" font-weight="500" fill="#16a34a">实现 IndexPort</text>
+<rect x="392.0" y="507.5" width="109.8" height="15.0" rx="3" ry="3" fill="#ffffff" opacity="0.94"/>
+<text x="395" y="516" text-anchor="start" font-size="10" font-weight="500" fill="#16a34a">实现 RepositoryPort</text>
+<rect x="622.0" y="507.5" width="109.8" height="15.0" rx="3" ry="3" fill="#ffffff" opacity="0.94"/>
+<text x="625" y="516" text-anchor="start" font-size="10" font-weight="500" fill="#16a34a">实现 ExtractionPort</text>
+<rect x="1027.0" y="397.5" width="48.8" height="15.0" rx="3" ry="3" fill="#ffffff" opacity="0.94"/>
+<text x="1030" y="406" text-anchor="start" font-size="10" font-weight="500" fill="#16a34a">实现端口</text>
+<rect x="60" y="104" width="320" height="44" rx="8" ry="8" fill="#eff6ff" stroke="#bfdbfe" stroke-width="1.5"/>
+<rect x="400" y="104" width="320" height="44" rx="8" ry="8" fill="#fef2f2" stroke="#fecaca" stroke-width="1.5"/>
+<rect x="740" y="104" width="240" height="44" rx="8" ry="8" fill="#eff6ff" stroke="#bfdbfe" stroke-width="1.5"/>
+<rect x="1000" y="104" width="220" height="44" rx="8" ry="8" fill="#f9fafb" stroke="#e5e7eb" stroke-width="1.5"/>
+<rect x="60" y="180" width="1160" height="40" rx="8" ry="8" fill="#fefce8" stroke="#fde68a" stroke-width="1.5"/>
+<rect x="60" y="248" width="320" height="60" rx="8" ry="8" fill="#eff6ff" stroke="#bfdbfe" stroke-width="1.5"/>
+<rect x="420" y="248" width="300" height="60" rx="8" ry="8" fill="#f9fafb" stroke="#e5e7eb" stroke-width="1.5"/>
+<rect x="60" y="336" width="660" height="60" rx="8" ry="8" fill="#f0fdf4" stroke="#bbf7d0" stroke-width="1.5"/>
+<rect x="60" y="424" width="660" height="72" rx="8" ry="8" fill="#faf5ff" stroke="#ddd6fe" stroke-width="1.5"/>
+<rect x="60" y="528" width="200" height="60" rx="8" ry="8" fill="#fff7ed" stroke="#fed7aa" stroke-width="1.5"/>
+<rect x="280" y="528" width="210" height="60" rx="8" ry="8" fill="#fff7ed" stroke="#fed7aa" stroke-width="1.5"/>
+<rect x="510" y="528" width="210" height="60" rx="8" ry="8" fill="#fff7ed" stroke="#fed7aa" stroke-width="1.5"/>
+<rect x="60" y="616" width="200" height="60" rx="8" ry="8" fill="#f1f5f9" stroke="#cbd5e1" stroke-width="1.5"/>
+<path d="M 280.0 628 L 280.0 664 A 105.0 12 0 0 0 490.0 664 L 490.0 628 A 105.0 12 0 0 0 280.0 628 Z" fill="#eff6ff" stroke="#bfdbfe" stroke-width="1.5"/>
+<ellipse cx="385" cy="628" rx="105.0" ry="12" fill="#ffffff" stroke="#bfdbfe" stroke-width="1.5"/>
+<rect x="510" y="616" width="210" height="60" rx="8" ry="8" fill="#f1f5f9" stroke="#cbd5e1" stroke-width="1.5"/>
+<rect x="820" y="214" width="400" height="44" rx="8" ry="8" fill="#eff6ff" stroke="#bfdbfe" stroke-width="1.5"/>
+<rect x="820" y="274" width="400" height="44" rx="8" ry="8" fill="#f0fdf4" stroke="#bbf7d0" stroke-width="1.5"/>
+<rect x="820" y="334" width="400" height="60" rx="8" ry="8" fill="#faf5ff" stroke="#ddd6fe" stroke-width="1.5"/>
+<rect x="820" y="414" width="400" height="44" rx="8" ry="8" fill="#fff7ed" stroke="#fed7aa" stroke-width="1.5"/>
+<text x="220.0" y="122.4" text-anchor="middle" font-size="12" font-weight="600" fill="#111827">Langur Agent runtime</text>
+<text x="220.0" y="137.4" text-anchor="middle" font-size="10" fill="#6b7280">SDK/DI · 消费 ContextBundle · recordFeedback</text>
+<text x="560.0" y="122.4" text-anchor="middle" font-size="12" font-weight="600" fill="#111827">管理端 · 独立 client 应用（知识工程与管理端）</text>
+<text x="560.0" y="137.4" text-anchor="middle" font-size="10" fill="#6b7280">知识治理 · 记忆管理 · 生命周期看板</text>
+<text x="860.0" y="122.4" text-anchor="middle" font-size="12" font-weight="600" fill="#111827">第三方 / 跨语言消费者</text>
+<text x="860.0" y="137.4" text-anchor="middle" font-size="10" fill="#6b7280">REST · MCP</text>
+<text x="1110.0" y="122.4" text-anchor="middle" font-size="12" font-weight="600" fill="#111827">Embedded 库模式</text>
+<text x="1110.0" y="137.4" text-anchor="middle" font-size="10" fill="#6b7280">单机测试 / 小规模（同进程 DI）</text>
+<text x="60" y="168" text-anchor="start" font-size="13" font-weight="600" fill="#111827">Server 端 Maven 模块与编译依赖方向（箭头 = depends on）</text>
+<text x="640.0" y="204.1" text-anchor="middle" font-size="11.5" font-weight="600" fill="#111827">bluewhale-starter —— Server 默认装配入口（REST + MCP + 管理端 API）；embedded 仅单机测试/小规模</text>
+<text x="220.0" y="274.0" text-anchor="middle" font-size="13" font-weight="600" fill="#111827">bluewhale-interfaces</text>
+<text x="220.0" y="290.5" text-anchor="middle" font-size="11" fill="#6b7280">REST · MCP · 管理端 API · DTO</text>
+<text x="570.0" y="274.0" text-anchor="middle" font-size="13" font-weight="600" fill="#111827">bluewhale-client</text>
+<text x="570.0" y="290.5" text-anchor="middle" font-size="11" fill="#6b7280">远程薄 SDK（Agent runtime 与 管理端共用）</text>
+<text x="390.0" y="362.7" text-anchor="middle" font-size="13" font-weight="600" fill="#111827">bluewhale-app</text>
+<text x="390.0" y="377.7" text-anchor="middle" font-size="10" fill="#6b7280">Ingest/Capture/Resolve/Feedback/Maintenance/Govern + ChangeRequest 用例 · distill · 周期 job</text>
+<text x="390.0" y="448.6" text-anchor="middle" font-size="13.5" font-weight="600" fill="#111827">bluewhale-core —— domain（零框架依赖）</text>
+<text x="390.0" y="464.4" text-anchor="middle" font-size="10.5" fill="#6b7280">ContextUnit 聚合根 · UnitEdge 双时态图 · Lifecycle · Ownership · Lineage · ChangeRequest</text>
+<text x="390.0" y="480.1" text-anchor="middle" font-size="10.5" fill="#6b7280">端口全部在此：IndexPort / RetrievalPort / ExtractionPort / EmbeddingPort / ObjectStorePort / ClockPort / PolicyPort</text>
+<text x="160.0" y="554.2" text-anchor="middle" font-size="11.5" font-weight="600" fill="#111827">bluewhale-index-adapter</text>
+<text x="160.0" y="569.2" text-anchor="middle" font-size="10" fill="#6b7280">IndexPort → skylark-index</text>
+<text x="385.0" y="554.2" text-anchor="middle" font-size="11.5" font-weight="600" fill="#111827">bluewhale-store-postgres</text>
+<text x="385.0" y="569.2" text-anchor="middle" font-size="10" fill="#6b7280">元数据 + pgvector + Flyway</text>
+<text x="615.0" y="554.2" text-anchor="middle" font-size="11.5" font-weight="600" fill="#111827">bluewhale-extract</text>
+<text x="615.0" y="569.2" text-anchor="middle" font-size="10" fill="#6b7280">ExtractionPort → 抽取、重排和推理模型</text>
+<text x="160.0" y="642.2" text-anchor="middle" font-size="11.5" font-weight="600" fill="#111827">skylark-index（共享库）</text>
+<text x="160.0" y="657.2" text-anchor="middle" font-size="10" fill="#6b7280">9 端口 · 4 实现 · RRF</text>
+<text x="385" y="652.5" text-anchor="middle" font-size="12.5" font-weight="600" fill="#111827">PostgreSQL + pgvector</text>
+<text x="385" y="668.5" text-anchor="middle" font-size="10" fill="#6b7280">HNSW · 事件/血缘/审核表</text>
+<text x="615.0" y="642.2" text-anchor="middle" font-size="11.5" font-weight="600" fill="#111827">Langur LlmGateway</text>
+<text x="615.0" y="657.2" text-anchor="middle" font-size="10" fill="#6b7280">模型矩阵统一出口</text>
+<text x="60" y="700" text-anchor="start" font-size="11" font-weight="400" fill="#6b7280">依赖倒置：core 只定义端口，三个 adapter 实现端口；app 不 import 任何 infrastructure 包</text>
+<text x="60" y="718" text-anchor="start" font-size="11" font-weight="400" fill="#6b7280">现状缺陷修复：MemoryDomainService 反向 import infrastructure.embedding/vectorstore → 端口下沉 domain</text>
+<text x="1020.0" y="240.3" text-anchor="middle" font-size="12" font-weight="600" fill="#111827">interfaces 包 —— REST / MCP / 管理端 API / DTO 转换</text>
+<text x="1020.0" y="300.3" text-anchor="middle" font-size="12" font-weight="600" fill="#111827">application 包 —— 用例编排 · 事务边界 · 事件发布</text>
+<text x="1020.0" y="360.4" text-anchor="middle" font-size="12" font-weight="600" fill="#111827">domain 包 —— 聚合根 · 状态机 · 领域服务 · 端口</text>
+<text x="1020.0" y="375.4" text-anchor="middle" font-size="10" fill="#6b7280">context / knowledge / memory / graph / lifecycle / governance / feedback / port</text>
+<text x="1020.0" y="440.3" text-anchor="middle" font-size="12" font-weight="600" fill="#111827">infrastructure 包 —— 端口实现（store / index / extract / mcp / rest）</text>
+<text x="820" y="540" text-anchor="start" font-size="11" font-weight="400" fill="#111827">· domain 零框架依赖：禁 import spring / infra / 第三方 SDK</text>
+<text x="820" y="561" text-anchor="start" font-size="11" font-weight="400" fill="#111827">· application 只依赖 domain 端口，禁直接 new 适配器</text>
+<text x="820" y="582" text-anchor="start" font-size="11" font-weight="400" fill="#111827">· interfaces 只做 DTO 转换与参数校验，禁含业务规则</text>
+<text x="820" y="603" text-anchor="start" font-size="11" font-weight="400" fill="#111827">· SecretResolver 取密钥，密钥永不落日志；SsrfGuard 校验外部 URI</text>
+<text x="820" y="624" text-anchor="start" font-size="11" font-weight="400" fill="#111827">· namespace 强制租户隔离；嵌入维度一致性启动 fail-fast</text>
+<text x="820" y="645" text-anchor="start" font-size="11" font-weight="400" fill="#111827">· store 不可用 fail-fast，禁止静默降级为内存实现</text>
+<text x="820" y="666" text-anchor="start" font-size="11" font-weight="400" fill="#111827">· 权限在召回前生效（不把不该见的摘要送进排序器）</text>
+<text x="820" y="687" text-anchor="start" font-size="11" font-weight="400" fill="#111827">· 检索内容按不可信输入处理：trust tier + quarantine 两道闸</text>
+<text x="820" y="708" text-anchor="start" font-size="11" font-weight="400" fill="#111827">· 写入统一经 ChangeRequest；写路径异步，读路径默认 0 次 LLM</text>
+<rect x="60" y="770" width="324" height="114" rx="8" ry="8" fill="#ffffff" stroke="#d1d5db" stroke-width="1"/>
+<text x="72" y="788" font-size="11" font-weight="600" fill="#6b7280">图例</text>
+<line x1="74" y1="802" x2="100" y2="802" stroke="#2563eb" stroke-width="2" marker-end="url(#arrow-main)"/>
+<text x="108" y="806.0" font-size="11" fill="#111827">编译依赖（depends on）</text>
+<line x1="74" y1="822" x2="100" y2="822" stroke="#16a34a" stroke-width="2" marker-end="url(#arrow-data)"/>
+<text x="108" y="826.0" font-size="11" fill="#111827">端口实现（依赖倒置）</text>
+<line x1="74" y1="842" x2="100" y2="842" stroke="#6b7280" stroke-width="2" stroke-dasharray="4,3" marker-end="url(#arrow-gray)"/>
+<text x="108" y="846.0" font-size="11" fill="#111827">运行时 / 网络委托</text>
+<line x1="74" y1="862" x2="100" y2="862" stroke="#9333ea" stroke-width="2" stroke-dasharray="6,4" marker-end="url(#arrow-async)"/>
+<text x="108" y="866.0" font-size="11" fill="#111827">装配注入（starter）</text>
+</svg>
