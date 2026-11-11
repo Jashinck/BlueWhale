@@ -1,0 +1,6 @@
+target/
+data/
+.DS_Store
+__pycache__/
+*.pyc
+doc/diagrams/* 2.png

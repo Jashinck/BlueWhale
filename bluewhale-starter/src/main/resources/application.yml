@@ -1,0 +1,25 @@
+server:
+  port: 8082
+
+spring:
+  application:
+    name: bluewhale
+
+bluewhale:
+  release-id: ${BLUEWHALE_RELEASE_ID:local}
+  store:
+    mode: ${BLUEWHALE_STORE:sqlite}
+    sqlite:
+      url: ${BLUEWHALE_DB_URL:jdbc:sqlite:./data/bluewhale.db}
+  access:
+    allowed-tenants: ${BLUEWHALE_ALLOWED_TENANTS:}
+    allowed-workspaces: ${BLUEWHALE_ALLOWED_WORKSPACES:}
+    allowed-agents: ${BLUEWHALE_ALLOWED_AGENTS:}
+  embedding:
+    base-url: https://api.openai.com/v1
+    api-key: ${BLUEWHALE_EMBEDDING_API_KEY:}
+    model: text-embedding-3-small
+  evolution:
+    forgetting-threshold: 0.05
+    strengthening-access-threshold: 3
+    abstraction-min-memories: 3

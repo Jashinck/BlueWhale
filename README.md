@@ -20,26 +20,26 @@ BlueWhale 是 [Skylark](https://github.com/Jashinck/Skylark) 生态中的记忆�
 | 记忆巩固 | 访问次数超过 3 次时提高重要度 |
 | 语义抽象 | 从多条高重要度情节记忆中生成语义记忆 |
 | 向量召回 | 根据 Embedding 的语义相似度检索记忆 |
-| REST API | 提供记忆存储、召回、查询、删除和演化接口 |
+| Context 读取 | 意图门控、权限前置、状态过滤、预算装配、trace 与 citation |
+| 生命周期 | 统一状态转移入口，所有状态变化写入生命周期事件 |
+| 知识写入 | ChangeRequest 统一写入口，经审核、回归、发布后进入索引 |
+| REST API | 提供记忆存取、上下文解析、反馈和知识变更单接口 |
 
 ## 代码结构
 
-当前服务采用 DDD 分层，领域层不依赖外部基础设施：
+工程采用 Maven 多模块 DDD 分层，依赖方向固定为
+`starter → interfaces → app → core`，所有适配器只依赖 core：
 
-```text
-src/main/java/org/skylark/bluewhale/
-├── domain/                      # 领域模型、领域服务、仓储接口和领域事件
-│   ├── model/
-│   │   ├── memory/              # Memory 聚合根及值对象
-│   │   ├── graph/               # 记忆节点和关联关系
-│   │   └── evolution/           # 记忆演化记录
-│   ├── service/                 # 记忆管理与演化服务
-│   ├── repository/              # 记忆和图谱仓储接口
-│   └── event/                   # 存储、召回和演化事件
-├── application/                 # 用例、命令和 DTO 转换
-├── infrastructure/              # Embedding、向量存储和持久化实现
-└── interfaces/                  # REST 控制器及请求、响应 DTO
-```
+| 模块 | 职责 |
+|------|------|
+| `bluewhale-core` | ContextUnit 聚合、生命周期、治理规则、领域端口 |
+| `bluewhale-app` | 捕获、解析、生命周期、反馈等用例编排 |
+| `bluewhale-store-sqlite` | ContextUnit、事件、episode 和 SQLite schema |
+| `bluewhale-index-adapter` | 内存与 SQLite 索引实现 |
+| `bluewhale-extract` | Embedding 及后续抽取、蒸馏、重排适配 |
+| `bluewhale-interfaces` | REST 控制器、请求响应协议转换 |
+| `bluewhale-client` | 不依赖 Spring 的远程薄 SDK |
+| `bluewhale-starter` | Spring Boot 启动入口和运行时装配 |
 
 `MemoryEvolutionService` 当前实现以下规则：
 
@@ -59,10 +59,23 @@ src/main/java/org/skylark/bluewhale/
 
 ```bash
 mvn clean package -DskipTests
-java -jar target/bluewhale.jar
+java -jar bluewhale-starter/target/bluewhale.jar
 ```
 
-服务默认监听 `http://localhost:8082`。
+服务默认监听 `http://localhost:8082`，默认使用 SQLite 文件存储，数据库位于 `./data/bluewhale.db`；启动时自动创建表和索引。
+
+```bash
+export BLUEWHALE_STORE=sqlite
+export BLUEWHALE_DB_URL=jdbc:sqlite:./data/bluewhale.db
+java -jar bluewhale-starter/target/bluewhale.jar
+```
+
+开发和单元测试可切换为内存模式：
+
+```bash
+export BLUEWHALE_STORE=memory
+java -jar bluewhale-starter/target/bluewhale.jar
+```
 
 ## REST API
 
@@ -103,6 +116,13 @@ Content-Type: application/json
 | `DELETE` | `/api/memories/{id}` | 删除单条记忆 |
 | `DELETE` | `/api/memories` | 清空 Agent 的所有记忆 |
 | `POST` | `/api/memories/evolve` | 执行一次记忆演化 |
+| `POST` | `/api/context/memories` | 捕获信号并生成可召回的上下文单元 |
+| `POST` | `/api/context/resolve` | 按作用域、意图和预算解析上下文 |
+| `POST` | `/api/context/feedback` | 记录采纳、纠正等使用反馈并回写 economy |
+| `POST` | `/api/change-requests` | 提交知识变更单（统一写入口） |
+| `POST` | `/api/change-requests/{id}/decision` | 审核、回归、发布或回滚变更单 |
+| `POST` | `/api/context/units/{id}/transitions` | 执行生命周期状态转移 |
+| `GET` | `/api/context/units/{id}/lifecycle-events` | 查询生命周期事件证据链 |
 
 ## 替换向量服务
 
