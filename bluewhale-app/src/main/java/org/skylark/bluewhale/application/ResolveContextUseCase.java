@@ -16,7 +16,6 @@ import org.skylark.bluewhale.domain.context.ContextBundle.TraceStep;
 import org.skylark.bluewhale.domain.context.ContextBundle.TrustView;
 import org.skylark.bluewhale.domain.context.ContextBundle.ValidityView;
 import org.skylark.bluewhale.domain.context.ContextUnit;
-import org.skylark.bluewhale.domain.context.MemoryContextMapper;
 import org.skylark.bluewhale.domain.context.RepresentationDepth;
 import org.skylark.bluewhale.domain.context.RepresentationLine;
 import org.skylark.bluewhale.domain.context.ResolveQuery;
@@ -25,14 +24,12 @@ import org.skylark.bluewhale.domain.context.UnitId;
 import org.skylark.bluewhale.domain.context.UnitKind;
 import org.skylark.bluewhale.domain.context.UnitState;
 import org.skylark.bluewhale.domain.feedback.UsageEvent;
-import org.skylark.bluewhale.domain.governance.AccessPolicy;
-import org.skylark.bluewhale.domain.model.memory.MemoryId;
+import org.skylark.bluewhale.domain.context.AccessPolicy;
 import org.skylark.bluewhale.domain.port.ClockPort;
 import org.skylark.bluewhale.domain.port.ContextUnitRepository;
 import org.skylark.bluewhale.domain.port.EmbeddingPort;
 import org.skylark.bluewhale.domain.port.IndexPort;
 import org.skylark.bluewhale.domain.port.ReleasePort;
-import org.skylark.bluewhale.domain.repository.MemoryRepository;
 import org.springframework.stereotype.Service;
 
 import java.time.Instant;
@@ -57,7 +54,6 @@ public class ResolveContextUseCase {
     private final EmbeddingPort embeddingPort;
     private final IndexPort indexPort;
     private final ContextUnitRepository unitRepository;
-    private final MemoryRepository legacyMemoryRepository;
     private final AccessPolicy accessPolicy;
     private final ReleasePort releasePort;
     private final ClockPort clock;
@@ -68,13 +64,11 @@ public class ResolveContextUseCase {
 
     public ResolveContextUseCase(EmbeddingPort embeddingPort, IndexPort indexPort,
                                  ContextUnitRepository unitRepository,
-                                 MemoryRepository legacyMemoryRepository,
                                  AccessPolicy accessPolicy, ReleasePort releasePort,
                                  ClockPort clock, UsageEventRecorder usageEventRecorder) {
         this.embeddingPort = embeddingPort;
         this.indexPort = indexPort;
         this.unitRepository = unitRepository;
-        this.legacyMemoryRepository = legacyMemoryRepository;
         this.accessPolicy = accessPolicy;
         this.releasePort = releasePort;
         this.clock = clock;
@@ -234,10 +228,7 @@ public class ResolveContextUseCase {
         int rejected = 0;
         for (UnitId unitId : new LinkedHashSet<>(candidates.stream()
                 .map(IndexPort.Candidate::unitId).toList())) {
-            ContextUnit unit = unitRepository.findById(unitId)
-                    .or(() -> legacyMemoryRepository.findById(MemoryId.of(unitId.toString()))
-                            .map(MemoryContextMapper::toContextUnit))
-                    .orElse(null);
+            ContextUnit unit = unitRepository.findById(unitId).orElse(null);
             if (unit == null) {
                 rejected++;
                 trace.add(new TraceStep("load", unitId + " missing from store"));

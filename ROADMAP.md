@@ -11,6 +11,20 @@
 - 使用闭环：usage 异步埋点、`RecordFeedbackUseCase`、economy 计数回写。
 - 工程：Maven 多模块（core/app/store-sqlite/index-adapter/extract/interfaces/starter/client）。
 - 知识写入：ChangeRequest 统一写入口，ADD 类型经审核、回归、发布后进入索引。
+- 记忆轨收敛：legacy `Memory`/`MemoryGraph` 模型与 `/api/memories` 面整体退役，统一到 `ContextUnit`；图关联（`UnitEdge`）与维护用例（`RunMaintenanceUseCase`：遗忘/巩固/抽象）在 ContextUnit 上重建；`AccessPolicy` 归入 context 内核、`CaptureSignal` 归入 domain/memory；ArchUnit 升级为 legacy 包禁回归 + 内核自洽硬规则。
+
+## 记忆轨收敛决策（2026-11-11）
+
+知识与记忆不拆成两个工程，而是同一 Context 限界上下文内按子域分包；收敛已落地，关键决策：
+
+1. `/api/memories` 无外部调用方（Langur 仅 README 互链、Skylark 零引用、client 只用 `/api/context`），直接删除而非兼容 shim。
+2. 相似度关联边用受控类型 `EdgeType.SIMILAR_TO`（不沿用裸字符串 `RELATED_TO`）。
+3. 抽象走 `ExtractionPort` 模型蒸馏生成 `DISTILLED` + `DERIVED_FROM`，严禁字符串拼接；未装配适配器时默认关闭。
+4. 遗忘为软失效（ACTIVE→ARCHIVED），不硬删；`PROCEDURAL` 豁免。
+5. `AccessPolicy` 迁入 `context` 内核，消除内核→治理反向依赖。
+6. `skylark-index` 下沉本次不动，`IndexPort` 现状够用。
+
+目标包边界：`context`（共享内核）/ `memory` / `graph` / `knowledge`（待建）/ `lifecycle` / `governance` / `feedback` / `port`；依赖方向为子域→内核、端口→内核，内核自洽。
 
 ## 未完成
 
@@ -23,8 +37,7 @@
 
 ### 生命周期治理
 
-- [ ] `ConsolidateJob`：记忆巩固与蒸馏。
-- [ ] `DecayJob`：衰减与强化。
+- [ ] `ConsolidateJob`/`DecayJob` 定时调度：维护逻辑已由 `RunMaintenanceUseCase` 提供（遗忘/巩固/抽象），待接调度、阈值标定与 `ExtractionPort` 适配器。
 - [ ] `ReviewJob`：复审逾期扫描。
 - [ ] `RetentionJob`：保留期到期处理。
 - [ ] `ErasureJob`：受控销毁与 legal hold。

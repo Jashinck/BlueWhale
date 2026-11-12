@@ -34,4 +34,18 @@ class ArchitectureTest {
             noClasses().that().resideInAPackage("..interfaces..")
                     .should().dependOnClassesThat()
                     .resideInAnyPackage("..infrastructure..");
+
+    // 收敛终态：legacy 包不得回归，context 内核必须自洽（不反向依赖子域与端口）。
+    @ArchTest
+    static final ArchRule legacy_packages_must_not_return =
+            noClasses().should().dependOnClassesThat()
+                    .resideInAnyPackage("..domain.model..", "..domain.repository..");
+
+    @ArchTest
+    static final ArchRule context_kernel_must_be_self_contained =
+            noClasses().that().resideInAPackage("..domain.context..")
+                    .should().dependOnClassesThat()
+                    .resideInAnyPackage("..domain.memory..", "..domain.graph..", "..domain.knowledge..",
+                            "..domain.lifecycle..", "..domain.governance..", "..domain.feedback..",
+                            "..domain.port..");
 }

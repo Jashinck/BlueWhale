@@ -1,6 +1,6 @@
 # BlueWhale
 
-BlueWhale 是 [Skylark](https://github.com/Jashinck/Skylark) 生态中的记忆与上下文服务。当前代码主要提供记忆存储、向量召回、记忆关联和记忆演化能力；下一步会扩展为同时管理知识与记忆的 Context 框架。
+BlueWhale 是 [Skylark](https://github.com/Jashinck/Skylark) 生态中知识与记忆统一的 Context 框架。知识与记忆共用 `ContextUnit` 聚合、生命周期、索引与供给入口，按 origin / scope / 治理强度区分治理方式；提供捕获、解析、反馈、生命周期与知识变更闭环能力。
 
 ## 设计文档
 
@@ -14,16 +14,16 @@ BlueWhale 是 [Skylark](https://github.com/Jashinck/Skylark) 生态中的记忆�
 
 | 能力 | 说明 |
 |------|------|
-| 多层记忆 | 支持情节、语义、程序和工作四种记忆类型 |
-| 记忆关联 | 通过 MemoryGraph 保存和查询记忆节点之间的关系 |
-| 记忆遗忘 | 自动淘汰重要度低于 0.05 的记忆 |
-| 记忆巩固 | 访问次数超过 3 次时提高重要度 |
-| 语义抽象 | 从多条高重要度情节记忆中生成语义记忆 |
-| 向量召回 | 根据 Embedding 的语义相似度检索记忆 |
+| 多层记忆 | 支持情节、语义、程序和工作四种记忆类型（`UnitKind`） |
+| 记忆关联 | 捕获时按向量相似度写入 `UnitEdge`（SIMILAR_TO），蒸馏写 DERIVED_FROM |
+| 记忆遗忘 | 维护用例按衰减后重要度软退场（ACTIVE→ARCHIVED），程序性记忆豁免 |
+| 记忆巩固 | 重要度由 economy 的采纳/纠正信号驱动重算 |
+| 语义抽象 | 高采纳情节记忆经 `ExtractionPort` 蒸馏为 DISTILLED 单元，挂 DERIVED_FROM 边并待人审 |
+| 向量召回 | dense + 词法多路召回，RRF 融合、状态重排、MMR 去冗 |
 | Context 读取 | 意图门控、权限前置、状态过滤、预算装配、trace 与 citation |
 | 生命周期 | 统一状态转移入口，所有状态变化写入生命周期事件 |
 | 知识写入 | ChangeRequest 统一写入口，经审核、回归、发布后进入索引 |
-| REST API | 提供记忆存取、上下文解析、反馈和知识变更单接口 |
+| REST API | 提供上下文捕获/解析/反馈、生命周期与知识变更单接口 |
 
 ## 代码结构
 
@@ -41,14 +41,16 @@ BlueWhale 是 [Skylark](https://github.com/Jashinck/Skylark) 生态中的记忆�
 | `bluewhale-client` | 不依赖 Spring 的远程薄 SDK |
 | `bluewhale-starter` | Spring Boot 启动入口和运行时装配 |
 
-`MemoryEvolutionService` 当前实现以下规则：
+`RunMaintenanceUseCase` 在 `ContextUnit` 上执行维护周期：
 
 ```text
-遗忘：淘汰 importance < 0.05 的记忆
-巩固：访问次数 > 3 时提高重要度
-抽象：将 3 条以上高重要度情节记忆提炼为语义记忆
-记录：每次演化写入 EvolutionRecord
+遗忘：衰减后重要度 < 0.05 软退场（ACTIVE→ARCHIVED），PROCEDURAL 豁免
+巩固：重要度由 economy 的采纳/纠正信号重算（幂等）
+抽象：≥3 条高采纳情节记忆经 ExtractionPort 蒸馏为 DISTILLED 单元，挂 DERIVED_FROM 边，进入 PENDING_REVIEW 待人审
+记录：状态转移写入 LifecycleEvent
 ```
+
+抽象默认关闭，需装配 `ExtractionPort` 适配器后启用；遗忘/巩固阈值待历史数据标定。
 
 ## 构建与运行
 
@@ -79,30 +81,36 @@ java -jar bluewhale-starter/target/bluewhale.jar
 
 ## REST API
 
-### 存储记忆
+### 捕获记忆
 
 ```http
-POST /api/memories
+POST /api/context/memories
 Content-Type: application/json
 
 {
+  "traceId": "trace-001",
+  "tenant": "acme",
   "agentId": "agent-001",
-  "content": "用户偏好深色主题界面",
-  "memoryType": "EPISODIC",
-  "importance": 0.8
+  "source": "conversation",
+  "text": "用户偏好深色主题界面",
+  "kind": "EPISODIC",
+  "confidence": 0.9
 }
 ```
 
-### 召回记忆
+### 解析上下文
 
 ```http
-POST /api/memories/recall
+POST /api/context/resolve
 Content-Type: application/json
 
 {
+  "traceId": "trace-002",
+  "tenant": "acme",
   "agentId": "agent-001",
+  "intent": "TASK",
   "query": "用户界面偏好",
-  "topK": 5
+  "maxTokens": 2000
 }
 ```
 
@@ -110,12 +118,6 @@ Content-Type: application/json
 
 | 方法 | 路径 | 说明 |
 |------|------|------|
-| `POST` | `/api/memories` | 存储记忆 |
-| `POST` | `/api/memories/recall` | 语义召回 |
-| `GET` | `/api/memories` | 按 agentId 查询记忆 |
-| `DELETE` | `/api/memories/{id}` | 删除单条记忆 |
-| `DELETE` | `/api/memories` | 清空 Agent 的所有记忆 |
-| `POST` | `/api/memories/evolve` | 执行一次记忆演化 |
 | `POST` | `/api/context/memories` | 捕获信号并生成可召回的上下文单元 |
 | `POST` | `/api/context/resolve` | 按作用域、意图和预算解析上下文 |
 | `POST` | `/api/context/feedback` | 记录采纳、纠正等使用反馈并回写 economy |

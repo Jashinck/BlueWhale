@@ -20,18 +20,15 @@ import org.skylark.bluewhale.domain.context.UnitKind;
 import org.skylark.bluewhale.domain.context.UnitState;
 import org.skylark.bluewhale.domain.context.Economy;
 import org.skylark.bluewhale.domain.context.Ownership;
-import org.skylark.bluewhale.domain.governance.AccessPolicy;
-import org.skylark.bluewhale.domain.model.memory.Memory;
-import org.skylark.bluewhale.domain.model.memory.MemoryContent;
-import org.skylark.bluewhale.domain.model.memory.MemoryMetadata;
-import org.skylark.bluewhale.domain.model.memory.MemoryType;
+import org.skylark.bluewhale.domain.context.AccessPolicy;
+import org.skylark.bluewhale.domain.memory.CaptureSignal;
 import org.skylark.bluewhale.domain.port.EmbeddingPort;
 import org.skylark.bluewhale.domain.port.IndexPort;
 import org.skylark.bluewhale.infrastructure.index.InMemoryIndexAdapter;
 import org.skylark.bluewhale.infrastructure.persistence.InMemoryContextUnitRepository;
 import org.skylark.bluewhale.infrastructure.persistence.InMemoryEpisodeRepository;
 import org.skylark.bluewhale.infrastructure.persistence.InMemoryLifecycleEventRepository;
-import org.skylark.bluewhale.infrastructure.persistence.InMemoryMemoryRepository;
+import org.skylark.bluewhale.infrastructure.persistence.InMemoryUnitEdgeRepository;
 import org.skylark.bluewhale.infrastructure.persistence.InMemoryUsageEventRepository;
 
 import java.time.Instant;
@@ -49,7 +46,6 @@ class ResolveContextUseCaseTest {
     private static final Scope SCOPE = Scope.agent("acme", "agent-1");
 
     private InMemoryContextUnitRepository unitRepository;
-    private InMemoryMemoryRepository legacyMemoryRepository;
     private InMemoryUsageEventRepository usageEventRepository;
     private InMemoryIndexAdapter index;
     private ResolveContextUseCase resolve;
@@ -58,17 +54,16 @@ class ResolveContextUseCaseTest {
     @BeforeEach
     void setUp() {
         unitRepository = new InMemoryContextUnitRepository();
-        legacyMemoryRepository = new InMemoryMemoryRepository();
         usageEventRepository = new InMemoryUsageEventRepository();
         index = new InMemoryIndexAdapter();
         InMemoryLifecycleEventRepository events = new InMemoryLifecycleEventRepository();
         InMemoryEpisodeRepository episodes = new InMemoryEpisodeRepository();
         EmbeddingPort embedding = new FixedEmbedding();
         resolve = new ResolveContextUseCase(embedding, index, unitRepository,
-                legacyMemoryRepository, AccessPolicy.open(), () -> "rel-test", () -> NOW,
+                AccessPolicy.open(), () -> "rel-test", () -> NOW,
                 new SynchronousUsageEventRecorder(usageEventRepository));
         capture = new CaptureMemoryUseCase(episodes, unitRepository, events,
-                embedding, index, () -> NOW);
+                embedding, index, new InMemoryUnitEdgeRepository(), () -> NOW);
     }
 
     @Test
@@ -160,7 +155,7 @@ class ResolveContextUseCaseTest {
     @Test
     void accessPolicyShouldRejectOutOfTenantScope() {
         ResolveContextUseCase restricted = new ResolveContextUseCase(new FixedEmbedding(), index,
-                unitRepository, legacyMemoryRepository,
+                unitRepository,
                 new AccessPolicy(Set.of("other"), Set.of(), Set.of()),
                 () -> "rel-test", () -> NOW,
                 new SynchronousUsageEventRecorder(usageEventRepository));
@@ -170,30 +165,6 @@ class ResolveContextUseCaseTest {
         assertEquals(ContextBundle.Gate.EMPTY, bundle.gate());
         assertEquals("ACCESS_DENIED", bundle.emptyReason());
         assertNotNull(bundle.trace());
-    }
-
-    @Test
-    void legacyMemoryShouldBeReadableThroughTheContextContract() {
-        Memory memory = Memory.create(MemoryType.SEMANTIC,
-                MemoryContent.ofText("Legacy preference survives migration"),
-                MemoryMetadata.builder()
-                        .agentId("agent-1").sessionId("session-1").source("legacy")
-                        .tags(List.of("preference"))
-                        .createdAt(NOW.minusSeconds(60)).lastAccessedAt(NOW.minusSeconds(60))
-                        .accessCount(2).importanceScore(0.8).decayFactor(0.1).build());
-        legacyMemoryRepository.save(memory);
-        index.index(new IndexPort.IndexEntry(UnitId.of(memory.getId().getValue()),
-                Scope.agent("default", "agent-1"), RepresentationLine.EPISODE_TIMELINE,
-                memory.getContent().getText(), new float[]{1, 0, 0}, java.util.Map.of()));
-
-        ContextBundle bundle = resolve.resolve(new ResolveQuery("trace-legacy",
-                Scope.agent("default", "agent-1"), "TASK", "legacy preference",
-                new BudgetSpec(100), Set.of(RepresentationLine.EPISODE_TIMELINE),
-                RepresentationDepth.OVERVIEW));
-
-        assertEquals(ContextBundle.Gate.RETRIEVAL_BEARING, bundle.gate());
-        assertEquals(1, bundle.sections().size());
-        assertEquals("Legacy preference survives migration", bundle.sections().get(0).text());
     }
 
     private static ContextUnit activeUnit(String text, Instant capturedAt) {

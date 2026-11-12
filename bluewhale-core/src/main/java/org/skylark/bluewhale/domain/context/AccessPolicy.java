@@ -1,6 +1,4 @@
-package org.skylark.bluewhale.domain.governance;
-
-import org.skylark.bluewhale.domain.context.Scope;
+package org.skylark.bluewhale.domain.context;
 
 import java.util.Set;
 

@@ -2,7 +2,7 @@ package org.skylark.bluewhale.interfaces.rest;
 
 import org.skylark.bluewhale.application.CaptureMemoryUseCase;
 import org.skylark.bluewhale.application.CaptureResult;
-import org.skylark.bluewhale.application.CaptureSignal;
+import org.skylark.bluewhale.domain.memory.CaptureSignal;
 import org.skylark.bluewhale.application.FeedbackBatch;
 import org.skylark.bluewhale.application.RecordFeedbackUseCase;
 import org.skylark.bluewhale.application.ResolveContextUseCase;

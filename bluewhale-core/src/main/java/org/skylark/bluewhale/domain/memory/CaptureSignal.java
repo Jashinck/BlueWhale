@@ -1,4 +1,4 @@
-package org.skylark.bluewhale.application;
+package org.skylark.bluewhale.domain.memory;
 
 import org.skylark.bluewhale.domain.context.Scope;
 import org.skylark.bluewhale.domain.context.UnitKind;

@@ -1,6 +1,6 @@
 package org.skylark.bluewhale.infrastructure;
 
-import org.skylark.bluewhale.domain.governance.AccessPolicy;
+import org.skylark.bluewhale.domain.context.AccessPolicy;
 import org.skylark.bluewhale.domain.port.ClockPort;
 import org.skylark.bluewhale.domain.port.ReleasePort;
 import org.springframework.beans.factory.annotation.Value;

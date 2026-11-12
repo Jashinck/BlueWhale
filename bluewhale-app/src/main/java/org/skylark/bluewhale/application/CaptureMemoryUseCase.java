@@ -10,6 +10,8 @@ import org.skylark.bluewhale.domain.context.TransitionResult;
 import org.skylark.bluewhale.domain.context.UnitContent;
 import org.skylark.bluewhale.domain.context.UnitKind;
 import org.skylark.bluewhale.domain.context.UnitState;
+import org.skylark.bluewhale.domain.graph.UnitEdge;
+import org.skylark.bluewhale.domain.memory.CaptureSignal;
 import org.skylark.bluewhale.domain.memory.Episode;
 import org.skylark.bluewhale.domain.port.ClockPort;
 import org.skylark.bluewhale.domain.port.ContextUnitRepository;
@@ -17,34 +19,40 @@ import org.skylark.bluewhale.domain.port.EmbeddingPort;
 import org.skylark.bluewhale.domain.port.EpisodeRepository;
 import org.skylark.bluewhale.domain.port.IndexPort;
 import org.skylark.bluewhale.domain.port.LifecycleEventRepository;
+import org.skylark.bluewhale.domain.port.UnitEdgeRepository;
 import org.springframework.dao.OptimisticLockingFailureException;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
 import java.time.Instant;
+import java.util.List;
 import java.util.Map;
 
 @Service
 public class CaptureMemoryUseCase {
 
     private static final Actor EXTRACTOR = Actor.system("memory-extractor");
+    private static final int SIMILAR_LIMIT = 3;
 
     private final EpisodeRepository episodeRepository;
     private final ContextUnitRepository unitRepository;
     private final LifecycleEventRepository eventRepository;
     private final EmbeddingPort embeddingPort;
     private final IndexPort indexPort;
+    private final UnitEdgeRepository edgeRepository;
     private final ClockPort clock;
 
     public CaptureMemoryUseCase(EpisodeRepository episodeRepository,
                                 ContextUnitRepository unitRepository,
                                 LifecycleEventRepository eventRepository,
-                                EmbeddingPort embeddingPort, IndexPort indexPort, ClockPort clock) {
+                                EmbeddingPort embeddingPort, IndexPort indexPort,
+                                UnitEdgeRepository edgeRepository, ClockPort clock) {
         this.episodeRepository = episodeRepository;
         this.unitRepository = unitRepository;
         this.eventRepository = eventRepository;
         this.embeddingPort = embeddingPort;
         this.indexPort = indexPort;
+        this.edgeRepository = edgeRepository;
         this.clock = clock;
     }
 
@@ -89,10 +97,27 @@ public class CaptureMemoryUseCase {
                     indexLine(unit.kind()), unit.content().abstractText(), embedding,
                     Map.of("kind", unit.kind().name(), "origin", unit.origin().name(),
                             "state", unit.lifecycle().state().name())));
+            associate(unit, embedding);
             return true;
         } catch (RuntimeException unavailable) {
             indexPort.invalidate(unit.id());
             return false;
+        }
+    }
+
+    private void associate(ContextUnit unit, float[] embedding) {
+        List<IndexPort.Candidate> similar = indexPort.dense(unit.scope(), embedding, SIMILAR_LIMIT + 1);
+        int linked = 0;
+        for (IndexPort.Candidate candidate : similar) {
+            if (linked >= SIMILAR_LIMIT) {
+                break;
+            }
+            if (candidate.unitId().equals(unit.id())) {
+                continue;
+            }
+            double weight = Math.max(0.0, Math.min(1.0, candidate.score() * 0.5));
+            edgeRepository.save(UnitEdge.similar(unit.id(), candidate.unitId(), weight, clock.now()));
+            linked++;
         }
     }
 

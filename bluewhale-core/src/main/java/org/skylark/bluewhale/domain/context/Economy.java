@@ -34,4 +34,9 @@ public record Economy(
     public Economy withCostTokens(int tokens) {
         return new Economy(Math.max(0, tokens), nSeen, nCited, nAdopted, nCorrected, importance);
     }
+
+    public Economy withImportance(double newImportance) {
+        return new Economy(costTokens, nSeen, nCited, nAdopted, nCorrected,
+                Math.max(0.0, Math.min(1.0, newImportance)));
+    }
 }

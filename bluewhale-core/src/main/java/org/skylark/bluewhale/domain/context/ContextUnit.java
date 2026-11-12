@@ -1,7 +1,5 @@
 package org.skylark.bluewhale.domain.context;
 
-import org.skylark.bluewhale.domain.governance.AccessPolicy;
-
 import java.nio.charset.StandardCharsets;
 import java.security.MessageDigest;
 import java.security.NoSuchAlgorithmException;
@@ -118,6 +116,10 @@ public final class ContextUnit {
 
     public ContextUnit recordApplied(Outcome outcome) {
         return copy(lifecycle, supersededBy, economy.record(outcome));
+    }
+
+    public ContextUnit withImportance(double importance) {
+        return copy(lifecycle, supersededBy, economy.withImportance(importance));
     }
 
     public boolean isCurrentTruth(Instant now) {
