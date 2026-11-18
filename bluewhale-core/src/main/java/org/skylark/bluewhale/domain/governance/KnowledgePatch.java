@@ -1,13 +1,15 @@
 package org.skylark.bluewhale.domain.governance;
 
 import org.skylark.bluewhale.domain.context.Scope;
+import org.skylark.bluewhale.domain.context.UnitId;
 
 public record KnowledgePatch(
         Scope scope,
         String ownerId,
         String ownerOrg,
         String content,
-        String sourceRef
+        String sourceRef,
+        UnitId targetUnitId
 ) {
 
     public KnowledgePatch {
@@ -23,5 +25,17 @@ public record KnowledgePatch(
         if (sourceRef == null || sourceRef.isBlank()) {
             throw new IllegalArgumentException("patch source is required");
         }
+    }
+
+    public static KnowledgePatch add(Scope scope, String ownerId, String ownerOrg, String content, String sourceRef) {
+        return new KnowledgePatch(scope, ownerId, ownerOrg, content, sourceRef, null);
+    }
+
+    public static KnowledgePatch revise(Scope scope, String ownerId, String ownerOrg, String content,
+                                        String sourceRef, UnitId targetUnitId) {
+        if (targetUnitId == null) {
+            throw new IllegalArgumentException("revise patch requires a target unit");
+        }
+        return new KnowledgePatch(scope, ownerId, ownerOrg, content, sourceRef, targetUnitId);
     }
 }

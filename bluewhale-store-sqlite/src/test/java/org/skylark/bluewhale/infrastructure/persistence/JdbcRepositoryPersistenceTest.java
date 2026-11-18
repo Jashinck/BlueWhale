@@ -164,7 +164,7 @@ class JdbcRepositoryPersistenceTest {
         JdbcChangeRequestRepository repository = new JdbcChangeRequestRepository(
                 new JdbcTemplate(dataSource), new ObjectMapper());
         ChangeRequest draft = ChangeRequest.draft(ChangeRequestType.ADD, "author-1",
-                new KnowledgePatch(Scope.of("acme", "ws-1", null, null, null, null),
+                KnowledgePatch.add(Scope.of("acme", "ws-1", null, null, null, null),
                         "owner-1", "legal", "policy rule", "policy.md"), NOW);
 
         repository.save(draft);

@@ -13,6 +13,7 @@ import org.springframework.dao.OptimisticLockingFailureException;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
+import java.time.Instant;
 import java.util.List;
 import java.util.NoSuchElementException;
 import java.util.UUID;
@@ -43,6 +44,15 @@ public class LifecycleUseCase {
 
     public List<LifecycleEvent> history(UnitId id) {
         return eventRepository.findByUnitId(id);
+    }
+
+    @Transactional
+    public TransitionResult supersede(UnitId id, UnitId replacement, Instant realityEnd, Actor actor, String reason) {
+        ContextUnit current = unitRepository.findById(id)
+                .orElseThrow(() -> new NoSuchElementException("unit not found: " + id));
+        TransitionResult result = current.markSuperseded(replacement, realityEnd, clock.now(), actor, reason);
+        persist(result);
+        return result;
     }
 
     private void persist(TransitionResult result) {

@@ -21,7 +21,7 @@ public class IngestContextUseCase {
 
     @Transactional
     public IngestResult submit(IngestCommand command) {
-        KnowledgePatch patch = new KnowledgePatch(command.scope(), command.ownerId(),
+        KnowledgePatch patch = KnowledgePatch.add(command.scope(), command.ownerId(),
                 command.ownerOrg(), command.content(), command.sourceRef());
         ChangeRequest request = ChangeRequest.draft(ChangeRequestType.ADD,
                 command.author(), patch, clock.now());

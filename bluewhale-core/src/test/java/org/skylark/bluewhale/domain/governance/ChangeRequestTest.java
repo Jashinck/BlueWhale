@@ -16,7 +16,7 @@ class ChangeRequestTest {
     private static final Instant NOW = Instant.parse("2026-11-10T08:00:00Z");
     private static final Actor REVIEWER = new Actor("reviewer-1", ActorType.HUMAN);
 
-    private final KnowledgePatch patch = new KnowledgePatch(
+    private final KnowledgePatch patch = KnowledgePatch.add(
             Scope.of("acme", "ws-1", null, null, null, null),
             "owner-1", "legal", "a policy rule", "policy.md");
 
