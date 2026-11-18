@@ -1,0 +1,14 @@
+ontologyVersion: "1.0"
+properties:
+  - id: deposit_refund_condition
+    type: enum
+    values: [normal, breach, mutual]
+    bindsRequired: true
+  - id: contract_amount_threshold
+    type: number
+    bindsRequired: true
+  - id: review_note
+    type: string
+    bindsRequired: false
+entityTypes: [Contract, Clause, Party]
+relationTypes: [GOVERNS, REFERENCES, SUPERSEDES]

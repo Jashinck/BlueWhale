@@ -2,6 +2,7 @@ package org.skylark.bluewhale.infrastructure;
 
 import org.skylark.bluewhale.domain.context.AccessPolicy;
 import org.skylark.bluewhale.domain.port.ClockPort;
+import org.skylark.bluewhale.domain.port.OntologyPort;
 import org.skylark.bluewhale.domain.port.ReleasePort;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.boot.autoconfigure.condition.ConditionalOnProperty;
@@ -42,6 +43,12 @@ public class ContextRuntimeConfiguration {
     @Bean
     public ReleasePort releasePort(@Value("${bluewhale.release-id:local}") String releaseId) {
         return () -> releaseId;
+    }
+
+    @Bean
+    public OntologyPort ontologyPort(
+            @Value("${bluewhale.ontology.location:ontology/default.yaml}") String location) {
+        return new YamlOntologyAdapter(location);
     }
 
     @Bean
