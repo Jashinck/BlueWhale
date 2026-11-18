@@ -19,6 +19,10 @@ bluewhale:
     base-url: https://api.openai.com/v1
     api-key: ${BLUEWHALE_EMBEDDING_API_KEY:}
     model: text-embedding-3-small
+  extract:
+    base-url: ${BLUEWHALE_EXTRACT_BASE_URL:https://api.openai.com/v1}
+    api-key: ${BLUEWHALE_EXTRACT_API_KEY:}
+    model: ${BLUEWHALE_EXTRACT_MODEL:gpt-4o-mini}
   evolution:
     forgetting-threshold: 0.05
     strengthening-access-threshold: 3

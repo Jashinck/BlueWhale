@@ -2,8 +2,10 @@ package org.skylark.bluewhale.infrastructure;
 
 import org.skylark.bluewhale.domain.context.AccessPolicy;
 import org.skylark.bluewhale.domain.port.ClockPort;
+import org.skylark.bluewhale.domain.port.ConnectorPort;
 import org.skylark.bluewhale.domain.port.OntologyPort;
 import org.skylark.bluewhale.domain.port.ReleasePort;
+import org.skylark.bluewhale.domain.port.WikiStorePort;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.boot.autoconfigure.condition.ConditionalOnProperty;
 import org.springframework.context.annotation.Bean;
@@ -49,6 +51,17 @@ public class ContextRuntimeConfiguration {
     public OntologyPort ontologyPort(
             @Value("${bluewhale.ontology.location:ontology/default.yaml}") String location) {
         return new YamlOntologyAdapter(location);
+    }
+
+    @Bean
+    public ConnectorPort connectorPort() {
+        return new FilesystemConnectorAdapter();
+    }
+
+    @Bean
+    public WikiStorePort wikiStorePort(
+            @Value("${bluewhale.wiki.repo-dir:./data/wiki}") String repoDir) {
+        return new GitWikiStoreAdapter(java.nio.file.Path.of(repoDir));
     }
 
     @Bean
